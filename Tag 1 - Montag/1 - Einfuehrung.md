@@ -40,3 +40,47 @@ Datenjournalistische Recherche:
 Ein Projekt als Beispiel
 ========================================================
 
+[Timeline der Panik](https://docs.google.com/presentation/d/1BllIJj-R6w5sRcciRYnnG5omxzi8I2BzEx_LeAnz2TQ/edit#slide=id.g19d24d453f_0_750)
+
+Ziele für den Kurs
+========================================================
+
+**Technische Aspekte:**
+
+Wie funktioniert Programmieren?
+
+Wie arbeite ich mit R?
+
+-> hier im Fokus
+
+***
+
+**Journalistische Aspekte:**
+
+Warum sollten Journalisten programmieren können?
+
+Wie können datenjournalistische Projekte mit der Redaktion funktionieren?
+
+-> am Rande
+
+Ziel für heute Abend
+========================================================
+
+Wir installieren alle Software und bringen sie zum Laufen.
+
+Dann können wir morgen direkt ins R-Lernen einsteigen.
+
+(Zusatzhoffnung: Wir lernen uns schon ein bisschen kennen)
+
+R installieren
+========================================================
+
+Zunächst installieren wir **R** (die Hauptsoftware)
+
+Danach **RStudio** - eine Oberfläche, mit der wir komfortabler mit R arbeiten können
+
+Die Links zu den Downloaddateien liegen auf **Github**. 
+
+Wer dort schon einen Account hat, sagt bitte Bescheid. Ich füge euch dann zum Repository hinzu.
+
+Wer noch keinen hat, registriert sich bitte zunächst unter https://github.com
