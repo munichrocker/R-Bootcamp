@@ -16,3 +16,7 @@ Richtiges Betriebssystem auswählen und herunterladen: https://cran.r-project.or
 ### R-Studio
 
 Wir laden "R-Studio Desktop Open Source Version" herunter: https://www.rstudio.com/products/rstudio/download/
+
+### Zusatz: Shells
+
+Windows-Nutzer, bitte überprüfen, ob ihr die PowerShell installiert habt. Sonst bitte noch herunterladen: https://docs.microsoft.com/de-de/powershell/scripting/install/installing-windows-powershell?view=powershell-6
