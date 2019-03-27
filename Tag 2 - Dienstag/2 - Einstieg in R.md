@@ -153,13 +153,13 @@ Verzeichnis wechseln / Dateien anzeigen
 
 **UNIX**
 
-`cd`
+`cd [Ordnername]` oder `cd ..` für eine Ebene hoch
 
 `ls`
 
 **Windows**
 
-`cd`
+`cd [Ordnername]` oder `cd ..` für eine Ebene hoch
 
 `dir`
 
@@ -169,35 +169,110 @@ Suchen:
 
 `dir *.txt`
 
-
-Neue Datei erstellen
+Hilfe bekommen
 ========================================================
 
 **UNIX**
 
-`touch`
+`man [Kommando]` oder `help [Kommando]`
+
+**WINDOWS**
+
+`help [Kommando]`
+
+
+Neue (leere) Datei erstellen
+========================================================
+
+**UNIX**
+
+`touch test.txt`
 
 **WINDOWS**
 
 `echo. > test.txt` oder `type nul > test.txt`
 
+Datei umbenennen
+========================================================
+
+**UNIX**
+
+`mv test_alt.txt test_neu.txt`
+
+**WINDOWS**
+
+`rename test_alt.txt test_neu.txt`
+
+Geht auch für alle Dateien mit einer Auswahl:
+
+`mv *.htm *.html`
+
+`rename *.htm *.html`
+
+**TIPP**
+
+Verwende bei Dateinamen die TAB-Taste für Autovervollständigung.
+
+
+Datei kopieren
+========================================================
+
+**UNIX**
+
+`cp test.txt test_kopie.txt`
+
+**WINDOWS**
+
+`copy test.txt test_kopie.txt`
+
+
+Datei löschen
+========================================================
+
+**UNIX**
+
+`rm test_kopie.txt` (`-f` ohne Nachfragen und `-r` für Unterverzeichnisse)
+
+**WINDOWS**
+
+`del test_kopie.txt` (`/F` ohne Nachfragen und `/S` für Unterverzeichnisse)
+
+Sehr mächtiges Werkzeug, sollte mit Bedacht eingesetzt werden.
+
+NICHT BENUTZEN: `rm -rf /` im Root-Verzeichnis
+
+***
+
+![](rm_rf.png)
+
 
 Übung Kommandozeile
 ========================================================
 
-Schreibe "Hallo Welt" in die Konsole
+1. Schreibe "Hallo Welt" in die Konsole.
 
-Wechsle ein Verzeichnis höher und schreibe dort "Ich kann Kommandozeile" in eine Datei mit dem Namen kommandozeile.txt
+2. Erstelle ein Verzeichnis höher eine leere Datei mit dem Namen `kommandozeile.txt`.
 
+3. Schreibe "Ich kann Kommandozeile" in die Datei mit dem Namen `kommandozeile.txt`
 
+4. Erstelle eine Kopie von dieser Datei.
 
+5. Überprüfe, ob die Kopie erstellt wurde.
+
+6. Lösche die Kopie über die Kommandozeile.
 
 
 Weitere nützliche Tools
 ========================================================
 
-`ip a` (UNIX) oder `ipconfig` (Windows)
+`ip a` (UNIX) oder `ipconfig` (Windows): Gibt Infos über die aktuellen Netzwerkverbindungen
 
-`curl`
+`curl` kann Dateien herunterladen
 
-`tar`
+`tar` kann Dateien ver- und entpacken
+
+
+Editoren
+========================================================
+
+In der Kommandozeile können wir verschiedene Editoren aufrufen.
