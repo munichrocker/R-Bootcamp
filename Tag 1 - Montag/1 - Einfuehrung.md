@@ -1,17 +1,17 @@
-1 - Einführung
+1 - EinfÃ¼hrung
 ========================================================
 author: Benedict Witzenberger
 date: 15.04.2019
 autosize: true
 
-Über mich
+Ãœber mich
 ========================================================
 
-- Studium Politikwissenschaft und Geschichte in München
-- Währenddessen studienbegleitenden Journalistenausbildung am ifp
-- Freie Mitarbeit beim Münchner Merkur, Merkur.de, BR
+- Studium Politikwissenschaft und Geschichte in MÃ¼nchen
+- WÃ¤hrenddessen studienbegleitenden Journalistenausbildung am ifp
+- Freie Mitarbeit beim MÃ¼nchner Merkur, Merkur.de, BR
 - seit 2017 bei der SZ als Datenjournalist
-- seit 2018 Digitalvolontär
+- seit 2018 DigitalvolontÃ¤r
 
 Weg zum Datenjournalismus
 ========================================================
@@ -26,7 +26,7 @@ Meine Arbeit
 ========================================================
 
 Storytelling:
-- Entwicklung neuer digitaler Erzählformate
+- Entwicklung neuer digitaler ErzÃ¤hlformate
 - Projekte mit Fachressorts
 
 ***
@@ -42,7 +42,7 @@ Ein Projekt als Beispiel
 
 [Timeline der Panik](https://docs.google.com/presentation/d/1BllIJj-R6w5sRcciRYnnG5omxzi8I2BzEx_LeAnz2TQ/edit#slide=id.g19d24d453f_0_750)
 
-Ziele für den Kurs
+Ziele fÃ¼r den Kurs
 ========================================================
 
 **Technische Aspekte:**
@@ -57,30 +57,30 @@ Wie arbeite ich mit R?
 
 **Journalistische Aspekte:**
 
-Warum sollten Journalisten programmieren können?
+Warum sollten Journalisten programmieren kÃ¶nnen?
 
-Wie können datenjournalistische Projekte mit der Redaktion funktionieren?
+Wie kÃ¶nnen datenjournalistische Projekte mit der Redaktion funktionieren?
 
 -> am Rande
 
-Ziel für heute Abend
+Ziel fÃ¼r heute Abend
 ========================================================
 
 Wir installieren alle Software und bringen sie zum Laufen.
 
-Dann können wir morgen direkt ins R-Lernen einsteigen.
+Dann kÃ¶nnen wir morgen direkt ins R-Lernen einsteigen.
 
 (Zusatzhoffnung: Wir lernen uns schon ein bisschen kennen)
 
 R installieren
 ========================================================
 
-Zunächst installieren wir **R** (die Hauptsoftware)
+ZunÃ¤chst installieren wir **R** (die Hauptsoftware)
 
-Danach **RStudio** - eine Oberfläche, mit der wir komfortabler mit R arbeiten können
+Danach **RStudio** - eine OberflÃ¤che, mit der wir komfortabler mit R arbeiten kÃ¶nnen
 
 Die Links zu den Downloaddateien liegen auf **Github**. 
 
-Wer dort schon einen Account hat, sagt bitte Bescheid. Ich füge euch dann zum Repository hinzu.
+Wer dort schon einen Account hat, sagt bitte Bescheid. Ich fÃ¼ge euch dann zum Repository hinzu.
 
-Wer noch keinen hat, registriert sich bitte zunächst unter https://github.com
+Wer noch keinen hat, registriert sich bitte zunÃ¤chst unter https://github.com
