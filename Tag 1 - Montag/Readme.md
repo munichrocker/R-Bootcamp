@@ -21,4 +21,4 @@ Wir laden "R-Studio Desktop Open Source Version" herunter: https://www.rstudio.c
 
 Windows-Nutzer, bitte überprüfen, ob ihr Linux auf Windows installieren könnt. (geht ab Windows 10)
 
-Falls ja, bitte dieses (Tutorial)[https://www.netzwelt.de/tutorial/164359-windows-10-so-installiert-aktiviert-linux-subsystem-bash.html] ausprobieren.
+Falls ja, bitte dieses [Tutorial](https://www.netzwelt.de/tutorial/164359-windows-10-so-installiert-aktiviert-linux-subsystem-bash.html) ausprobieren.
