@@ -19,4 +19,6 @@ Wir laden "R-Studio Desktop Open Source Version" herunter: https://www.rstudio.c
 
 ### Zusatz: Shells
 
-Windows-Nutzer, bitte überprüfen, ob ihr die PowerShell installiert habt. Sonst bitte noch herunterladen: https://docs.microsoft.com/de-de/powershell/scripting/install/installing-windows-powershell?view=powershell-6
+Windows-Nutzer, bitte überprüfen, ob ihr Linux auf Windows installieren könnt. (geht ab Windows 10)
+
+Falls ja, bitte dieses (Tutorial)[https://www.netzwelt.de/tutorial/164359-windows-10-so-installiert-aktiviert-linux-subsystem-bash.html] ausprobieren.
