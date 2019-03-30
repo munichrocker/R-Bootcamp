@@ -17,6 +17,10 @@ Richtiges Betriebssystem auswählen und herunterladen: https://cran.r-project.or
 
 Wir laden "R-Studio Desktop Open Source Version" herunter: https://www.rstudio.com/products/rstudio/download/
 
+### Git installieren
+
+http://msysgit.github.io/
+
 ### Zusatz: Shells
 
 Windows-Nutzer, bitte überprüfen, ob ihr Linux auf Windows installieren könnt. (geht ab Windows 10)
