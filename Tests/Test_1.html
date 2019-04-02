@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+h1, p {
+	font-family: Open Sans, Calibri, Arial, sans-serif;
+}	
+
+.title {
+	font-family: Open Sans, Calibri, Arial, sans-serif;
+}		
+
+</style>
+
+<script async src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
+</head>
+
+<body>
+
+<h1>Test am Mittwochfrüh: R Basics</h1>
+<p>Versuche Dich an den folgenden Aufgaben. Die Kommentare geben Dir Hinweise, schreibe deinen Code bitte immer ohne # davor.</p>
+
+  <div class="exercise">
+    <div class="title">
+      <h2>1. Rechnen zum Warmwerden</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="r" data-height="500">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+		# Berechne 6 plus 12
+
+		# Berechne 6 Mal 12
+
+		# Was ist 30 geteilt durch 5?
+
+		# Was ist 10 Hoch 2?
+      </code>
+      <code data-type="solution">
+		# Berechne 6 plus 12
+		6 + 12
+		# Berechne 6 Mal 12
+		6 * 12
+		# Was ist 30 geteilt durch 5?
+		30 / 5
+		# Was ist 10 Hoch 2?
+		10 ^ 2
+    	</code>
+      <code data-type="sct">
+        test_output_contains(&quot;18&quot;, incorrect_msg = &quot;Make sure to add `6 + 12`
+        on
+        a new line. Do not start the line with a `#`, otherwise your R code is not executed!&quot;)
+
+        test_output_contains(&quot;72&quot;, incorrect_msg = &quot;Make sure to add `6 * 12`
+        on a new line. Do not start the line with a `#`, otherwise your R code is not executed!&quot;)
+
+        test_output_contains(&quot;6&quot;, incorrect_msg = &quot;Make sure to add `30 / 5`
+        on a new line. Do not start the line with a `#`, otherwise your R code is not executed!&quot;)
+
+        test_output_contains(&quot;100&quot;, incorrect_msg = &quot;Make sure to add `10 ^ 2`
+        on a new line. Do not start the line with a `#`, otherwise your R code is not executed!&quot;)
+
+        success_msg(&quot;Super, Du hast alle Aufgaben in diesem Block erfolgreich geloest!&quot;)
+      </code>
+      <div data-type="hint">
+        <p>Schreibe jede Rechenoperation in eine eigene Zeile ohne # davor. Tippe am Ende auf "Submit"</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="exercise">
+    <div class="title">
+      <h2>2. Variablen definieren</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="r" data-height="500">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+      	# Definiere die Variable apfel mit dem Wert 35
+		apfel 
+
+		# Zeige den Wert von apfel in der Konsole an
+
+
+		# Was ist der Fehler bei den folgenden Variable? Finde und verbessere ihn.
+		apfeI == apfel
+      </code>
+      <code data-type="solution">
+      	# Definiere die Variable apfel mit dem Wert 35
+      	apfel <- 35
+
+      	# Zeige den Wert von apfel in der Konsole an
+      	apfel
+
+		# Was ist der Fehler bei den folgenden Variable? Finde und verbessere ihn.
+		apfel == apfel
+    	</code>
+      <code data-type="sct">
+        test_object(&quot;apfel&quot;,
+        undefined_msg = &quot;Please make sure to define a variable `apfel`.&quot;,
+        incorrect_msg = &quot;Make sure that you assign the correct value to `apfel`.&quot;)
+        test_output_contains(&quot;apfel&quot;, incorrect_msg = &quot;Have you
+        explicitly told R to print out the `apfel` variable to the console?&quot;)
+        test_output_contains("TRUE", incorrect_msg = "Hast Du den Fehler gefunden?")
+
+        success_msg(&quot;Super, Du hast alle Aufgaben in diesem Block erfolgreich geloest!&quot;)
+      </code>
+      <div data-type="hint">
+        <p>Definiere die Variablen mit <code><-</code>. Prüfe bei der dritten Aufgabe genau die Schreibweise. Tippe am Ende auf "Submit"</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="exercise">
+    <div class="title">
+      <h2>3. Mit Variablen rechnen</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="r" data-height="500">
+      <code data-type="pre-exercise-code">a <- 35</code>
+      <code data-type="sample-code">
+      	# Die Variable a wurde für dich bereits vordefiniert - mit dem Wert 35.
+      	# Definiere die Variable b mit 20
+
+
+      	# Ändere die Variable c so, dass Du damit rechnen kannst
+      	c <-  "Fünfzehn"
+
+      	# Addiere a, b und c und weise dem Ergebnis die Variable d zu.
+
+
+      	# Gib d in der Konsole aus.
+
+      </code>
+      <code data-type="solution">
+      	# Die Variable a wurde für dich bereits vordefiniert - mit dem Wert 35.
+      	# Definiere die Variable b mit 20
+      	b <- 20
+
+      	# Ändere die Variable c so, dass Du damit rechnen kannst
+      	c <-  15
+
+      	# Addiere a, b und c und weise dem Ergebnis die Variable d zu.
+      	d <- a + b + c
+
+
+		# Gib d in der Konsole aus.
+		d
+    	</code>
+      <code data-type="sct">
+      	test_object(&quot;b&quot;,
+        undefined_msg = &quot;Please make sure to define a variable `b`.&quot;,
+        incorrect_msg = &quot;Make sure that you assign the correct value to `b`.&quot;)
+
+        test_object(&quot;c&quot;,
+        undefined_msg = &quot;Please make sure to define a variable `c`.&quot;,
+        incorrect_msg = &quot;Make sure that you assign the correct value to `c`.&quot;)
+
+        test_object(&quot;d&quot;,
+        undefined_msg = &quot;Please make sure to define a variable `d`.&quot;,
+        incorrect_msg = &quot;Make sure that you assign the correct value to `d`.&quot;)
+        
+        test_output_contains(70, incorrect_msg = "Hast Du dich verechnet? Oder d nicht ausgegeben?")
+
+        success_msg(&quot;Super, Du hast alle Aufgaben in diesem Block erfolgreich geloest!&quot;)
+      </code>
+      <div data-type="hint">
+        <p>Definiere die Variablen mit <code><-</code>. Achte bei der dritten Aufgabe auf den Dateityp. Tippe am Ende auf "Submit"</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
