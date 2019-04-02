@@ -52,6 +52,14 @@ Es gibt Bibliotheken, die Programmcode der einen Sprache in der anderen Sprache 
 * R in Python: RPy2
 * Python in R: rPython
 
+> "“R is more about sketching, and not building,” says Michael Driscoll, CEO of Metamarkets.
+
+> “You won’t find R at the core of Google’s page rank or Facebook’s friend suggestion algorithms. 
+
+> Engineers will prototype in R, then hand off the model to be written in Java or Python.”" 
+
+>(Quelle: [fastcompany.com](https://www.fastcompany.com/3030716/the-9-best-languages-for-crunching-data))
+
 R vs Python
 ========================================================
 
