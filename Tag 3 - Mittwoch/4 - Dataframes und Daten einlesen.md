@@ -18,11 +18,11 @@ Was wir heute vorhaben
 
 * Subsetting und Arbeiten mit Dataframes
 
+* Packages installieren und laden
+
 * Daten einlesen
 
 * Daten vorbereiten
-
-* Packages installieren und laden
 
 * Guter Stil
 
@@ -942,6 +942,8 @@ Wichtige Funktionen für Dataframes
 
 * summary: Zeigt eine Zusammenfassung über alle Spalten hinweg an.
 
+**Best-Practise:** Ein frisch eingelesener Dataframe sollte immer mit diesen Funktionen untersucht werden, damit alles stimmt.
+
 Übung: Bekannte Datensätze ausprobieren
 ========================================================
 
@@ -1015,7 +1017,7 @@ basiert auf `read.table()`, bei dem wir den Trenner händisch einstellen können
 
 `dec`: Das Zeichen, das für Dezimaltrennung verwendet wird
 
-`col.names`: eigene Titel für die Spalten als Vektor
+`col.names`: eigene Titel für die Spalten als Vektor (`colClasses`fixiert die Klassen)
 
 `nrows`: maximale Anzahl der Zeilen, die eingelesen werden sollen (im Gegensatz zu `skip`, das Zeilen auslässt)
 
@@ -1029,34 +1031,263 @@ Nutzung von read.csv()
 ========================================================
 
 ```
-df <- read.csv("DATEIPFAD.csv")
+df <- read.csv("DATEIPFAD.csv", ARGUMENTE)
 ```
+
+Weitere read.table()-Abwandlungen
+========================================================
+
+Für Text-Files
+
+* `read.table()` flexible Überfunktion für Dateien mit festgelegtem Trenner
+
+* `read.delim()` tab-separiert, mit . als Dezimalseparator
+
+* `read.delim2()` tab-separiert, mit , als Dezimalseparator
+
+* `read.csv()` komma-separiert, mit . als Dezimalseparator
+
+* `read.csv2()` semikolon-separiert, mit , als Dezimalseparator
+
+* `read.fwf()` festgelegte Zahl an Bytes pro Spalte
+
+Bei schwierigeren Dateiformaten:
+
+`readLines()`: hier lesen wir eine Datei Zeile für Zeile ein und können genau steuern, wie die Zeile vearbeitet wird
+
+Dateien schreiben
+========================================================
+
+Zu jeder read-Funktion gibt es auch eine write-Funktion:
+
+```
+write.csv()
+write.csv2()
+write.fwf()
+write.delim()
+write.delim2()
+```
+Alternative: readr-Package
+========================================================
+
+Als Variante der Base R-Einlesefunktionen gibt es das Package `readr` von Hadley Wickham.
+
+Es ist 10x schneller und funktioniert genauso, wie die Base-Funktionen. Bringen also was, wenn wir große oder viele Dateien einlesen wollen.
+
+Beispiele:
+
+```
+read_csv()
+read_csv2()
+read_tsv()
+```
+
+========================================================
+
+Übrigens: Die read-Funktionen funktionieren auch mit Dateien aus dem Internet
+
+
+```r
+readr::read_tsv("http://www.sthda.com/upload/boxplot_format.txt")
+```
+
+```
+# A tibble: 72 x 3
+   Nom   variable Group
+   <chr>    <int> <chr>
+ 1 IND1        10 A    
+ 2 IND2         7 A    
+ 3 IND3        20 A    
+ 4 IND4        14 A    
+ 5 IND5        14 A    
+ 6 IND6        12 A    
+ 7 IND7        10 A    
+ 8 IND8        23 A    
+ 9 IND9        17 A    
+10 IND10       20 A    
+# ... with 62 more rows
+```
+
 
 Excel
 ========================================================
 
 Standardmässig kann R keine Exceldateien lesen.
 
-Es gibt aber - wie so oft - ein Package dafür:
+Es gibt aber - wie so oft - ~~ein~~ drei Packages dafür: XLConnect, readxl und xlsx.
 
-`install.package()`
+Wir sollten uns nur für eines entscheiden.
 
+`install.package(xlsx)`
+
+```
+read.xlsx(DATEI, ARBEITSBLATT, header=TRUE, colClasses=NA)
+read.xlsx2(DATEI, ARBEITSBLATT, header=TRUE, colClasses="character")
+```
+
+read.xlsx2 ist schneller bei großen Dateien, read.xlsx versucht die Klassen der Spalten zu erhalten
+
+### Schreiben:
+
+```
+write.xlsx(x, DATEI, sheetName="ARBEITSBLATT", col.names=TRUE, row.names=TRUE, append=FALSE)
+
+write.xlsx2(x, DATEI, sheetName="ARBEITSBLATT",col.names=TRUE, row.names=TRUE, append=FALSE)
+```
+
+Verrücktere Formate
 ========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
-========================================================
+Eine kleine Zusammenstellung, welche Befehle und Packages bestimmte Dateiformate öffnen können
+
+| Format      | Befehl                | Package                   |
+|-------------|-----------------------|---------------------------|
+| JSON        | fromJSON()            | rjson oder jsonlite       |
+| XML         | xmlTreeParse()        | XML                       |
+| HTML        | readHTMLTable(url)    | RCurl und XML, oder rvest |
+| SPSS (SAV)  | read.spss()           | foreign                   |
+| Stata (dta) | read.dta()            | foreign                   |
+| SAS         | read.sas7bdat()       | sas7bdat                  |
+| RData       | load() oder readRDS() | keines                    |
+
+Was natürlich auch noch möglich ist: Verbindung zu Datenbanken oder Webscraping
+
+Cheaterpackage `Data.table`: `fread()` rät alle Argumente von selbst und ist sehr schnell
+
+Daten konvertieren
 ========================================================
 
+* `as.numeric`
+
+* `as.integer`
+
+* `as.character`
+
+* `as.logical`
+
+* `as.factor`
+
+* `as.ordered`
+
+* `as.Date`
+
+* `as.POSIXct`
+
+**Trick:** Wir können auf einen Blick alle Klassen eines Dataframes mit `sapply(df, class)` bekommen
+
+Daten in Dataframe konvertieren: mtcars
+========================================================
+
+> The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+
+```r
+str(mtcars)
+```
+
+```
+'data.frame':	32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+```
+
+Factors bearbeiten: mtcars I
+========================================================
+
+### Variable als Factor
+
+```r
+mtcars$gear <- as.ordered(mtcars$gear)
+
+class(mtcars$gear)
+```
+
+```
+[1] "ordered" "factor" 
+```
+
+### Factor umcodieren
+
+am: Transmission (0 = automatic, 1 = manual)
+
+```r
+recode <- c(automatic = 0, manual = 1)
+factor(mtcars$am, levels = recode, labels = names(recode))
+```
+
+```
+ [1] manual    manual    manual    automatic automatic automatic automatic
+ [8] automatic automatic automatic automatic automatic automatic automatic
+[15] automatic automatic automatic manual    manual    manual    automatic
+[22] automatic automatic automatic automatic manual    manual    manual   
+[29] manual    manual    manual    manual   
+Levels: automatic manual
+```
+
+Factors bearbeiten: mtcars II
+========================================================
+
+
+```r
+mtcars$am <- factor(mtcars$am, levels = recode, labels = names(recode))
+plot(mtcars$am, mtcars$mpg)
+```
+
+![plot of chunk unnamed-chunk-41](4 - Dataframes und Daten einlesen-figure/unnamed-chunk-41-1.png)
+
+POSIXct
+========================================================
+
+* speichert Datum und Zeit
+
+* berechnet ab dem 1. Januar 1970 00:00 Uhr
+
+
+```r
+aktuelle_zeit <- Sys.time()
+class(aktuelle_zeit)
+```
+
+```
+[1] "POSIXct" "POSIXt" 
+```
+
+```r
+aktuelle_zeit
+```
+
+```
+[1] "2019-04-06 18:46:55 CEST"
+```
+
+Die Umwandlung von POSIXct ist kompliziert, denn man muss Zeitzonen und Formate im Blick behalten. Aber: as.POSIXct kann das alles handlen.
+
+POSIXct umwandeln
+========================================================
+
+Ein Beispiel: Wir haben ein deutsches Datum und wollen das ins POSIXct-Format umwandeln
+
+
+```r
+de_datum <- "16.03.1991 02:10"
+as.POSIXct(de_datum, format = "%d.%m.%Y %H:%M", tz = "MET")
+```
+
+```
+[1] "1991-03-16 02:10:00 MET"
+```
+
+Übung: Dateien öffnen
+========================================================
+
+Auf dem Github-Repo liegen drei Dateien.
+
+Öffnet sie, und versucht die Spaltennamen und Spaltenformate richtig anzugeben. Oder wandelt die Dateien nach dem einlesen so um, dass ihr damit weiterarbeiten könnt.
