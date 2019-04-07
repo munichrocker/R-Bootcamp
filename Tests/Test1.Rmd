@@ -1,0 +1,332 @@
+---
+title: "Mittwochs-Test ifp R-Bootcamp"
+author: Benedict Witzenberger
+date: 17. April 2019
+output:
+  html_document:
+    self_contained: false
+---
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+## 1. Rechnen zum Warmwerden
+
+```{r ex="1_calculate", type="sample-code"}
+# Berechne 6 plus 12
+
+# Berechne 6 Mal 12
+
+# Was ist 30 geteilt durch 5?
+
+# Was ist 10 Hoch 2?
+```
+
+```{r ex="1_calculate", type="solution"}
+# Berechne 6 plus 12
+6 + 12
+# Berechne 6 Mal 12
+6 * 12
+# Was ist 30 geteilt durch 5?
+30 / 5
+# Was ist 10 Hoch 2?
+10 ^ 2
+```
+
+```{r ex="1_calculate", type="sct"}
+test_output_contains("18", incorrect_msg = "Make sure to add `6 + 12` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
+
+test_output_contains("72", incorrect_msg = "Make sure to add `6 * 12` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
+
+test_output_contains("6", incorrect_msg = "Make sure to add `30 / 5` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
+
+test_output_contains("100", incorrect_msg = "Make sure to add `10 ^ 2` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+## 2. Variablen definieren
+
+```{r ex="2_createVars", type="pre-exercise-code"}
+```
+
+
+```{r ex="2_createVars", type="sample-code"}
+# Definiere die Variable apfel mit dem Wert 35
+apfel 
+
+# Zeige den Wert von apfel in der Konsole an
+
+
+# Was ist der Fehler bei den folgenden Variable? Finde und verbessere ihn.
+apfeI == apfel
+```
+
+
+```{r ex="2_createVars", type="solution"}
+# Definiere die Variable apfel mit dem Wert 35
+apfel <- 35
+
+# Zeige den Wert von apfel in der Konsole an
+apfel
+
+# Was ist der Fehler bei den folgenden Variable? Finde und verbessere ihn.
+apfel == apfel
+```
+
+```{r ex="2_createVars", type="sct"}
+test_object("apfel",
+            undefined_msg = "Please make sure to define a variable `apfel`.",
+            incorrect_msg = "Make sure that you assign the correct value to `apfel`.")
+
+test_output_contains("apfel", incorrect_msg = "Have you explicitly told R to print out the `apfel` variable to the console?")
+
+test_output_contains("TRUE", incorrect_msg = "Hast Du den Fehler gefunden?")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+## 3. Mit Variablen rechnen
+
+```{r ex="3_calculatingVars", type="pre-exercise-code"}
+a <- 35
+```
+
+
+```{r ex="3_calculatingVars", type="sample-code"}
+# Die Variable a wurde für dich bereits vordefiniert - mit dem Wert 35.
+# Definiere die Variable b mit 20
+
+
+# Ändere die Variable c so, dass Du damit rechnen kannst
+c <-  "Fünfzehn"
+
+# Addiere a, b und c und weise dem Ergebnis die Variable d zu.
+
+
+# Gib d in der Konsole aus.
+
+```
+
+
+```{r ex="3_calculatingVars", type="solution"}
+# Die Variable a wurde für dich bereits vordefiniert - mit dem Wert 35.
+# Definiere die Variable b mit 20
+b <- 20
+
+# Ändere die Variable c so, dass Du damit rechnen kannst
+c <-  15
+
+# Addiere a, b und c und weise dem Ergebnis die Variable d zu.
+d <- a + b + c
+
+
+# Gib d in der Konsole aus.
+d
+```
+
+```{r ex="3_calculatingVars", type="sct"}
+test_object("b",
+            undefined_msg = "Please make sure to define a variable `b`.",
+            incorrect_msg = "Make sure that you assign the correct value to `b`.")
+
+test_object("c",
+            undefined_msg = "Please make sure to define a variable `c`.",
+            incorrect_msg = "Make sure that you assign the correct value to `c`.")
+
+test_object("d",
+            undefined_msg = "Please make sure to define a variable `d`.",
+            incorrect_msg = "Make sure that you assign the correct value to `d`.")
+
+test_output_contains(70, incorrect_msg = "Hast Du dich verechnet? Oder d nicht ausgegeben?")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "3_calculatingVars", type = "hint"}
+"Definiere die Variablen mit <-. Achte bei der dritten Aufgabe auf den Dateityp. Tippe am Ende auf `Submit`"
+```
+
+## 4. Funktionen und Vektoren
+
+```{r ex="4_functions", type="pre-exercise-code"}
+```
+
+
+```{r ex="4_functions", type="sample-code"}
+# Erstelle einen Vektor durch_vec mit den Werten 10, 50, 100, 1000
+
+# Bereche den Durchschnitt des Vektors
+
+# Berechne den Median des Vektors
+```
+
+
+```{r ex="4_functions", type="solution"}
+# Erstelle einen Vektor median_vec mit den Werten 10, 50, 100, 1000
+durch_vec <- c(10, 50, 100, 1000)
+
+# Bereche den Durchschnitt des Vektors
+mean(durch_vec)
+
+# Berechne den Median des Vektors
+median(durch_vec)
+```
+
+```{r ex="4_functions", type="sct"}
+test_object("durch_vec")
+
+test_output_contains(290, incorrect_msg = "Hast Du dich beim Mean verechnet?")
+
+test_output_contains(75, incorrect_msg = "Hast Du dich beim Median verechnet?")
+```
+
+## 5. Schnell summieren
+
+Was ist der schnellste Weg, die Zahlen von 1 bis 10 zu summieren?
+
+```{r ex="5_fastSum", type="pre-exercise-code"}
+```
+
+
+```{r ex="5_fastSum", type="sample-code"}
+# Gib hier die Lösung ein
+
+```
+
+
+```{r ex="5_fastSum", type="solution"}
+# Gib hier die Lösung ein
+sum(1:10)
+```
+
+```{r ex="5_fastSum", type="sct"}
+test_output_contains(55, incorrect_msg = "Hast Du dich verechnet?")
+test_function("sum", args = c("..."))
+```
+
+```{r ex="5_fastSum", type="hint"}
+"Die Lösung hängt mit der Funktion `sum()` zusammen"
+```
+
+## Vektoren testen
+
+```{r ex="6_testVecs", type="pre-exercise-code"}
+x <- c(1L, 5L, 8L, 255L)
+```
+
+
+```{r ex="6_testVecs", type="sample-code"}
+# Der Vektor x wurde für Dich vordefiniert.
+# Was ist der Typ des Vektors x?
+
+
+# Wandle den Vektor x in einen numerischen Vektor um:
+
+
+# Prüfe, ob der Vektor jetzt noch ein Integer ist:
+
+# Gib dem Vektor die Namen a, b, c, d
+
+```
+
+
+```{r ex="6_testVecs", type="solution"}
+# Der Vektor x wurde für Dich vordefiniert.
+# Was ist der Typ des Vektors x?
+typeof(x)
+
+# Wandle den Vektor x in einen numerischen Vektor um:
+x <- as.numeric(x)
+
+# Prüfe, ob der Vektor jetzt noch ein Integer ist:
+is.integer(x)
+
+# Gib dem Vektor die Namen a, b, c, d
+names(x) <- c("a", "b", "c", "d")
+```
+
+```{r ex="6_testVecs", type="sct"}
+test_object("x", incorrect_msg = "Hast Du x richtig umgewandelt?")
+
+test_correct(test_object("x"), test_function("as.numeric", args = c("x")))
+
+test_output_contains(FALSE, incorrect_msg = "Ist x wirklich ein Integer?")
+
+test_function_result("names")
+```
+
+
+## Listen
+
+```{r ex="7_lists", type="pre-exercise-code"}
+list_x <- list(1:3, "a", c(TRUE, FALSE, TRUE), c(2.3, 5.9))
+```
+
+
+```{r ex="7_lists", type="sample-code"}
+# Die Liste list_x wurde für dich definiert
+# Lass Dir die Struktur der list_x anzeigen
+
+# Greife auf das Element mit dem Wert 5.9 in der Liste zu
+
+# Wandle die Liste in einen Vektor um
+
+```
+
+
+```{r ex="7_lists", type="solution"}
+# Die Liste list_x wurde für dich definiert
+# Lass Dir die Struktur der list_x anzeigen
+str(list_x)
+
+# Greife auf das Element mit dem Wert 5.9 in der Liste zu
+list_x[[4]][2]
+
+# Wandle die Liste in einen Vektor um
+unlist(list_x)
+```
+
+```{r ex="7_lists", type="sct"}
+test_function("str", args = c("object"), incorrect_msg = "Hast Du die richtige Funktion zur Untersuchung der Struktur aufgerufen?")
+
+test_function("unlist", args = c("x"), incorrect_msg = "Hast Du die Funktion aufgerufen, die die Liste zum Vektor umwandelt?")
+
+test_output_contains(5.9, incorrect_msg = "Hast Du auf das richtige Objekt zugegriffen?")
+```
+
+
+## Subsetting in Dataframes
+
+```{r ex="8_dataframes", type="pre-exercise-code"}
+df <- data.frame(x = rep(1:4, 2), y = letters[1:8], stringsAsFactors = FALSE)
+```
+
+
+```{r ex="8_dataframes", type="sample-code"}
+# Für dich wurde der Dataframe df definiert
+# Finde alle Zeilen von df, in denen die Spalte x 4 ist
+
+# Ergänze eine dritte Spalte mit dem Namen z, in der Du die ersten Buchstaben des Alphabets einfügst
+
+# Lösche die Spalte y
+
+```
+
+
+```{r ex="8_dataframes", type="solution"}
+# Für dich wurde der Dataframe df definiert
+# Finde alle Zeilen von df, in denen die Spalte x 4 ist
+df[df$x == 4,]
+
+# Ergänze eine dritte Spalte mit dem Namen z, in der Du die ersten Buchstaben des Alphabets einfügst
+df$z <- letters[1:8]
+
+# Lösche die Spalte y
+df$y <- NULL
+```
+
+```{r ex="8_dataframes", type="sct"}
+test_object("df")
+```

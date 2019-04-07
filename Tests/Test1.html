@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Benedict Witzenberger" />
+
+
+<title>Mittwochs-Test ifp R-Bootcamp</title>
+
+<script src="Test1_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="Test1_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="Test1_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="Test1_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="Test1_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="Test1_files/navigation-1.1/tabsets.js"></script>
+<link href="Test1_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="Test1_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Mittwochs-Test ifp R-Bootcamp</h1>
+<h4 class="author"><em>Benedict Witzenberger</em></h4>
+<h4 class="date"><em><ol start="17" style="list-style-type: decimal">
+<li>April 2019</li>
+</ol></em></h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<div id="rechnen-zum-warmwerden" class="section level2">
+<h2>1. Rechnen zum Warmwerden</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEJlcmVjaG5lIDYgcGx1cyAxMlxuXG4jIEJlcmVjaG5lIDYgTWFsIDEyXG5cbiMgV2FzIGlzdCAzMCBnZXRlaWx0IGR1cmNoIDU/XG5cbiMgV2FzIGlzdCAxMCBIb2NoIDI/Iiwic29sdXRpb24iOiIjIEJlcmVjaG5lIDYgcGx1cyAxMlxuNiArIDEyXG4jIEJlcmVjaG5lIDYgTWFsIDEyXG42ICogMTJcbiMgV2FzIGlzdCAzMCBnZXRlaWx0IGR1cmNoIDU/XG4zMCAvIDVcbiMgV2FzIGlzdCAxMCBIb2NoIDI/XG4xMCBeIDIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjE4XCIsIGluY29ycmVjdF9tc2cgPSBcIk1ha2Ugc3VyZSB0byBhZGQgYDYgKyAxMmAgb24gYSBuZXcgbGluZS4gRG8gbm90IHN0YXJ0IHRoZSBsaW5lIHdpdGggYSBgI2AsIG90aGVyd2lzZSB5b3VyIFIgY29kZSBpcyBub3QgZXhlY3V0ZWQhXCIpXG5cbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiNzJcIiwgaW5jb3JyZWN0X21zZyA9IFwiTWFrZSBzdXJlIHRvIGFkZCBgNiAqIDEyYCBvbiBhIG5ldyBsaW5lLiBEbyBub3Qgc3RhcnQgdGhlIGxpbmUgd2l0aCBhIGAjYCwgb3RoZXJ3aXNlIHlvdXIgUiBjb2RlIGlzIG5vdCBleGVjdXRlZCFcIilcblxudGVzdF9vdXRwdXRfY29udGFpbnMoXCI2XCIsIGluY29ycmVjdF9tc2cgPSBcIk1ha2Ugc3VyZSB0byBhZGQgYDMwIC8gNWAgb24gYSBuZXcgbGluZS4gRG8gbm90IHN0YXJ0IHRoZSBsaW5lIHdpdGggYSBgI2AsIG90aGVyd2lzZSB5b3VyIFIgY29kZSBpcyBub3QgZXhlY3V0ZWQhXCIpXG5cbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMTAwXCIsIGluY29ycmVjdF9tc2cgPSBcIk1ha2Ugc3VyZSB0byBhZGQgYDEwIF4gMmAgb24gYSBuZXcgbGluZS4gRG8gbm90IHN0YXJ0IHRoZSBsaW5lIHdpdGggYSBgI2AsIG90aGVyd2lzZSB5b3VyIFIgY29kZSBpcyBub3QgZXhlY3V0ZWQhXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIn0=
+</div>
+</div>
+<div id="variablen-definieren" class="section level2">
+<h2>2. Variablen definieren</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERlZmluaWVyZSBkaWUgVmFyaWFibGUgYXBmZWwgbWl0IGRlbSBXZXJ0IDM1XG5hcGZlbCBcblxuIyBaZWlnZSBkZW4gV2VydCB2b24gYXBmZWwgaW4gZGVyIEtvbnNvbGUgYW5cblxuXG4jIFdhcyBpc3QgZGVyIEZlaGxlciBiZWkgZGVuIGZvbGdlbmRlbiBWYXJpYWJsZT8gRmluZGUgdW5kIHZlcmJlc3NlcmUgaWhuLlxuYXBmZUkgPT0gYXBmZWwiLCJzb2x1dGlvbiI6IiMgRGVmaW5pZXJlIGRpZSBWYXJpYWJsZSBhcGZlbCBtaXQgZGVtIFdlcnQgMzVcbmFwZmVsIDwtIDM1XG5cbiMgWmVpZ2UgZGVuIFdlcnQgdm9uIGFwZmVsIGluIGRlciBLb25zb2xlIGFuXG5hcGZlbFxuXG4jIFdhcyBpc3QgZGVyIEZlaGxlciBiZWkgZGVuIGZvbGdlbmRlbiBWYXJpYWJsZT8gRmluZGUgdW5kIHZlcmJlc3NlcmUgaWhuLlxuYXBmZWwgPT0gYXBmZWwiLCJzY3QiOiJ0ZXN0X29iamVjdChcImFwZmVsXCIsXG4gICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJQbGVhc2UgbWFrZSBzdXJlIHRvIGRlZmluZSBhIHZhcmlhYmxlIGBhcGZlbGAuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJNYWtlIHN1cmUgdGhhdCB5b3UgYXNzaWduIHRoZSBjb3JyZWN0IHZhbHVlIHRvIGBhcGZlbGAuXCIpXG5cbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiYXBmZWxcIiwgaW5jb3JyZWN0X21zZyA9IFwiSGF2ZSB5b3UgZXhwbGljaXRseSB0b2xkIFIgdG8gcHJpbnQgb3V0IHRoZSBgYXBmZWxgIHZhcmlhYmxlIHRvIHRoZSBjb25zb2xlP1wiKVxuXG50ZXN0X291dHB1dF9jb250YWlucyhcIlRSVUVcIiwgaW5jb3JyZWN0X21zZyA9IFwiSGFzdCBEdSBkZW4gRmVobGVyIGdlZnVuZGVuP1wiKVxuXG5zdWNjZXNzX21zZyhcIlN1cGVyLCBEdSBoYXN0IGFsbGUgQXVmZ2FiZW4gaW4gZGllc2VtIEJsb2NrIGVyZm9sZ3JlaWNoIGdlbFx1MDBmNnN0IVwiKSJ9
+</div>
+</div>
+<div id="mit-variablen-rechnen" class="section level2">
+<h2>3. Mit Variablen rechnen</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImEgPC0gMzUiLCJzYW1wbGUiOiIjIERpZSBWYXJpYWJsZSBhIHd1cmRlIGZcdTAwZmNyIGRpY2ggYmVyZWl0cyB2b3JkZWZpbmllcnQgLSBtaXQgZGVtIFdlcnQgMzUuXG4jIERlZmluaWVyZSBkaWUgVmFyaWFibGUgYiBtaXQgMjBcblxuXG4jIFx1MDBjNG5kZXJlIGRpZSBWYXJpYWJsZSBjIHNvLCBkYXNzIER1IGRhbWl0IHJlY2huZW4ga2FubnN0XG5jIDwtICBcIkZcdTAwZmNuZnplaG5cIlxuXG4jIEFkZGllcmUgYSwgYiB1bmQgYyB1bmQgd2Vpc2UgZGVtIEVyZ2VibmlzIGRpZSBWYXJpYWJsZSBkIHp1LlxuXG5cbiMgR2liIGQgaW4gZGVyIEtvbnNvbGUgYXVzLiIsInNvbHV0aW9uIjoiIyBEaWUgVmFyaWFibGUgYSB3dXJkZSBmXHUwMGZjciBkaWNoIGJlcmVpdHMgdm9yZGVmaW5pZXJ0IC0gbWl0IGRlbSBXZXJ0IDM1LlxuIyBEZWZpbmllcmUgZGllIFZhcmlhYmxlIGIgbWl0IDIwXG5iIDwtIDIwXG5cbiMgXHUwMGM0bmRlcmUgZGllIFZhcmlhYmxlIGMgc28sIGRhc3MgRHUgZGFtaXQgcmVjaG5lbiBrYW5uc3RcbmMgPC0gIDE1XG5cbiMgQWRkaWVyZSBhLCBiIHVuZCBjIHVuZCB3ZWlzZSBkZW0gRXJnZWJuaXMgZGllIFZhcmlhYmxlIGQgenUuXG5kIDwtIGEgKyBiICsgY1xuXG5cbiMgR2liIGQgaW4gZGVyIEtvbnNvbGUgYXVzLlxuZCIsInNjdCI6InRlc3Rfb2JqZWN0KFwiYlwiLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiUGxlYXNlIG1ha2Ugc3VyZSB0byBkZWZpbmUgYSB2YXJpYWJsZSBgYmAuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJNYWtlIHN1cmUgdGhhdCB5b3UgYXNzaWduIHRoZSBjb3JyZWN0IHZhbHVlIHRvIGBiYC5cIilcblxudGVzdF9vYmplY3QoXCJjXCIsXG4gICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJQbGVhc2UgbWFrZSBzdXJlIHRvIGRlZmluZSBhIHZhcmlhYmxlIGBjYC5cIixcbiAgICAgICAgICAgIGluY29ycmVjdF9tc2cgPSBcIk1ha2Ugc3VyZSB0aGF0IHlvdSBhc3NpZ24gdGhlIGNvcnJlY3QgdmFsdWUgdG8gYGNgLlwiKVxuXG50ZXN0X29iamVjdChcImRcIixcbiAgICAgICAgICAgIHVuZGVmaW5lZF9tc2cgPSBcIlBsZWFzZSBtYWtlIHN1cmUgdG8gZGVmaW5lIGEgdmFyaWFibGUgYGRgLlwiLFxuICAgICAgICAgICAgaW5jb3JyZWN0X21zZyA9IFwiTWFrZSBzdXJlIHRoYXQgeW91IGFzc2lnbiB0aGUgY29ycmVjdCB2YWx1ZSB0byBgZGAuXCIpXG5cbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKDcwLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IGRpY2ggdmVyZWNobmV0PyBPZGVyIGQgbmljaHQgYXVzZ2VnZWJlbj9cIilcblxuc3VjY2Vzc19tc2coXCJTdXBlciwgRHUgaGFzdCBhbGxlIEF1ZmdhYmVuIGluIGRpZXNlbSBCbG9jayBlcmZvbGdyZWljaCBnZWxcdTAwZjZzdCFcIikiLCJoaW50IjoiJmxkcXVvO0RlZmluaWVyZSBkaWUgVmFyaWFibGVuIG1pdCAmbHQ7LS4gQWNodGUgYmVpIGRlciBkcml0dGVuIEF1ZmdhYmUgYXVmIGRlbiBEYXRlaXR5cC4gVGlwcGUgYW0gRW5kZSBhdWYgPGNvZGU+U3VibWl0PC9jb2RlPiZyZHF1bzsifQ==
+</div>
+</div>
+<div id="funktionen-und-vektoren" class="section level2">
+<h2>4. Funktionen und Vektoren</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEVyc3RlbGxlIGVpbmVuIFZla3RvciBkdXJjaF92ZWMgbWl0IGRlbiBXZXJ0ZW4gMTAsIDUwLCAxMDAsIDEwMDBcblxuIyBCZXJlY2hlIGRlbiBEdXJjaHNjaG5pdHQgZGVzIFZla3RvcnNcblxuIyBCZXJlY2huZSBkZW4gTWVkaWFuIGRlcyBWZWt0b3JzIiwic29sdXRpb24iOiIjIEVyc3RlbGxlIGVpbmVuIFZla3RvciBtZWRpYW5fdmVjIG1pdCBkZW4gV2VydGVuIDEwLCA1MCwgMTAwLCAxMDAwXG5kdXJjaF92ZWMgPC0gYygxMCwgNTAsIDEwMCwgMTAwMClcblxuIyBCZXJlY2hlIGRlbiBEdXJjaHNjaG5pdHQgZGVzIFZla3RvcnNcbm1lYW4oZHVyY2hfdmVjKVxuXG4jIEJlcmVjaG5lIGRlbiBNZWRpYW4gZGVzIFZla3RvcnNcbm1lZGlhbihkdXJjaF92ZWMpIiwic2N0IjoidGVzdF9vYmplY3QoXCJkdXJjaF92ZWNcIilcblxudGVzdF9vdXRwdXRfY29udGFpbnMoMjkwLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IGRpY2ggYmVpbSBNZWFuIHZlcmVjaG5ldD9cIilcblxudGVzdF9vdXRwdXRfY29udGFpbnMoNzUsIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgZGljaCBiZWltIE1lZGlhbiB2ZXJlY2huZXQ/XCIpIn0=
+</div>
+</div>
+<div id="schnell-summieren" class="section level2">
+<h2>5. Schnell summieren</h2>
+<p>Was ist der schnellste Weg, die Zahlen von 1 bis 10 zu summieren?</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEdpYiBoaWVyIGRpZSBMXHUwMGY2c3VuZyBlaW4iLCJzb2x1dGlvbiI6IiMgR2liIGhpZXIgZGllIExcdTAwZjZzdW5nIGVpblxuc3VtKDE6MTApIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoNTUsIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgZGljaCB2ZXJlY2huZXQ/XCIpXG50ZXN0X2Z1bmN0aW9uKFwic3VtXCIsIGFyZ3MgPSBjKFwiLi4uXCIpKSIsImhpbnQiOiImbGRxdW87RGllIExcdTAwZjZzdW5nIGhcdTAwZTRuZ3QgbWl0IGRlciBGdW5rdGlvbiA8Y29kZT5zdW0oKTwvY29kZT4genVzYW1tZW4mcmRxdW87In0=
+</div>
+</div>
+<div id="vektoren-testen" class="section level2">
+<h2>Vektoren testen</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InggPC0gYygxTCwgNUwsIDhMLCAyNTVMKSIsInNhbXBsZSI6IiMgRGVyIFZla3RvciB4IHd1cmRlIGZcdTAwZmNyIERpY2ggdm9yZGVmaW5pZXJ0LlxuIyBXYXMgaXN0IGRlciBUeXAgZGVzIFZla3RvcnMgeD9cblxuXG4jIFdhbmRsZSBkZW4gVmVrdG9yIHggaW4gZWluZW4gbnVtZXJpc2NoZW4gVmVrdG9yIHVtOlxuXG5cbiMgUHJcdTAwZmNmZSwgb2IgZGVyIFZla3RvciBqZXR6dCBub2NoIGVpbiBJbnRlZ2VyIGlzdDpcblxuIyBHaWIgZGVtIFZla3RvciBkaWUgTmFtZW4gYSwgYiwgYywgZCIsInNvbHV0aW9uIjoiIyBEZXIgVmVrdG9yIHggd3VyZGUgZlx1MDBmY3IgRGljaCB2b3JkZWZpbmllcnQuXG4jIFdhcyBpc3QgZGVyIFR5cCBkZXMgVmVrdG9ycyB4P1xudHlwZW9mKHgpXG5cbiMgV2FuZGxlIGRlbiBWZWt0b3IgeCBpbiBlaW5lbiBudW1lcmlzY2hlbiBWZWt0b3IgdW06XG54IDwtIGFzLm51bWVyaWMoeClcblxuIyBQclx1MDBmY2ZlLCBvYiBkZXIgVmVrdG9yIGpldHp0IG5vY2ggZWluIEludGVnZXIgaXN0OlxuaXMuaW50ZWdlcih4KVxuXG4jIEdpYiBkZW0gVmVrdG9yIGRpZSBOYW1lbiBhLCBiLCBjLCBkXG5uYW1lcyh4KSA8LSBjKFwiYVwiLCBcImJcIiwgXCJjXCIsIFwiZFwiKSIsInNjdCI6InRlc3Rfb2JqZWN0KFwieFwiLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IHggcmljaHRpZyB1bWdld2FuZGVsdD9cIilcblxudGVzdF9jb3JyZWN0KHRlc3Rfb2JqZWN0KFwieFwiKSwgdGVzdF9mdW5jdGlvbihcImFzLm51bWVyaWNcIiwgYXJncyA9IGMoXCJ4XCIpKSlcblxudGVzdF9vdXRwdXRfY29udGFpbnMoRkFMU0UsIGluY29ycmVjdF9tc2cgPSBcIklzdCB4IHdpcmtsaWNoIGVpbiBJbnRlZ2VyP1wiKVxuXG50ZXN0X2Z1bmN0aW9uX3Jlc3VsdChcIm5hbWVzXCIpIn0=
+</div>
+</div>
+<div id="listen" class="section level2">
+<h2>Listen</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6Imxpc3RfeCA8LSBsaXN0KDE6MywgXCJhXCIsIGMoVFJVRSwgRkFMU0UsIFRSVUUpLCBjKDIuMywgNS45KSkiLCJzYW1wbGUiOiIjIERpZSBMaXN0ZSBsaXN0X3ggd3VyZGUgZlx1MDBmY3IgZGljaCBkZWZpbmllcnRcbiMgTGFzcyBEaXIgZGllIFN0cnVrdHVyIGRlciBsaXN0X3ggYW56ZWlnZW5cblxuIyBHcmVpZmUgYXVmIGRhcyBFbGVtZW50IG1pdCBkZW0gV2VydCA1LjkgaW4gZGVyIExpc3RlIHp1XG5cbiMgV2FuZGxlIGRpZSBMaXN0ZSBpbiBlaW5lbiBWZWt0b3IgdW0iLCJzb2x1dGlvbiI6IiMgRGllIExpc3RlIGxpc3RfeCB3dXJkZSBmXHUwMGZjciBkaWNoIGRlZmluaWVydFxuIyBMYXNzIERpciBkaWUgU3RydWt0dXIgZGVyIGxpc3RfeCBhbnplaWdlblxuc3RyKGxpc3RfeClcblxuIyBHcmVpZmUgYXVmIGRhcyBFbGVtZW50IG1pdCBkZW0gV2VydCA1LjkgaW4gZGVyIExpc3RlIHp1XG5saXN0X3hbWzRdXVsyXVxuXG4jIFdhbmRsZSBkaWUgTGlzdGUgaW4gZWluZW4gVmVrdG9yIHVtXG51bmxpc3QobGlzdF94KSIsInNjdCI6InRlc3RfZnVuY3Rpb24oXCJzdHJcIiwgYXJncyA9IGMoXCJvYmplY3RcIiksIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgZGllIHJpY2h0aWdlIEZ1bmt0aW9uIHp1ciBVbnRlcnN1Y2h1bmcgZGVyIFN0cnVrdHVyIGF1ZmdlcnVmZW4/XCIpXG5cbnRlc3RfZnVuY3Rpb24oXCJ1bmxpc3RcIiwgYXJncyA9IGMoXCJ4XCIpLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IGRpZSBGdW5rdGlvbiBhdWZnZXJ1ZmVuLCBkaWUgZGllIExpc3RlIHp1bSBWZWt0b3IgdW13YW5kZWx0P1wiKVxuXG50ZXN0X291dHB1dF9jb250YWlucyg1LjksIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgYXVmIGRhcyByaWNodGlnZSBPYmpla3QgenVnZWdyaWZmZW4/XCIpIn0=
+</div>
+</div>
+<div id="subsetting-in-dataframes" class="section level2">
+<h2>Subsetting in Dataframes</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImRmIDwtIGRhdGEuZnJhbWUoeCA9IHJlcCgxOjQsIDIpLCB5ID0gbGV0dGVyc1sxOjhdLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpIiwic2FtcGxlIjoiIyBGXHUwMGZjciBkaWNoIHd1cmRlIGRlciBEYXRhZnJhbWUgZGYgZGVmaW5pZXJ0XG4jIEZpbmRlIGFsbGUgWmVpbGVuIHZvbiBkZiwgaW4gZGVuZW4gZGllIFNwYWx0ZSB4IDQgaXN0XG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5cbiMgTFx1MDBmNnNjaGUgZGllIFNwYWx0ZSB5Iiwic29sdXRpb24iOiIjIEZcdTAwZmNyIGRpY2ggd3VyZGUgZGVyIERhdGFmcmFtZSBkZiBkZWZpbmllcnRcbiMgRmluZGUgYWxsZSBaZWlsZW4gdm9uIGRmLCBpbiBkZW5lbiBkaWUgU3BhbHRlIHggNCBpc3RcbmRmW2RmJHggPT0gNCxdXG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5kZiR6IDwtIGxldHRlcnNbMTo4XVxuXG4jIExcdTAwZjZzY2hlIGRpZSBTcGFsdGUgeVxuZGYkeSA8LSBOVUxMIiwic2N0IjoidGVzdF9vYmplY3QoXCJkZlwiKSJ9
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
