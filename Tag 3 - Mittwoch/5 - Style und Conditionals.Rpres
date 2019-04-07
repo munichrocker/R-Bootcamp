@@ -60,8 +60,10 @@ c <- 10
 mean <- function(x) sum(x)
 ```
 
-Verschiedene Sprachen. verschiedene Akzente
+Exkurs: Verschiedene Sprachen. verschiedene Akzente
 ========================================================
+
+Ich habe für R mal die Benennungsform "snake_case" gelesen
 
 R orientiert sich bei der Benennung am ehesten an der Sprache `C`: `user_name, delete_user, create_bank_account`
 
@@ -70,6 +72,8 @@ Andere Sprachen, zum Beispiel Javascript nutzen CamelCase: `userName, deleteUser
 Es gibt aber auch PascalCase: `UserName, DeleteUser, CreateBankAccount`
 
 Oder die COBOL-Variante mit Bindestrich: `USER-NAME, DELETE-USER, CREATE-BANK-ACCOUNT`
+
+**Fazit:** Egal, was ihr nutzt: nutzt es durchgehend. Und überlegt, ob/wie andere Leute euren Code möglichst gut verstehen können.
 
 Syntax: Lasst Platz
 ========================================================
@@ -217,16 +221,155 @@ Ein paar Beispiele:
 Conditionals
 ========================================================
 
-Ein gutes Skript muss immer wieder Entscheidungen treffen. Wir 
+Ein gutes Skript muss immer wieder Entscheidungen treffen, nach Regeln, die wir ihm vorgegeben haben.
 
+Dafür gibt es - in vielen Programmiersprachen ähnliche - Begriffe:
+
+if
+
+if ... else
+
+switch()
+
+Alle diese Begriffe sind "reserved" words - dürfen also nicht als Variablennamen benutzt werden.
+
+if-Statements
 ========================================================
+
+![](if_flow.png)
+
+***
+
+```
+if (condition) {
+  Code für TRUE
+}
+```
+
+Übung: if-Statements
 ========================================================
+
+Schreibt einen Code, der euch ausgibt "Heute ist Mittwoch", wenn das heutige Datum Mittwoch ist.
+
+Dafür könnt ihr die Funktion `weekdays()` benutzen. Sie erwartet ein POSIXct als Input.
+
+Lösung: if-Statements
 ========================================================
+
+```{r}
+if (weekdays(Sys.time()) == "Mittwoch") {
+  print("Heute ist Mittwoch")
+}
+```
+
+### Die Locale
+
+Achtet bei Tests mit ausgeschriebenen Wochentagen auf die Locale eures Rechners. Sie bestimmt, ob ein Datum als "Wednesday" oder "Mittwoch" ausgegeben wird.
+
+Ihr bekommt einen Überblick mit `Sys.getlocale(category = "LC_ALL")`
+
+Steht da nichts mit German, dann könnt ihr die einzelnen Teile umstellen: `Sys.setlocale("LC_TIME", "de_DE.UTF-8")`
+
+if...else-Statements
 ========================================================
+
+If-Statements sind gut, wenn wir eine einzige Abfrage haben, die etwas auslösen soll. Aber was ist, wenn wir etwas anderes auslösen wollen, wenn if FALSE ist?
+
+Dafür gibt es if...else-Statements
+
+```
+if (condition) {
+    Code für TRUE
+} else {
+    Code für FALSE
+} 
+```
+
+else if
 ========================================================
+
+ist nichts wirklich neues, sondern nur eine Kombination aus den beiden vorherigen Tests:
+
+Mit "else if" können wir Varianten der Entscheidung definieren.
+
+```
+if (condition1) {
+    Code für TRUE
+} else if (condition2) {
+    Code für TRUE
+} else if (condition3) {
+    Code für TRUE
+} else {
+    Code für FALSE
+}
+```
+
+Das ist sehr hilfreich, aber wird auch schnell unübersichtlich.
+
+switch
 ========================================================
+
+Hilft, wenn wir ganz viele if-Statements für verschiedene Funktionen kombinieren möchten. Macht den Ausdruck kürzer.
+
+```{r}
+rechenart <- "addition"
+x <- c(1, 2, 3, 4, 5)
+
+switch(rechenart,
+  addition = sum(x),
+  durchschnitt = mean(x),
+  median = median(x))
+```
+
+**Variante:** Das Package `dplyr` (lernt ihr im nächsten Blockkurs) hat eine `case_when()`-Funktion, die für verschiedene Ergebnisse verschiedene Outputs liefert. Da könnten wir zum Beispiel auch Tests für verschiedene Zahlenwerte integrieren.
+
+Conditions in if-Statements
 ========================================================
+
+* Wir kennen schon die Vergleiche mit & und |. Bei Funktionen nutzen wir aber nur && und ||: Denn die überprüfen schneller, und nur einen einzigen Wert - was wir bei if-Statements normalerweise auch wollen. (Falls wir einen logical Vector testen wollen, könnten wir `all()` oder `any()` verwenden, der bringt den Vector auf eine TRUE- oder FALSE-Aussage)
+
+* Jede Condition muss zu TRUE oder FALSE werden können, sonst gibt es einen Fehler:
+```
+> if (NA) {}
+Error in if (NA) { : missing value where TRUE/FALSE needed
+```
+* Der Test auf NA geht nicht mit `x == NA`, sondern mit `is.na()`
+
+* Achtet auf den Codestil! Geschweifte Klammern sollten immer mit anderen Worten in einer Zeile stehen.
+
+* Nur bei ganz kurzen Statements dürftet ihr die geschweiften Klammern weglassen:
+
+`x <- if (y > 20) "Too low" else "Too high"` (übersichtlicher ist es aber wohl mit Klammern)
+
+Übungen: Conditional Statements
 ========================================================
+
+1. Lest euch in der Hilfe den Unterschied zwischen `if` und `ifelse()` durch. Wie würdet ihr ihn beschreiben?
+
+2. Schreibt ein if...else-Statement, für das ihr in einer Variable die Uhrzeit festlegen könnt. Je nachdem, wie viel Uhr es ist, gibt euch das Programm "Guten Morgen", "Guten Tag", "Guten Abend" oder "Gute Nacht" aus.
+
+3. Schreibt mit `switch()` einen Test, der Addition, Substraktion, Multiplikation und Division für zwei verschiedene Variablen durchführt. Je nachdem, was in einer dritten Variable angegeben wurde.
+
+ifelse() 
 ========================================================
-========================================================
-========================================================
+
+Macht es möglich, dass wir ein if über Vektoren laufen lassen. Indem das Ergebnis binär wird:
+
+`ifelse(condition, true, false)`
+
+```{r}
+mein_vector <- c(1, 3, 5, 6, 8, 9)
+```
+
+```
+# Geht nicht!
+> if (mein_vector %% 3 == 0) {
++   print("Durch drei teilbar")
++ }
+Warning message:
+In if (mein_vector%%3 == 0) { :
+  the condition has length > 1 and only the first element will be used
+``` 
+```{r}
+ifelse(mein_vector %% 3 == 0, "Durch 3 teilbar", "Nicht durch drei teilbar")
+```
