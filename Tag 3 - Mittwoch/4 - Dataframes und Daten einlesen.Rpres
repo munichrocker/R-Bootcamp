@@ -858,6 +858,12 @@ as.POSIXct(de_datum, format = "%d.%m.%Y %H:%M", tz = "MET")
 Übung: Dateien öffnen
 ========================================================
 
-Auf dem Github-Repo liegen drei Dateien.
+Auf dem Github-Repo liegen drei originale Datensätze in CSV und XLSX.
 
 Öffnet sie, und versucht die Spaltennamen und Spaltenformate richtig anzugeben. Oder wandelt die Dateien nach dem einlesen so um, dass ihr damit weiterarbeiten könnt.
+
+Die drei Dateien sind etwas unterschiedlich - vor allem unterschiedlich groß.
+
+Empfohlene Reihenfolge nach aufsteigender Schwierigkeit:
+
+Bierpreis, Fahrgastzählung, Wohnungen

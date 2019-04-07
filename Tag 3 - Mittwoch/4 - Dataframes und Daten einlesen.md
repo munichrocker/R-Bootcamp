@@ -996,7 +996,7 @@ Immer aufpassen, wo sich R gerade in unserem Dateisystem befindet:
 Comma separated Values
 ========================================================
 
-Datenjournalistinnens Liebling
+DatenjournalistInnens Liebling: sehr gängiges Format, relativ wenige Probleme
 
 ![](csv_insurance.png)
 
