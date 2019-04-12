@@ -72,6 +72,15 @@ Dann können wir morgen direkt ins R-Lernen einsteigen.
 
 (Zusatzhoffnung: Wir lernen uns schon ein bisschen kennen)
 
+Slack
+========================================================
+
+Wir kommunizieren zwischen den Einheiten über Slack.
+
+Auch im Kurs kann ich euch so schnell Links schicken.
+
+Anmeldung über: ddj19.slack.com
+
 R installieren
 ========================================================
 
