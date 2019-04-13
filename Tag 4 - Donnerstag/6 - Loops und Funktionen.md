@@ -574,7 +574,11 @@ Funktionen in R sind einfach aufgebaut, wir kennen das Muster schon:
 function(ARGUMENTE) {BODY}
 ```
 
-Eine Funktion, die keinem Namen zugewiesen wird, heißt "anonyme Funktion"
+Eine Funktion, die keinem Namen zugewiesen wird, heißt "anonyme Funktion". In der Regel sind diese Funktionen nur eine Zeile lang. Beachtet die Klammern um die Funktion: 
+
+```
+(function(ARGUMENTE) {BODY})
+```
 
 **Best Practise**: Benennt eure eigenen Funktionen anders, als bereits bestehende Funktionen. Das macht nur Ärger.
 
@@ -642,6 +646,77 @@ f01(x = 1, 5) # y kann, muss aber nicht angegeben werden, weil die Position vorg
 ```
 [1] 6
 ```
+
+Argumente
+========================================================
+
+Unsere Funktion kann Argumente enthalten. Diese können, müssen aber nicht, einen Defaultwert haben.
+
+```
+function(x, y = 10)
+```
+
+*x*: Argument `x` ohne default
+
+*y*: Argument `y` mit default 10.
+
+**Ein Hinweis**: Normalerweise geben wir die Argumente in unsere Funktion. Das müssen wir aber nicht.
+
+Wenn die Argumente in einer Liste vorliegen, können wir `do.call()` benutzen:
+
+
+```r
+args <- list(1:10, na.rm = TRUE)
+
+do.call(mean, args)
+```
+
+```
+[1] 5.5
+```
+
+Body
+========================================================
+
+Im Body wird ganz normal mit den Variablen gerechnet.
+
+`missing()` überprüft, ob die Variablen vorhanden sind (falls kein default festgelegt wurde).
+
+Eine gute **Vorgehensweise** für Funktionen: Löst ein Problem erst an einem konkreten Datensatz. Dann generiert daraus die Variablen, um das Problem zu abstrahieren.
+
+**Faustformel:** Wenn ihr etwas dreimal im Code wiederholen müssten, schreibt eine Funktion.
+
+Return
+========================================================
+
+Viele Programmiersprachen nutzen `return x` am Ende einer Funktion. Das gibt den Wert der Variable X an die Funktion zurück. In R ist das nicht nötig, schafft aber mehr Übersicht und macht den Wert fürs Weiterarbeiten zugänglich.
+
+Mit Ausgabe am Ende (`z` oder `return(z)` macht das gleiche)
+
+
+```r
+test_funct <- function(x = 2, y = 5) {
+  z <- x * y
+  return(z) # oder z ohne return
+}
+test_funct()
+```
+
+```
+[1] 10
+```
+
+***
+
+Ohne Ausgabe am Ende: 
+
+```r
+test_funct <- function(x = 2, y = 5) {
+  z <- x * y
+}
+test_funct()
+```
+
 
 Environment
 ========================================================
@@ -717,7 +792,6 @@ f02(4)
 ```
 
 
-
 Funktion exportieren
 ========================================================
 
@@ -729,11 +803,264 @@ Im anderen Skript wird sie so aufgerufen und der dortigen globalen Umgebung hinz
 
 Hinweis: Man kann auch mehrere Funktionen in eine`*.R`-Datei schreiben.
 
+Funktional vs. Objektorientiert: Programmierparadigmen
 ========================================================
+
+R ist eine funktionale Programmiersprache. Das bedeutet:
+
+* die ganze Sprache ist in Funktionen aufgebaut. Auch Objekte sind Funktionen.
+
+* der Code ist näher am Problem, weil nicht alles als Objekt modelliert werden muss.
+
+* der Code ist meistens kürzer und damit weniger fehleranfällig
+
+> "You can do anything with functions that you can do with vectors: you can assign them to variables, store them in lists, pass them as arguments to other functions, create them inside functions, and even return them as the result of a function."
+>
+> Hadley Wickham, R-Guru
+
+Der Gegensatz dazu sind objektorientierte Programmiersprachen, wie Java, C++. Dort sind alle Daten und Funktionen in Objekten untergebracht. Die Objekte können Funktionen aufrufen, die ihnen zugeordnet sind. 
+
+Python kann beides.
+
+
+Übung: Funktionen
 ========================================================
+
+Wir haben den folgenden Datensatz:
+
+
+```r
+set.seed(42)
+df <- data.frame(replicate(6, sample(c(1:10, -99), 6, rep = TRUE)))
+names(df) <- letters[1:6]
+df
+```
+
+```
+    a b   c   d  e  f
+1 -99 9 -99   6  1  9
+2 -99 2   3   7  6  9
+3   4 8   6  10  5  5
+4  10 8 -99   2 10  8
+5   8 6 -99 -99  5  1
+6   6 8   2 -99 10 10
+```
+
+Schreibt eine Funktion, die alle `-99` in NAs umwandelt. Ohne, dass ihr die Funktion für jede Spalte einzeln aufrufen müsst.
+
+Lösung: Funktionen
 ========================================================
+
+
+```r
+fix_missing <- function(x) {
+  x[x == -99] <- NA
+  return(x)
+}
+
+df[] <- lapply(df, fix_missing)
+
+df
+```
+
+```
+   a b  c  d  e  f
+1 NA 9 NA  6  1  9
+2 NA 2  3  7  6  9
+3  4 8  6 10  5  5
+4 10 8 NA  2 10  8
+5  8 6 NA NA  5  1
+6  6 8  2 NA 10 10
+```
+
+
+Weitere Übung Funktionen: Normalisierung
 ========================================================
+
+Ein typisches Problem: Wir wollen Werte normalisiert vergleichen. Zum Beispiel Mietpreise ab einem bestimmten Zeitpunkt.
+
+Die Formel für Normalisierung ist einfach:
+
+$$\Huge normalisiert = \frac{x_i-x_{min}}{x_{max}-x_{min}}$$
+
+Stellt euch vor, wir haben einen Dataframe mit vier Spalten, die wir alle normalisieren wollen.
+
+Wie würdet ihr das Problem angehen? Schreibt eine Funktion.
+
+Aufgabe: Normalisierung
 ========================================================
+
+
+```r
+dataframe_normalize <- data.frame(  
+  c1 = rnorm(50, 5, 1.5), 
+  c2 = rnorm(50, 5, 1.5),    
+  c3 = rnorm(50, 5, 1.5),
+  c4 = rnorm(50, 5, 1.5)
+)
+
+head(dataframe_normalize, n = 10)
+```
+
+```
+         c1       c2       c3       c4
+1  1.339300 6.381093 2.956826 5.127347
+2  6.980170 6.081317 5.205884 6.343348
+3  4.540042 3.435322 2.759562 4.655333
+4  2.328037 4.864720 2.794346 6.254929
+5  4.742124 5.935277 5.187054 2.382416
+6  6.822012 3.569715 3.505041 7.534188
+7  7.842790 4.185757 4.997266 6.297167
+8  4.354296 5.871495 4.357612 4.773836
+9  4.614096 6.152268 4.079493 2.826489
+10 2.355255 5.695651 1.962983 5.964513
+```
+
+Lösung: Normalisierung I
 ========================================================
+Die Funktion für ein einzelnes Problem sieht so aus: 
+
+`(data_frame$c1 -min(data_frame$c1))/(max(data_frame$c1)-min(data_frame$c1))`
+
+Komplett abstrahiert:
+
+```r
+normalize_x <- function(x){
+  nominator <- x-min(x)
+  denominator <- max(x)-min(x)
+  normalize <- nominator/denominator
+  return(normalize)
+}
+```
+
+
+```r
+dataframe_normalize[] <- lapply(dataframe_normalize, normalize_x)
+```
+
+Lösung: Normalisierung II
 ========================================================
+
+
+```r
+head(dataframe_normalize, n = 10)
+```
+
+```
+          c1        c2        c3         c4
+1  0.1130506 0.5917565 0.1912412 0.51369129
+2  0.8823554 0.5459506 0.6240188 0.71334006
+3  0.5495695 0.1416414 0.1532826 0.43619378
+4  0.2478951 0.3600542 0.1599760 0.69882289
+5  0.5771295 0.5236357 0.6203953 0.06301573
+6  0.8607857 0.1621768 0.2967322 0.90885773
+7  1.0000000 0.2563082 0.5838752 0.70575778
+8  0.5242374 0.5138897 0.4607890 0.45565019
+9  0.5596690 0.5567920 0.4072716 0.13592572
+10 0.2516071 0.4870207 0.0000000 0.65114111
+```
+
+
+Die R-Community
 ========================================================
+
+Einer der Faktoren, warum R-Lernen so einfach ist.
+
+Es gibt:
+
+* zig Tutorials zu fast jedem Thema
+
+* massenhaft beantwortete Fragen auf Stack Overflow
+
+* interaktive Lernplattformen (teilweise kostenlos)
+
+* viele Bücher zum Lernen
+
+* in jeder größreren Stadt Meetups
+
+* zahlreiche Konferenzen
+
+Anlaufstellen für Tutorials
+========================================================
+
+[R Turorials](http://r-tutorials.com/)
+
+[R Bloggers](https://www.r-bloggers.com/) Auch was zum "Auf dem Laufenden bleiben" am Thema R
+
+[R Statistics](https://r-statistics.co/)
+
+Für Journalisten:
+
+[R for Journalists](https://learn.r-journalism.com/en/) Tutorial
+
+[Intro to R for Journalists](https://journalismcourses.org/RC0818.html) Mooc
+
+[R for Journalists](http://rforjournalists.com/) Blog
+
+Stack Overflow
+========================================================
+
+Entwicklercommunity für alle Programmiersprachen, auch für [R](https://stackoverflow.com/questions/tagged/r): Dort wurde jede Frage schon mal gefragt, jedes Problem schon mal besprochen.
+
+Die Suche funktioniert am besten über die Fehlermeldung + `R` oder ihr formuliert euer Problem auf Englisch. Achtet auf die richtigen Fachbegriffe
+
+**Tipp**: Erstellt euch einen Stack Overflow-Account, irgendwann werdet ihr eine Frage dort reinschreiben müssen. Dann achtet auf folgendes: Schildert euer Problem und Ziel. Postet eure Funktionen und so viele Daten, dass man das Problem nachvollziehen - und euch helfen kann. Normalerweise geht das sehr schnell und die leute sind sehr nett (zumindest in der R-Community).
+
+Irgendwann könnt ihr auch anderen Leuten bei ihren Problemen helfen.
+
+Alternative: [CrossValidated](https://stats.stackexchange.com/)
+
+Auf dem Stand bleiben
+========================================================
+
+[Rstudio Webinare](https://www.rstudio.com/resources/webinars/)
+
+[R Weekly](https://rweekly.org/)
+
+Weiterlernen Interaktiv
+========================================================
+
+[Datacamp](https://www.datacamp.com/courses/free-introduction-to-r) €€€
+
+[Swirl](https://swirlstats.com/)
+
+[Moocs](https://www.classcentral.com/tag/r-programming) gibt es auch für spezielle probleme: Machine Learning, Inferenz-Statistik
+
+[Data Analysis with R by Facebook](https://eu.udacity.com/course/data-analysis-with-r--ud651) vielleicht was gegen Ende des Jahres. Viele Basics, aber spannende Einblicke in Facebooks R&D-Abteilung
+
+Weiterlernen Bücher
+========================================================
+
+Grolemund, Wickham: R for Data Science (Onlineversion [hier](https://r4ds.had.co.nz/))
+
+Wickham: Advanced R (Online [hier](http://adv-r.had.co.nz/))
+
+Sharon Machlis: Practical R for Mass Communication and Journalism (Auf [Amazon](https://www.amazon.com/Practical-Mass-Communication-Journalism-Chapman/dp/1138726915), Online nur [Auszüge](http://www.machlis.com/R4Journalists/))
+
+Teetor: R Cookbook (Online [hier](http://www.cookbook-r.com/))
+
+Meetups
+========================================================
+
+München: [Applied R](https://www.meetup.com/de-DE/Applied-R-Munich/)
+
+Berlin: [R Users Group](https://www.meetup.com/de-DE/Berlin-R-Users-Group/) oder [BerlinR](https://www.meetup.com/de-DE/BerlinR-R-users-group/)
+
+Hamburg: [R Users Group](https://www.meetup.com/de-DE/Hamburg-R-User-Group/)
+
+Köln: [R Users Group](https://www.meetup.com/de-DE/KoelnRUG/)
+
+[R Ladies](https://www.meetup.com/de-DE/topics/r-ladies/de/): Berlin, München, Frankfurt, Freiburg
+
+Dort gilt: Einfach vorbeikommen. Meistens freuen die sich riesig über Leute ausserhalb der Szene.
+
+Konferenzen
+========================================================
+
+[Use R!](http://www.user2019.fr/) internationale, Haupt-Konferenz der R Community. 2019 in Toulouse. 2020 in St. Louis
+
+[eRum](https://erum.io/) das europäische R-Nutzertreffen, das nur stattfindet, wenn "Use R!" außerhalb Europas abgehalten wird.
+
+[RStudio Conference](https://www.rstudio.com/conference/)
+
+[SatRdays](https://satrdays.org/)
