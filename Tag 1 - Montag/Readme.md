@@ -7,7 +7,11 @@
 
 ## Inhalte:
 
-Die Links zu den zwei Dateien:
+### Slackgruppe beitreten
+
+https://ddj19.slack.com
+
+Die Links zu den Installations-Dateien:
 
 ### R
 
