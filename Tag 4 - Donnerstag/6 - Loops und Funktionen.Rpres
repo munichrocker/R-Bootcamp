@@ -30,25 +30,508 @@ Wie machen wir Datenjournalismus
 
 Unser eigenes Projekt
 
+Loops (Schleifen) in R
 ========================================================
+
+**Warum brauchen wir Loops?**
+
+Wir wiederholen die gleichen Arbeitsschritte immer und immer wieder...
+
+... bis ein bestimmter Zustand eingetreten ist:
+
+* for-Loops: "bis" ein Zustand eingetreten ist
+
+* while-Loops: "während" ein Zustand eingetreten ist (ähnlich zum repeat-Loop)
+
+Diese Wiederholungen werden im Entwicklerslang: "Iteration" genannt
+
+Wie Loops aussehen
 ========================================================
+
+![](functions.PNG)
+
+For-Loop I
 ========================================================
+
+```{r}
+iterator <- c(1:10)
+
+for (i in iterator) {
+  print(i)
+}
+```
+
+Was ist `i`?
+
+For-Loop II
 ========================================================
+
+```{r}
+result <- vector()
+
+input_vector <- c(1:10)
+
+for(i in seq_along(input_vector)) {
+  result[i] <- input_vector[i] * input_vector[i]
+  print(paste("i:", i, "; Result:", result[i]))
+}
+```
+
+Naming Convention in For-Loops
 ========================================================
+
+Die 
+
+```
+for (i in seq-along(vector1)) {
+  for (j in seq_along(vector2)) {
+    for (k in seq_along(vector3)) {
+      do_something()
+    }
+  }
+}
+```
+
+Denkaufgabe: For-Loops für Matrix
 ========================================================
+
+Erstellt mit einem Loop eine Matrix, in der der Inhalt jedes Feldes das Produkt seiner Indizes ist.
+
+```
+mymat <- matrix(nrow=30, ncol=30)
+
+# For each row and for each column, assign values based on position: product of two indexes
+for(i in 1:dim(mymat)[]) {
+  for(j in 1:dim(mymat)[]) {
+    mymat[i,j] = 
+  }
+}
+```
+
+Tipp: Ihr müsst in der Funktion drei Sachen eintragen
+
+Lösung: For-Loops für Matrix
 ========================================================
+
+```{r}
+mymat <- matrix(nrow=30, ncol=30)
+
+for(i in 1:dim(mymat)[1]) {
+  for(j in 1:dim(mymat)[2]) {
+    mymat[i,j] = i*j
+  }
+}
+
+mymat[1:10, 1:10]
+```
+
+Best Practises bei For-Loops
 ========================================================
+
+Füllt eine Ergebnisvariable nicht IM Loop. Sie muss dann von Loop-Durchgang zu Loop-Durchgang kopiert werden, das macht den Code langsam.
+
+Besser: Erstellt eine Ergebnisvariable (zum Beispiel Liste, Vektor oder Dataframe) VOR dem Loop. Und befüllt mit [i] nur die entsprechenden Bereiche im Loop.
+
+Nicht:
+
+```
+for (i in seq_along(vector)) {
+  loop_-_result <- compute_something()
+  result_variable <- c(result_variable, loop_result)
+}
+```
+
+Besser:
+
+```
+result_variable <- vector(length = length(input_vector))
+
+for (i in seq_along(input_vector)) {
+  loop_result <- compute_something()
+  result_variable[i] <- loop_result
+}
+```
+Bei Dataframes
 ========================================================
+
+```
+result_list <- list()
+
+for (i in seq_along(input_vector)) {
+  loop_result_df <- compute_something()
+  result_list[[i]] <- loop_result_df
+}
+
+dplyr::bind_rows(result_list)
+```
+
+dplyr lernt ihr im nächsten Blockkurs genauer kennen.
+
+
+
+
+For-Loops gibt es in vielen Sprachen
 ========================================================
+
+Java:
+
+```
+// Prints the numbers 0 to 99 (and not 100), each followed by a space.
+for (int i=0; i<100; i++)  
+{
+    System.out.print(i);
+    System.out.print(' ');
+}
+System.out.println();
+```
+
+Python:
+
+```
+for item in some_iterable_object:
+    do_something()
+```
+
+
+Wann brauchen wir For-Loops in R?
 ========================================================
+
+* Viele Daten einlesen und bearbeiten
+
+* Viele Webseiten scrapen
+
+Eher nicht bei:
+
+* Mehrere Variablen eines Dataframes verändern
+
+* Mehrere Rechnungen mit Vektoren anstellen
+
+Vorsicht bei For-Loops I
 ========================================================
+
+```{r}
+a <- c(1:10)
+b <- c(1:10)
+
+res <- numeric(length = length(a))
+for (i in seq_along(a)) {
+  res[i] <- a[i] + b[i]
+}
+res
+```
+
+Was macht die For-Schleife?
+
+Vorsicht bei For-Loops II
 ========================================================
+
+Für viele Vektoroperationen gibt es einfacherere - und schnellere Alternativen, als eine For-Schleife:
+
+Hier, eine einfache Summe.
+
+```{r}
+res2 <- a + b
+
+all.equal(res, res2) # testet, ob die Variablen gleich sind
+```
+
+Apply-Familie in R
 ========================================================
+
+Loops, die ihr über Vektoren laufen lassen wollt, können oft mit Apply kombiniert werden.
+Diese Funktionen sind deutlich schneller, als For-Loops (wird daher erst bei großen Datensätzen interessant)
+
+* Apply: `apply(X, MARGIN, FUN, ...)`, MARGIN sind die Zeilen und Spalten einer Matrix (oder eines Dataframes). Es geht auch `MARGIN = c(1,2)`. FUN kann jede beliebige (auch selbst geschriebene Funktion sein).
+
+* Lapply: Gibt die Ergebnisse der Apply-Berechnung als Liste zurück. Jedes Ergebnis ist ein Element der Liste.
+
+* Sapply: Funktioniert wie Lapply, versucht aber, das Ergebnis als Vektor oder Matrix auszugeben.
+
+* Vapply: Hier gibt der Nutzer vorher ein, welche Klasse das Ergebnis haben soll, z.B. `VUN.VALUE = character(1)`
+
+Apply bei einer Matrix I
 ========================================================
+
+```{r}
+matrix_x <- cbind(x1 = 3, x2 = c(4:1, 2:5))
+
+dimnames(matrix_x)[[1]] <- letters[1:8]
+matrix_x
+```
+
+```{r}
+apply(matrix_x, 2, mean, trim = .2)
+```
+
+Apply bei einer Matrix II
 ========================================================
+
+```{r}
+col.sums <- apply(matrix_x, 2, sum)
+row.sums <- apply(matrix_x, 1, sum)
+rbind(cbind(matrix_x, Rtot = row.sums), Ctot = c(col.sums, sum(col.sums)))
+```
+
+Lapply, Sapply
 ========================================================
+
+```{r}
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+
+lapply(x, quantile)
+sapply(x, quantile)
+```
+
+Vapply
 ========================================================
+
+```{r}
+vapply(x, mean, numeric(1))
+```
+
+Übung: Vapply
 ========================================================
+
+Beim folgenden Code scheitert `sapply()`. Woran könnte das liegen?
+
+Und: Wie könnten wir vapply benutzen, um zu merken, dass wir in einen Fehler laufen??
+
+```{r}
+market_crash <- list(dow_jones_drop = 777.68, 
+                      date = as.POSIXct("2019-04-01"))
+
+lapply(market_crash, class)
+sapply(market_crash, class)
+```
+
+Lösung: Vapply
+========================================================
+
+So geht der Test mit vapply - die Funktion wirft einen Fehler aus, weil die beiden Ergebnisse nicht ein einzelner `character` sind:
+
+```
+vapply(market_crash, class, FUN.VALUE = character(1))
+
+> vapply(market_crash, class, FUN.VALUE = character(1))
+Error in vapply(market_crash, class, FUN.VALUE = character(1)) : 
+  values must be length 1,
+ but FUN(X[[2]]) result is length 2
+```
+So würde es funktionieren, wir wandeln die `POSIXcts` in `characters´ um:
+
+```{r}
+vapply(market_crash, FUN = function(x) paste(class(x), collapse = "; "),
+       FUN.VALUE = character(1))
+```
+
+While und Repeat
+========================================================
+
+Es gibt noch zwei weitere Wege: While und Repeat
+
+Ein Beispiel für While (muss man nacheinander ausführen):
+
+```
+readinteger <- function(){
+  n <- readline(prompt="Please, enter your ANSWER: ")
+}
+
+response <- as.integer(readinteger())
+
+while (response!=42) {   
+  print("Sorry, the answer to whatever the question MUST be 42");
+  response <- as.integer(readinteger());
+}
+```
+
+Repeat ist eine Variante von While
+========================================================
+
+Dabei wird der `repeat`-Block wenigstens einmal ausgeführt.
+
+```
+readinteger <- function(){
+  n <- readline(prompt="Please, enter your ANSWER: ") 
+}
+
+repeat {   
+  response <- as.integer(readinteger());
+  if (response == 42) {
+    print("Well done!");
+    break
+  } else print("Sorry, the answer to whatever the question MUST be 42");
+}
+```
+
+Break und next
+========================================================
+
+Neben For, while und repeat gibt es noch zwei Befehle, die die Schleifen steuern können:
+
+* `break;` beendet den aktuellen Loop sofort. Zum Beispiel hilfreich, wenn ein Fehler auftritt.
+
+* `next;` beendet den aktuellen Durchgang und beginnt den nächsten Durchgang vom Beginn des Loops (i wird also i+1)
+
+Next-Beispiel
+========================================================
+
+```{r}
+m=20
+
+for (k in 1:m){
+  if (!k %% 2)
+    next
+    print(k)
+}
+```
+
+Fazit: Schleifen
+========================================================
+
+Es gibt **drei verschiedene Varianten** Schleifen zu schreiben:
+
+* For
+
+* While
+
+* Repeat
+
+Und **zwei Befehle** um die Schleifen zu steuern:
+
+* break
+
+* next
+
+Eigene Funktionen schreiben
+========================================================
+
+Wir können mehrere Arbeitsschritte in R kombinieren und eigene Funktionen schreiben.
+
+Zum Beispiel, wenn wir mehrmals dieselben Cleaning-Schritte für unsere Datensätze ausführen wollen.
+
+Funktionen in R sind einfach aufgebaut, wir kennen das Muster schon:
+
+```
+function(ARGUMENTE) {BODY}
+```
+
+Eine Funktion, die keinem Namen zugewiesen wird, heißt "anonyme Funktion"
+
+**Best Practise**: Benennt eure eigenen Funktionen anders, als bereits bestehende Funktionen. Das macht nur Ärger.
+
+Formals, Body, Environment
+========================================================
+
+Beim Erstellen einer Funktion passieren drei Sachen:
+
+* formals() (oder: Argumente) wird explizit angegeben
+
+* body() wird explizit angegeben
+
+* environment() wird implizit angegeben
+
+Die Funktionselemente
+========================================================
+
+```{r}
+f01 <- function(x, y) {
+  x + y
+}
+
+formals(f01)
+
+body(f01)
+
+environment(f01)
+```
+
+f01
+========================================================
+
+```
+> f01()
+Error in f01() : argument "x" is missing, with no default
+```
+
+```{r}
+f01(x = 1, 5) # y kann, muss aber nicht angegeben werden, weil die Position vorgegeben ist
+```
+
+Environment
+========================================================
+
+Globale Umgebung:
+
+```
+> ls(environment())
+[1] "f01"
+```
+
+### Globale vs. lokale Umgebung:
+
+```{r}
+x <- 10
+f02 <- function(y) {
+  sum(y * x)
+}
+f02(4)
+```
+
+Warum wird die Variable x beachtet, obwohl sie nicht in der Funktion steht?
+
+Welchen Wert nimmt y an, wenn ich sie außerhalb der Funktion ausgebe?
+
+Globale vs. lokale Umgebung
+========================================================
+
+```
+> x <- 10
+> f02 <- function(y) {
++     sum(y * x)
++ }
+> y
+Error: object 'y' not found
+```
+Die Variable y ist nicht in der globalen Umgebung, nur in der lokalen Umgebung der Funktion `f02` (genannt: Scope der Funktion).
+
+Nachteil: Wir können sie nicht einfach aufrufen.
+
+Vorteil: Die Variable funkt uns nicht in andere Funktionen dazwischen.
+
+```{r}
+x <- 10
+f02 <- function(y) {
+  x <- 5  
+  sum(y * x)
+}
+```
+
+Was passiert hier?
+
+========================================================
+
+```{r}
+x <- 10
+f02 <- function(y) {
+  x <- 5  
+  sum(y * x)
+}
+f02(4)
+```
+
+
+
+Funktion exportieren
+========================================================
+
+Die einfachste Variante, eine Funktion zu exportieren, ist, sie als `*.R`-Datei zu speichern.
+
+Im anderen Skript wird sie so aufgerufen und der dortigen globalen Umgebung hinzugefügt:
+
+`source("FUNKTION.R")`
+
+Hinweis: Man kann auch mehrere Funktionen in eine`*.R`-Datei schreiben.
+
 ========================================================
 ========================================================
 ========================================================
