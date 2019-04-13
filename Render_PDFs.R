@@ -1,7 +1,10 @@
 # This Script renders all Presentations as PDFs and saves them imto the folder /pdf
 library(rmarkdown)
 
+setwd("~/R Bootcamp")
+
 all_md <- grep(pattern = ".+\\/(?!R|readme).+[^R]md", list.files(recursive = TRUE), perl = T, value = T)
 
-lapply(all_md, render, output_format = "pdf_document", output_dir = "pdf")
-render("mydoc.md", output_format = "pdf_document", output_dir = "pdf")
+for (i in seq_along(all_md)) {
+  render(all_md[i], output_format = "pdf_document", output_dir = "pdfs", knit_root_dir = "pdfs")
+}

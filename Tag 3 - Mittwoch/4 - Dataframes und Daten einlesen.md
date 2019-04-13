@@ -2,7 +2,6 @@
 ========================================================
 author: Benedict Witzenberger
 date: 17. April 2019
-autosize: true
 
 Recap
 ========================================================
@@ -322,7 +321,7 @@ a[[1]]
 [1] 1
 ```
 
-> “If list x is a train carrying objects, then x[[5]] is the object in car 5; x[4:6] is a train of cars 4-6.” 
+> "If list x is a train carrying objects, then x[[5]] is the object in car 5; x[4:6] is a train of cars 4-6."
 >
 > (Quelle: @RLangTip auf Twitter)
 
@@ -996,7 +995,7 @@ Immer aufpassen, wo sich R gerade in unserem Dateisystem befindet:
 Comma separated Values
 ========================================================
 
-DatenjournalistInnens Liebling: sehr gängiges Format, relativ wenige Probleme
+Datenjournalistinnens Liebling
 
 ![](csv_insurance.png)
 
@@ -1265,7 +1264,7 @@ aktuelle_zeit
 ```
 
 ```
-[1] "2019-04-06 18:46:55 CEST"
+[1] "2019-04-13 17:30:40 CEST"
 ```
 
 Die Umwandlung von POSIXct ist kompliziert, denn man muss Zeitzonen und Formate im Blick behalten. Aber: as.POSIXct kann das alles handlen.
@@ -1288,6 +1287,12 @@ as.POSIXct(de_datum, format = "%d.%m.%Y %H:%M", tz = "MET")
 Übung: Dateien öffnen
 ========================================================
 
-Auf dem Github-Repo liegen drei Dateien.
+Auf dem Github-Repo liegen drei originale Datensätze in CSV und XLSX.
 
 Öffnet sie, und versucht die Spaltennamen und Spaltenformate richtig anzugeben. Oder wandelt die Dateien nach dem einlesen so um, dass ihr damit weiterarbeiten könnt.
+
+Die drei Dateien sind etwas unterschiedlich - vor allem unterschiedlich groß.
+
+Empfohlene Reihenfolge nach aufsteigender Schwierigkeit:
+
+Bierpreis, Fahrgastzählung, Wohnungen

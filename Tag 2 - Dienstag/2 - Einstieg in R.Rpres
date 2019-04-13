@@ -6,6 +6,9 @@ autosize: true
 
 Was ist R?
 ========================================================
+```{r, echo=FALSE}
+options(Encoding="UTF-8")
+```
 
 > "R is a system for statistical computation and graphics. It consists of a language plus a run-time environment with graphics, a debugger, access to certain system functions, and the ability to run programs stored in script files."
 
@@ -87,9 +90,9 @@ Microsofts `cmd.exe` nutzt teilweise andere Befehle. Deswegen haben wir versucht
 Kommandozeile: Wo?
 ========================================================
 
-**Windows**: Windows-Taste, “cmd”. Oder Startmenü → Alle Programme → Zubehör → Eingabeaufforderung
+**Windows**: Windows-Taste, "cmd". Oder Startmenü → Alle Programme → Zubehör → Eingabeaufforderung
 
-**Linux Subsystem für Windows**: Eingabeaufforderung → “bash”
+**Linux Subsystem für Windows**: Eingabeaufforderung → "bash"
 
 **Mac OS X**: Programme → Zubehör → Terminal
 
@@ -201,15 +204,15 @@ Noch detaillierter suchen
 
 **UNIX**
 
-`find ./ -iname “datei.endung”`
+`find ./ -iname "datei.endung"`
 
-`grep -i -R “suchtext” ./*`
+`grep -i -R "suchtext"" ./*`
 
 **WINDOWS**
 
-`dir /b /s “datei.endung”`
+`dir /b /s "datei.endung"`
 
-`findstr /s /m “suchtext” *.*`
+`findstr /s /m "suchtext"" *.*`
 
 Hilfe bekommen
 ========================================================

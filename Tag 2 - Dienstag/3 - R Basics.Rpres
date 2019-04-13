@@ -6,7 +6,9 @@ autosize: true
 
 RStudio
 ========================================================
-
+```{r, echo=FALSE}
+options(Encoding="UTF-8")
+```
 
 > RStudio ist eine vom Unternehmen RStudio, Inc. angebotene, integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für die statistische Programmiersprache R. 
 

@@ -250,7 +250,7 @@ Quelle: [New York Times 2020 Report](https://www.nytimes.com/projects/2020-repor
 Was ist Datenjournalismus?
 ========================================================
 
->“important, focused information that is useful to people’s lives and helps them understand the world” *Adrian Holovaty 2006*
+>"important, focused information that is useful to people’s lives and helps them understand the world" *Adrian Holovaty 2006*
 
 Daten + Frage + Analytisches Vorgehen = Datenjournalismus
 

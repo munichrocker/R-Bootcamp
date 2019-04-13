@@ -1017,6 +1017,8 @@ Auf dem Stand bleiben
 
 [R Weekly](https://rweekly.org/)
 
+[R Studio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
 Weiterlernen Interaktiv
 ========================================================
 

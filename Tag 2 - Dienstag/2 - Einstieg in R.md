@@ -7,6 +7,7 @@ autosize: true
 Was ist R?
 ========================================================
 
+
 > "R is a system for statistical computation and graphics. It consists of a language plus a run-time environment with graphics, a debugger, access to certain system functions, and the ability to run programs stored in script files."
 
 > (Quelle: [R FAQ](https://cran.r-project.org/doc/FAQ/R-FAQ.html))
@@ -25,9 +26,9 @@ R vs Python
 
 * Entwickelt von Statistikern
 * viele statistische Tools
-* einfache Möglichkeiten zur Datenvisualisierung
+* einfache MÃ¶glichkeiten zur Datenvisualisierung
 * gutes User-Interface durch RStudio
-* vielfältigere Lösungen für dasselbe Problem
+* vielfÃ¤ltigere LÃ¶sungen fÃ¼r dasselbe Problem
 * verbreitet im Journalismus und der Wirtschaft
 * relative steile Lernkurve, aber nach den Basics geht es schnell
 * Bibliotheken: CRAN (Comprehensive R Archive Network)
@@ -40,25 +41,17 @@ R vs Python
 * multi-funktionelle Sprache
 * schneller
 * einfachere Syntax
-* weniger Lösungen für dasselbe Problem
+* weniger LÃ¶sungen fÃ¼r dasselbe Problem
 * relativ flache Lernkurve
 * Bibliotheken: PyPi
 
 R vs Python
 ========================================================
 
-Es gibt Bibliotheken, die Programmcode der einen Sprache in der anderen Sprache ausführen können.
+Es gibt Bibliotheken, die Programmcode der einen Sprache in der anderen Sprache ausfÃ¼hren kÃ¶nnen.
 
 * R in Python: RPy2
 * Python in R: rPython
-
-> "“R is more about sketching, and not building,” says Michael Driscoll, CEO of Metamarkets.
-
-> “You won’t find R at the core of Google’s page rank or Facebook’s friend suggestion algorithms. 
-
-> Engineers will prototype in R, then hand off the model to be written in Java or Python.”" 
-
->(Quelle: [fastcompany.com](https://www.fastcompany.com/3030716/the-9-best-languages-for-crunching-data))
 
 R vs Python
 ========================================================
@@ -67,7 +60,7 @@ Fazit:
 
 Beide Sprachen haben vor und Nachteile.
 
-Wir lernen hier R, weil es im Journalismus weiter verbreitet ist. Seine Konzepte stammen eher aus der Statistik stammen - und führen daher für unsere Zwecke schneller zu Ergebnissen.
+Wir lernen hier R, weil es im Journalismus weiter verbreitet ist. Seine Konzepte stammen eher aus der Statistik stammen - und fÃ¼hren daher fÃ¼r unsere Zwecke schneller zu Ergebnissen.
 
 
 Heute Vormittag
@@ -84,9 +77,9 @@ Die Kommandozeile
 
 **Warum?**
 
-Jeder nutzt heute hauptsächlich grafische Benutzerinterfaces - aber: über die Kommandozeile geben wir Befehle direkt an den Computer.
+Jeder nutzt heute hauptsÃ¤chlich grafische Benutzerinterfaces - aber: Ã¼ber die Kommandozeile geben wir Befehle direkt an den Computer.
 
-Programme können schnell und direkt aufgerufen werden.
+Programme kÃ¶nnen schnell und direkt aufgerufen werden.
 
 Alternative Namen: Konsole, Terminal, Bash, Shell (z.B. bei OS X, Linux)
 
@@ -95,13 +88,13 @@ Microsofts `cmd.exe` nutzt teilweise andere Befehle. Deswegen haben wir versucht
 Kommandozeile: Wo?
 ========================================================
 
-**Windows**: Windows-Taste, “cmd”. Oder Startmenü <U+2192> Alle Programme <U+2192> Zubehör <U+2192> Eingabeaufforderung
+**Windows**: Windows-Taste, "cmd". Oder StartmenÃ¼ â†’ Alle Programme â†’ ZubehÃ¶r â†’ Eingabeaufforderung
 
-**Linux Subsystem für Windows**: Eingabeaufforderung <U+2192> “bash”
+**Linux Subsystem fÃ¼r Windows**: Eingabeaufforderung â†’ "bash"
 
-**Mac OS X**: Programme <U+2192> Zubehör <U+2192> Terminal
+**Mac OS X**: Programme â†’ ZubehÃ¶r â†’ Terminal
 
-**Linux**: Programme <U+2192> Zubehör <U+2192> Terminal (versionsabhängig)
+**Linux**: Programme â†’ ZubehÃ¶r â†’ Terminal (versionsabhÃ¤ngig)
 
 
 Bash vs DOS
@@ -142,7 +135,7 @@ benedict
 Echo
 ========================================================
 
-`echo xyz` gibt *xyz* zurück. In der Konsole ist das vielleicht erstmal egal, aber wir können das auch in Dateien schreiben
+`echo xyz` gibt *xyz* zurÃ¼ck. In der Konsole ist das vielleicht erstmal egal, aber wir kÃ¶nnen das auch in Dateien schreiben
 
 `echo "Hello World"`
 
@@ -152,7 +145,7 @@ Echo
  
 ![](hello_world.png)
 
-**Lösung, wenn die Konsole hängt: Strg + C / Ctrl + C**
+**LÃ¶sung, wenn die Konsole hÃ¤ngt: Strg + C / Ctrl + C**
 
 Echo in eine Datei
 ========================================================
@@ -161,7 +154,7 @@ Echo in eine Datei
 
 `>` leitet den Inhalt von echo in eine Datei
 
-Wie können wir das überprüfen?
+Wie kÃ¶nnen wir das Ã¼berprÃ¼fen?
 
 **UNIX**
 
@@ -171,13 +164,13 @@ Wie können wir das überprüfen?
 
 `type`
 
-Noch eine Zeile hinzufügen:
+Noch eine Zeile hinzufÃ¼gen:
 
 `echo "Ich bin ein weiterer Test-Text" >> test.txt`
 
 `>>` ist der Append-Operator
 
-Editor öffnen
+Editor Ã¶ffnen
 ========================================================
 
 `notepad test.txt (Win) | open test.txt (Unix)`
@@ -188,13 +181,13 @@ Verzeichnis wechseln / Dateien anzeigen
 
 **UNIX**
 
-`cd [Ordnername]` oder `cd ..` für eine Ebene hoch
+`cd [Ordnername]` oder `cd ..` fÃ¼r eine Ebene hoch
 
 `ls`
 
 **Windows**
 
-`cd [Ordnername]` oder `cd ..` für eine Ebene hoch
+`cd [Ordnername]` oder `cd ..` fÃ¼r eine Ebene hoch
 
 `dir`
 
@@ -209,22 +202,22 @@ Noch detaillierter suchen
 
 **UNIX**
 
-`find ./ -iname “datei.endung”`
+`find ./ -iname "datei.endung"`
 
-`grep -i -R “suchtext” ./*`
+`grep -i -R "suchtext"" ./*`
 
 **WINDOWS**
 
-`dir /b /s “datei.endung”`
+`dir /b /s "datei.endung"`
 
-`findstr /s /m “suchtext” *.*`
+`findstr /s /m "suchtext"" *.*`
 
 Hilfe bekommen
 ========================================================
 
 **UNIX**
 
-`help [Kommando]` (auch gut: `man [Kommando]` führt zur Hilfeseite)
+`help [Kommando]` (auch gut: `man [Kommando]` fÃ¼hrt zur Hilfeseite)
 
 **WINDOWS**
 
@@ -239,7 +232,7 @@ Meistens funktionieren auch:
 
 ```
 
-Einen Überblick gewinnen
+Einen Ãœberblick gewinnen
 ========================================================
 
 **UNIX**
@@ -281,7 +274,7 @@ Datei umbenennen
 
 `rename test_alt.txt test_neu.txt`
 
-Geht auch für alle Dateien mit einer Auswahl:
+Geht auch fÃ¼r alle Dateien mit einer Auswahl:
 
 `mv *.htm *.html`
 
@@ -289,7 +282,7 @@ Geht auch für alle Dateien mit einer Auswahl:
 
 **TIPP**
 
-Verwende bei Dateinamen die TAB-Taste für Autovervollständigung.
+Verwende bei Dateinamen die TAB-Taste fÃ¼r AutovervollstÃ¤ndigung.
 
 
 Datei kopieren
@@ -304,18 +297,18 @@ Datei kopieren
 `copy test.txt test_kopie.txt`
 
 
-Datei löschen
+Datei lÃ¶schen
 ========================================================
 
 **UNIX**
 
-`rm test_kopie.txt` (`-f` ohne Nachfragen und `-r` für Unterverzeichnisse)
+`rm test_kopie.txt` (`-f` ohne Nachfragen und `-r` fÃ¼r Unterverzeichnisse)
 
 **WINDOWS**
 
-`del test_kopie.txt` (`/F` ohne Nachfragen und `/S` für Unterverzeichnisse)
+`del test_kopie.txt` (`/F` ohne Nachfragen und `/S` fÃ¼r Unterverzeichnisse)
 
-Sehr mächtiges Werkzeug, sollte mit Bedacht eingesetzt werden.
+Sehr mÃ¤chtiges Werkzeug, sollte mit Bedacht eingesetzt werden.
 
 NICHT BENUTZEN: `rm -rf /` im Root-Verzeichnis
 
@@ -341,26 +334,26 @@ Zusammen:
 7. exit
 
 
-Übung Kommandozeile
+Ãœbung Kommandozeile
 ========================================================
 
 1. Schreibe "Hallo Welt" in die Konsole.
 
-2. Erstelle ein Verzeichnis höher eine leere Datei mit dem Namen `kommandozeile.txt`.
+2. Erstelle ein Verzeichnis hÃ¶her eine leere Datei mit dem Namen `kommandozeile.txt`.
 
 3. Schreibe "Ich kann Kommandozeile" in die Datei mit dem Namen `kommandozeile.txt`
 
 4. Erstelle eine Kopie von dieser Datei.
 
-5. Überprüfe, ob die Kopie erstellt wurde.
+5. ÃœberprÃ¼fe, ob die Kopie erstellt wurde.
 
-6. Lösche die Kopie über die Kommandozeile.
+6. LÃ¶sche die Kopie Ã¼ber die Kommandozeile.
 
 
-Weitere nützliche Tools
+Weitere nÃ¼tzliche Tools
 ========================================================
 
-`ip a` (UNIX) oder `ipconfig` (Windows): Gibt Infos über die aktuellen Netzwerkverbindungen
+`ip a` (UNIX) oder `ipconfig` (Windows): Gibt Infos Ã¼ber die aktuellen Netzwerkverbindungen
 
 `curl` kann Dateien herunterladen
 
@@ -384,7 +377,7 @@ Programme installieren
 
 **Windows:** schwierig
 
-**Linux** (als Admin): Über apt install
+**Linux** (als Admin): Ãœber apt install
 
 Mac** OS**: Paketmanager Homebrew: https://brew.sh/
 
@@ -412,11 +405,11 @@ https://wiki.ubuntuusers.de/ExifTool/
 Beispiel: PDFs bearbeiten
 ========================================================
 
-pdftk kann PDFs zusammenfügen, teilen, bearbeiten, ausfüllen ...
+pdftk kann PDFs zusammenfÃ¼gen, teilen, bearbeiten, ausfÃ¼llen ...
 
 `pdftk EINGABEDATEI OPERATION OPTION output AUSGABEDATEI PASSWORT RECHTEOPTION`
 
-Zusammenfügen:
+ZusammenfÃ¼gen:
 
 `pdftk datei1.pdf datei2.pdf datei3.pdf cat output datei123.pdf`
 
@@ -424,7 +417,7 @@ Zusammenfügen:
 Editoren
 ========================================================
 
-In der Kommandozeile können wir verschiedene Editoren aufrufen.
+In der Kommandozeile kÃ¶nnen wir verschiedene Editoren aufrufen.
 
 **UNIX**
 
@@ -441,7 +434,7 @@ In der Kommandozeile können wir verschiedene Editoren aufrufen.
 Visuelle Editoren
 ========================================================
 
-Für die Softwareentwicklung gibt es gängige Editoren:
+FÃ¼r die Softwareentwicklung gibt es gÃ¤ngige Editoren:
 
 [Visual Code Studio](https://code.visualstudio.com/) von Microsoft, Open Source
 
@@ -449,16 +442,16 @@ Für die Softwareentwicklung gibt es gängige Editoren:
 
 [Atom](https://atom.io/) Projekt von Github
 
-**Unser Glück:** 
+**Unser GlÃ¼ck:** 
 
-Für R ist die gängige Umgebung RStudio. Theoretisch können wir aber auch einen anderen Editor benutzen.
+FÃ¼r R ist die gÃ¤ngige Umgebung RStudio. Theoretisch kÃ¶nnen wir aber auch einen anderen Editor benutzen.
 
 Git
 ========================================================
 
-Versionskontrolle (Version Control System, VCS): Ermöglicht gemeinsames Arbeiten an (Programmier-)Projekten, Nachvollziehen von Arbeitsschritten, Zurücksetzen auf frühere Versionen, Zusammenführen neuer Elemente
+Versionskontrolle (Version Control System, VCS): ErmÃ¶glicht gemeinsames Arbeiten an (Programmier-)Projekten, Nachvollziehen von Arbeitsschritten, ZurÃ¼cksetzen auf frÃ¼here Versionen, ZusammenfÃ¼hren neuer Elemente
 
-Git ist freie Software, sehr populär (Android, Ruby on rails, Eclipse, VLC media player, …). 
+Git ist freie Software, sehr populÃ¤r (Android, Ruby on rails, Eclipse, VLC media player, â€¦). 
 
 Funktioniert lokal oder auf Servern. 
 
@@ -467,7 +460,7 @@ Anbieter z.B: GitHub, GitLab, Bitbucket
 Git installieren
 ========================================================
 
-Überprüfen wir, welche Version wir installiert haben
+ÃœberprÃ¼fen wir, welche Version wir installiert haben
 
 ```
 git --version
@@ -516,7 +509,7 @@ Text-final.doc
 
 Text-final2.doc
 
-Git übernimmt dieses Dilemma für uns mit Branches: neben unserer `master`-Branch können wir beliebig nebenbei arbeiten
+Git Ã¼bernimmt dieses Dilemma fÃ¼r uns mit Branches: neben unserer `master`-Branch kÃ¶nnen wir beliebig nebenbei arbeiten
 
 ![](branching.png)
 
@@ -530,20 +523,20 @@ Jeder Commit hat eine Commit-Message: zum Beispiel "Intial commit", "removed xyz
 Push und Pull
 ========================================================
 
-Commitete Dateien, die wir auf unserem Rechner verändert haben, **pushen** wir auf der Git-Server, damit sie für alle Mitarbeitenden verfügbar sind.
+Commitete Dateien, die wir auf unserem Rechner verÃ¤ndert haben, **pushen** wir auf der Git-Server, damit sie fÃ¼r alle Mitarbeitenden verfÃ¼gbar sind.
 
-Dateien, die auf dem Server verändert sind, **pullen** wir auf unseren Rechner.
+Dateien, die auf dem Server verÃ¤ndert sind, **pullen** wir auf unseren Rechner.
 
-Der **Pull-Request** in einem Projekt bedeutet, dass der Code in einem Branch geprüft und in ein Hauptprogejt übernommen werden soll. In Github werden die Unterschiede im Code in rot und grün dargestellt.
+Der **Pull-Request** in einem Projekt bedeutet, dass der Code in einem Branch geprÃ¼ft und in ein Hauptprogejt Ã¼bernommen werden soll. In Github werden die Unterschiede im Code in rot und grÃ¼n dargestellt.
 
-Erfolgreiche Pull-Requests werden **gemergt**. Der Code wird zusammengeführt.
+Erfolgreiche Pull-Requests werden **gemergt**. Der Code wird zusammengefÃ¼hrt.
 
 Clones
 ========================================================
 
-Repositories, in denen wir gerne lokal weiterarbeiten wollen, können wir **klonen**.
+Repositories, in denen wir gerne lokal weiterarbeiten wollen, kÃ¶nnen wir **klonen**.
 
-Dadurch entsteht eine Verbindung von unserem Computer zum Repository, und wir können immer den aktuellsten Stand des Projekts abrufen.
+Dadurch entsteht eine Verbindung von unserem Computer zum Repository, und wir kÃ¶nnen immer den aktuellsten Stand des Projekts abrufen.
 
 Die Befehle in Github Bash I
 ========================================================
@@ -552,11 +545,11 @@ Die Befehle in Github Bash I
 
 `git remote add origin https://github.com/munichrocker/mynewrepository.git` - Repository vom Server verbinden
 
-`git status` - zeigt Veränderungen
+`git status` - zeigt VerÃ¤nderungen
 
-`git add .` - fügt alle (durch den Punkt) Dateien im Ordner zu Git hinzu
+`git add .` - fÃ¼gt alle (durch den Punkt) Dateien im Ordner zu Git hinzu
 
-`git commit -m "Initial Commit"` - fügt die Änderungen zu einem Commit zusammen
+`git commit -m "Initial Commit"` - fÃ¼gt die Ã„nderungen zu einem Commit zusammen
 
 Die Befehle in Github Bash II
 ========================================================
@@ -567,16 +560,16 @@ Branches:
 
 `git checkout -b [neue Branch]` - erstellt neue Branch und wechselt dorthin. Nur Wechseln geht ohne das `-b` 
 
-`git push -u origin master` - pusht in die Master-Branch in unserem Server-Repository. Statt Master können wir auch eine andere Branch auswählen.
+`git push -u origin master` - pusht in die Master-Branch in unserem Server-Repository. Statt Master kÃ¶nnen wir auch eine andere Branch auswÃ¤hlen.
 
-`git pull origin master` - holt die Dateien vom Server zurück auf den Computer
+`git pull origin master` - holt die Dateien vom Server zurÃ¼ck auf den Computer
 
-Für Github gibt es auch grafische Benutzeroberflächen - was euch lieber ist.
+FÃ¼r Github gibt es auch grafische BenutzeroberflÃ¤chen - was euch lieber ist.
 
-Übung Git
+Ãœbung Git
 ========================================================
 
-1. Erstellt ein neues Repository (privat oder öffentlich) auf Github
+1. Erstellt ein neues Repository (privat oder Ã¶ffentlich) auf Github
 
 2. Klont das Repository auf euren Computer
 

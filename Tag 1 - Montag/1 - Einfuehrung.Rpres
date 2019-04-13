@@ -6,6 +6,9 @@ autosize: true
 
 Über mich
 ========================================================
+```{r, echo=FALSE}
+options(Encoding="UTF-8")
+```
 
 - Studium Politikwissenschaft und Geschichte in München
 - Währenddessen studienbegleitenden Journalistenausbildung am ifp

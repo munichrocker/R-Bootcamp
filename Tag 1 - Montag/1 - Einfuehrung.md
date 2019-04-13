@@ -7,6 +7,7 @@ autosize: true
 Über mich
 ========================================================
 
+
 - Studium Politikwissenschaft und Geschichte in München
 - Währenddessen studienbegleitenden Journalistenausbildung am ifp
 - Freie Mitarbeit beim Münchner Merkur, Merkur.de, BR

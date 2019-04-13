@@ -2,7 +2,6 @@
 ========================================================
 author: Benedict Witzenberger
 date: 17. April 2019
-autosize: true
 
 Recap
 ========================================================
@@ -173,7 +172,7 @@ a[1]
 a[[1]]
 ```
 
-> “If list x is a train carrying objects, then x[[5]] is the object in car 5; x[4:6] is a train of cars 4-6.” 
+> "If list x is a train carrying objects, then x[[5]] is the object in car 5; x[4:6] is a train of cars 4-6."
 >
 > (Quelle: @RLangTip auf Twitter)
 
