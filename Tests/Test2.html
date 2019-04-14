@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Benedict Witzenberger" />
+
+
+<title>Donnerstags-Test</title>
+
+<script src="Test2_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="Test2_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="Test2_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="Test2_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="Test2_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="Test2_files/navigation-1.1/tabsets.js"></script>
+<link href="Test2_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="Test2_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Donnerstags-Test</h1>
+<h4 class="author"><em>Benedict Witzenberger</em></h4>
+<h4 class="date"><em><ol start="18" style="list-style-type: decimal">
+<li>April 2019</li>
+</ol></em></h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<div id="erstelle-einen-dataframe" class="section level2">
+<h2>Erstelle einen Dataframe</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuIiwic2FtcGxlIjoiIyBFcnN0ZWxsZSBkZW4gRGF0YWZyYW1lIGRmIG1pdCBlaW5lIFNwYWx0ZSBudW1iZXJzIG1pdCBkZW4gV2VydGVuIDEgYmlzIDEwLCBlaW5lciBTcGFsdGUgbGV0dGVycyBtaXQgZGVtIGVyc3RlbiB6ZWhuIEJ1Y2hzdGFiZW4gKG51dHplIGRhZlx1MDBmY3IgYW0gYmVzdGVuIGRlbiB2b3JoYW5kZW5lbiBWZWt0b3IgbGV0dGVycyksIHVuZCBlaW5lciBTcGFsdGUgbG9naWNhbHMgbWl0IGZcdTAwZmNuZm1hbCBUUlVFIHVuZCBmXHUwMGZjbmZtYWwgRkFMU0UiLCJzb2x1dGlvbiI6IiMgRXJzdGVsbGUgZGVuIERhdGFmcmFtZSBkZiBtaXQgZWluZSBTcGFsdGUgbnVtYmVycyBtaXQgZGVuIFdlcnRlbiAxIGJpcyAxMCwgZWluZXIgU3BhbHRlIGxldHRlcnMgbWl0IGRlbSBlcnN0ZW4gemVobiBCdWNoc3RhYmVuIChudXR6ZSBkYWZcdTAwZmNyIGFtIGJlc3RlbiBkZW4gdm9yaGFuZGVuZW4gVmVrdG9yIGxldHRlcnMpLCB1bmQgZWluZXIgU3BhbHRlIGxvZ2ljYWxzIG1pdCBmXHUwMGZjbmZtYWwgVFJVRSB1bmQgZlx1MDBmY25mbWFsIEZBTFNFXG5cbmRmIDwtIGRhdGEuZnJhbWUobnVtYmVycyA9IDE6MTAsIGxldHRlcnMgPSBsZXR0ZXJzWzE6MTBdLCBsb2dpY2FscyA9IGMocmVwKFRSVUUsIDUpLCByZXAoRkFMU0UsIDUpKSkiLCJzY3QiOiIjIEhpZXIgYmVnaW5uZW4gZGllIFRlc3RzLiBFcyBnaWJ0IHZlcnNjaGllZGVuZSBWYXJpYW50ZW46XG50ZXN0X2NvcnJlY3QodGVzdF9vYmplY3QoXCJkZlwiKSwgdGVzdF9mdW5jdGlvbihcImRhdGEuZnJhbWVcIiwgYXJncyA9IGMoXCJudW1iZXJzXCIsIFwibGV0dGVyc1wiLCBcImxvZ2ljYWxzXCIpKSkgIyBmb3IgeCA8LSBtZWFuKDE6MyksIGRvZXMgbm90IGNoZWNrIGNhbGN1bGF0aW9uXG5cbiMgdGVzdF9vYmplY3QoXCJkZlwiLFxuIyAgICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJQbGVhc2UgbWFrZSBzdXJlIHRvIGRlZmluZSBhIHZhcmlhYmxlIGBiYC5cIixcbiMgICAgICAgICAgICAgaW5jb3JyZWN0X21zZyA9IFwiTWFrZSBzdXJlIHRoYXQgeW91IGFzc2lnbiB0aGUgY29ycmVjdCB2YWx1ZSB0byBgYmAuXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztEYXRhZnJhbWVzIGRlZmluaWVyc3QgRHUgbWl0IDxjb2RlPmRhdGEuZnJhbWUoKTwvY29kZT4uJnJkcXVvOyJ9
+</div>
+</div>
+<div id="subsetting-in-dataframes" class="section level2">
+<h2>Subsetting in Dataframes</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImRmIDwtIGRhdGEuZnJhbWUoeCA9IHJlcCgxOjQsIDIpLCB5ID0gbGV0dGVyc1sxOjhdLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpIiwic2FtcGxlIjoiIyBGXHUwMGZjciBkaWNoIHd1cmRlIGRlciBEYXRhZnJhbWUgZGYgZGVmaW5pZXJ0XG4jIEZpbmRlIGFsbGUgWmVpbGVuIHZvbiBkZiwgaW4gZGVuZW4gZGllIFNwYWx0ZSB4IDQgaXN0XG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5cbiMgTFx1MDBmNnNjaGUgZGllIFNwYWx0ZSB5Iiwic29sdXRpb24iOiIjIEZcdTAwZmNyIGRpY2ggd3VyZGUgZGVyIERhdGFmcmFtZSBkZiBkZWZpbmllcnRcbiMgRmluZGUgYWxsZSBaZWlsZW4gdm9uIGRmLCBpbiBkZW5lbiBkaWUgU3BhbHRlIHggNCBpc3RcbmRmW2RmJHggPT0gNCxdXG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5kZiR6IDwtIGxldHRlcnNbMTo4XVxuXG4jIExcdTAwZjZzY2hlIGRpZSBTcGFsdGUgeVxuZGYkeSA8LSBOVUxMIiwic2N0IjoidGVzdF9vYmplY3QoXCJkZlwiKSJ9
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

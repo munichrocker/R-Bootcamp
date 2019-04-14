@@ -207,7 +207,7 @@ test_function("sum", args = c("..."))
 ```
 
 ```{r ex="5_fastSum", type="hint"}
-"Die Lösung hängt mit der Funktion `sum()` zusammen"
+"Die Lösung hÃ¤ngt mit der Funktion `sum()` zusammen"
 ```
 
 ## Vektoren testen
@@ -225,7 +225,7 @@ x <- c(1L, 5L, 8L, 255L)
 # Wandle den Vektor x in einen numerischen Vektor um:
 
 
-# Prüfe, ob der Vektor jetzt noch ein Integer ist:
+# PrÃ¼fe, ob der Vektor jetzt noch ein Integer ist:
 
 # Gib dem Vektor die Namen a, b, c, d
 
@@ -233,7 +233,7 @@ x <- c(1L, 5L, 8L, 255L)
 
 
 ```{r ex="6_testVecs", type="solution"}
-# Der Vektor x wurde für Dich vordefiniert.
+# Der Vektor x wurde fÃ¼r Dich vordefiniert.
 # Was ist der Typ des Vektors x?
 typeof(x)
 
@@ -296,37 +296,3 @@ test_function("unlist", args = c("x"), incorrect_msg = "Hast Du die Funktion auf
 test_output_contains(5.9, incorrect_msg = "Hast Du auf das richtige Objekt zugegriffen?")
 ```
 
-
-## Subsetting in Dataframes
-
-```{r ex="8_dataframes", type="pre-exercise-code"}
-df <- data.frame(x = rep(1:4, 2), y = letters[1:8], stringsAsFactors = FALSE)
-```
-
-
-```{r ex="8_dataframes", type="sample-code"}
-# Für dich wurde der Dataframe df definiert
-# Finde alle Zeilen von df, in denen die Spalte x 4 ist
-
-# Ergänze eine dritte Spalte mit dem Namen z, in der Du die ersten Buchstaben des Alphabets einfügst
-
-# Lösche die Spalte y
-
-```
-
-
-```{r ex="8_dataframes", type="solution"}
-# Für dich wurde der Dataframe df definiert
-# Finde alle Zeilen von df, in denen die Spalte x 4 ist
-df[df$x == 4,]
-
-# Ergänze eine dritte Spalte mit dem Namen z, in der Du die ersten Buchstaben des Alphabets einfügst
-df$z <- letters[1:8]
-
-# Lösche die Spalte y
-df$y <- NULL
-```
-
-```{r ex="8_dataframes", type="sct"}
-test_object("df")
-```
