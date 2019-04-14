@@ -127,7 +127,7 @@ df$y <- NULL
 
 ```{r ex="2_dataframes", type="sct"}
 test_correct(test_object("df"))
-test_student_typed(c("df$z <- letters[1:8]", "df$z<-letters[1:8]")) #OR:
+test_student_typed(c("df$z <- letters[1:8]", "df$z<-letters[1:8]"))
 test_student_typed(c("df$y <- NULL", "df$y<-NULL")) 
 ```
 
@@ -179,7 +179,7 @@ success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ```
 
 
-## Erstelle einen Dataframe
+## Einen Dataframe öffnen
 
 ```{r ex="read_dataframe", type="pre-exercise-code"}
 #Hier wird der Code eingegeben, der für die Übung definiert sein muss.
@@ -187,19 +187,19 @@ names_csv <- c("ags", "gebiet", "flaeche_ar", "flaeche_ha", "flaeche_qkm")
 ```
 
 ```{r ex="read_dataframe", type="sample-code"}
-# Lade bitte eine CSV des bayerischen Landesamtes für Statistik. Leider haben die Statistiker vor und nach den Daten einen Header, bzw. Footer, der in R einen Fehler gibt: "mehr Spalten als Spaltennamen".
-# Lasse deswegen beim Einlesen die ersten 6 Zeilen weg, und lese dann nur 2177 Zeilen ein. Die Spaltennamen sind bereits im Vektor names_csv vorbereitet, gib diese mit in den read.csv2-Befehl ein. (Hinweis: Auf Windows-Rechnern, musst Du vielleicht noch `encoding = "UTF-8"` eingeben.)
+# Lade bitte eine CSV des bayerischen Landesamtes für Statistik. Leider haben die Statistiker vor und nach den Daten einen Header, bzw. Footer, der in R einen Fehler gibt. Lasse deswegen beim Einlesen die ersten 6 Zeilen weg, und lese dann nur 2177 Zeilen ein. Die Spaltennamen sind bereits im Vektor names_csv vorbereitet, gib diese mit in den read.csv2-Befehl ein.
 
 df_csv <- read.csv2("https://raw.githubusercontent.com/munichrocker/R-Bootcamp/master/Tests/flaechen_gemeinden.csv")
 
 # Lass Dir die Datenstruktur anzeigen
 
 
-# Wir wollen jetzt den Ort finden, der in Bayern die größte Fläche hat. Leider enthält der Datensatz auch Regierungsbezirke. Anhand der AGS (Amtlicher Gemeindeschlüssel) können wir aber filtern. Wenn der AGS gleich oder mehr als 5 Stellen hat, dass ist es ein Ort. Wir können dafür den Befehl nchar() benutzen.
-# Filtere den Datensatz, so dass nur noch Orte darin sind. Speichere ihn in die Variable df_csv_filtered
+# Wir wollen jetzt den Ort finden, der in Bayern die größte Fläche hat. Leider enthält der Datensatz auch Regierungsbezirke. Anhand der AGS (Amtlicher Gemeindeschlüssel) können wir aber filtern. Wenn der AGS gleich oder mehr als 5 Stellen hat, dass ist es ein Ort. Wir können dafür den Befehl nchar() benutzen. Filtere den Datensatz, so dass nur noch Orte darin sind. Speichere ihn in die Variable df_csv_filtered
+
 df_csv_filtered <- 
 
 # Sortiere jetzt den Datensatz so, dass die größte Fläche in Quadratkilometern ganz oben steht. Speichere die erste Zeile als result_vector.
+
 result_vector <- 
 
 # Gib result_vector in der Konsole aus:
@@ -208,18 +208,19 @@ result_vector <-
 
 
 ```{r ex="read_dataframe", type="solution"}
-# Lade bitte eine CSV des bayerischen Landesamtes für Statistik. Leider haben die Statistiker vor und nach den Daten einen Header, bzw. Footer, der in R einen Fehler gibt: "mehr Spalten als Spaltennamen".
-# Lasse deswegen beim Einlesen die ersten 6 Zeilen weg, und lese dann nur 2177 Zeilen ein. Die Spaltennamen sind bereits im Vektor names_csv vorbereitet, gib diese mit in den read.csv2-Befehl ein. (Hinweis: Auf Windows-Rechnern, musst Du vielleicht noch `encoding = "UTF-8"` eingeben.)
+# Lade bitte eine CSV des bayerischen Landesamtes für Statistik. Leider haben die Statistiker vor und nach den Daten einen Header, bzw. Footer, der in R einen Fehler gibt. Lasse deswegen beim Einlesen die ersten 6 Zeilen weg, und lese dann nur 2177 Zeilen ein. Die Spaltennamen sind bereits im Vektor names_csv vorbereitet, gib diese mit in den read.csv2-Befehl ein.
+
 df_csv <- read.csv2("https://raw.githubusercontent.com/munichrocker/R-Bootcamp/master/Tests/flaechen_gemeinden.csv", nrows = 2177, skip = 6, col.names = names_csv)
 
 # Lass Dir die Datenstruktur anzeigen
 str(df_csv)
 
-# Wir wollen jetzt den Ort finden, der in Bayern die größte Fläche hat. Leider enthält der Datensatz auch Regierungsbezirke. Anhand der AGS (Amtlicher Gemeindeschlüssel) können wir aber filtern. Wenn der AGS gleich oder mehr als 5 Stellen hat, dass ist es ein Ort. Wir können dafür den Befehl nchar() benutzen.
-# Filtere den Datensatz, so dass nur noch Orte darin sind. Speichere ihn in die Variable df_csv_filtered
+# Wir wollen jetzt den Ort finden, der in Bayern die größte Fläche hat. Leider enthält der Datensatz auch Regierungsbezirke. Anhand der AGS (Amtlicher Gemeindeschlüssel) können wir aber filtern. Wenn der AGS gleich oder mehr als 5 Stellen hat, dass ist es ein Ort. Wir können dafür den Befehl nchar() benutzen. Filtere den Datensatz, so dass nur noch Orte darin sind. Speichere ihn in die Variable df_csv_filtered
+
 df_csv_filtered <- df_csv[nchar(df_csv$ags) >= 5,]
 
 # Sortiere jetzt den Datensatz so, dass die größte Fläche in Quadratkilometern ganz oben steht. Speichere die erste Zeile als result_vector.
+
 result_vector <- df_csv_filtered[order(-df_csv_filtered$flaeche_qkm),][1,]
 
 # Gib result_vector in der Konsole aus:
@@ -228,9 +229,6 @@ result_vector
 
 ```{r ex="read_dataframe", type="sct"}
 # Hier beginnen die Tests. Es gibt verschiedene Varianten:
-test_function("mean", args = c("object"))
-
-test_correct(test_object("df"), test_function("data.frame", args = c("numbers", "letters", "logicals"))) # for x <- mean(1:3), does not check calculation
 
 test_object("df_csv",
             undefined_msg = "Wurde `df_csv` richtig eingelesen? Versuche es noch einmal.",
@@ -279,8 +277,6 @@ as.POSIXct("14 April 2019", format = "%d %B %Y")
 ```{r ex="posix_conversion", type="sct"}
 # Hier beginnen die Tests. Es gibt verschiedene Varianten:
 test_function("as.POSIXct", args = c("x", "format"))
-
-test_output_contains(VALUE, incorrect_msg = "Hast Du dich verechnet? Oder d nicht ausgegeben?")
 
 success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ```
