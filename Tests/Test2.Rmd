@@ -51,10 +51,6 @@ test_student_typed(c("subs_vec", "print(subs_vec"))
 
 test_output_contains(2, incorrect_msg = "Hast Du das falsche Element des Vektors ausgegeben?")
 
-test_output_contains(c(7, 8, 9, 12, 14, 16, 18, 20), incorrect_msg = "Hast Du das falsche Element des Vektors ausgegeben?")
-
-test_output_contains(c(2, 4, 8, 12, 14, 16, 18, 20), incorrect_msg = "Hast Du das falsche Element des Vektors ausgegeben?")
-
 success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ```
 
@@ -99,12 +95,11 @@ success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ## Subsetting in Dataframes
 
 ```{r ex="2_dataframes", type="pre-exercise-code"}
-df <- data.frame(x = rep(1:4, 2), y = letters[1:8], stringsAsFactors = FALSE)
+df_subs <- data.frame(x = rep(1:4, 2), y = letters[1:8], stringsAsFactors = FALSE)
 ```
 
 ```{r ex="2_dataframes", type="sample-code"}
-# Für dich wurde der Dataframe df definiert
-# Finde alle Zeilen von df, in denen die Spalte x 4 ist
+# Für dich wurde der Dataframe `df_subs` definiert. Finde alle Zeilen von `df_subs`, in denen die Spalte x 4 ist
 
 # Ergänze eine dritte Spalte mit dem Namen z, in der Du die ersten Buchstaben des Alphabets einfügst
 
@@ -112,25 +107,26 @@ df <- data.frame(x = rep(1:4, 2), y = letters[1:8], stringsAsFactors = FALSE)
 
 ```
 
-
 ```{r ex="2_dataframes", type="solution"}
-# Für dich wurde der Dataframe df definiert
-# Finde alle Zeilen von df, in denen die Spalte x 4 ist
-df[df$x == 4,]
+# Für dich wurde der Dataframe df definiert. Finde alle Zeilen von df, in denen die Spalte x 4 ist
+df_subs[df_subs$x == 4,]
 
 # Ergänze eine dritte Spalte mit dem Namen z, in der Du die ersten Buchstaben des Alphabets einfügst
-df$z <- letters[1:8]
+df_subs$z <- letters[1:8]
 
 # Lösche die Spalte y
-df$y <- NULL
+df_subs$y <- NULL
 ```
 
 ```{r ex="2_dataframes", type="sct"}
-test_correct(test_object("df"))
-test_student_typed(c("df$z <- letters[1:8]", "df$z<-letters[1:8]"))
-test_student_typed(c("df$y <- NULL", "df$y<-NULL")) 
+test_object("df_subs")
+test_student_typed(c("df_subs$z <- letters[1:8]", "df_subs$z<-letters[1:8]"))
+test_student_typed(c("df_subs$y <- NULL", "df_subs$y<-NULL")) 
 ```
 
+```{r ex="2_dataframes", type="hint"}
+""
+```
 
 ## Ein neuer Dataframe
 
@@ -201,9 +197,8 @@ df_csv_filtered <-
 # Sortiere jetzt den Datensatz so, dass die größte Fläche in Quadratkilometern ganz oben steht. Speichere die erste Zeile als result_vector.
 
 result_vector <- 
-
+  
 # Gib result_vector in der Konsole aus:
-
 ```
 
 
@@ -278,6 +273,8 @@ as.POSIXct("14 April 2019", format = "%d %B %Y")
 # Hier beginnen die Tests. Es gibt verschiedene Varianten:
 test_function("as.POSIXct", args = c("x", "format"))
 
+test_output_contains(as.POSIXct("14 April 2019", format = "%d %B %Y"), incorrect_msg = "Hast Du alle Daten richtig ausgegeben?")
+
 success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ```
 
@@ -296,13 +293,11 @@ df <- data.frame(a = c(1:5, NA, 7:10), b = c(NA, NA, 3:10), c = c(1:7, NA, 9:10)
 
 ```{r ex="working_nas", type="sample-code"}
 # df ist als Dataframe definiert. Lasse Dir nur vollständige Zeilen anzeigen, nicht die, die NAs enthalten
-df[complete.cases(df),]
 
 # Lasse Dir jetzt nur die Zeilen anzeigen, die NAs enthalten.
-df[!complete.cases(df),]
 
 # Berechne die Summe von Spalte a, ohne die NAs
-sum(df$a, na.rm = TRUE)
+
 ```
 
 
@@ -362,7 +357,7 @@ if (a > 100) {
 # Hier beginnen die Tests. Es gibt verschiedene Varianten:
 test_object("b",
             undefined_msg = "Please make sure to define a variable `b`.",
-            incorrect_msg = "Make sure that you assign the correct value to `b`.")
+            incorrect_msg = "Das Ergebnis der Variable `b` ist falsch. Versuch es noch einmal.")
 
 success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ```

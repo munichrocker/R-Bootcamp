@@ -8,7 +8,7 @@ Recap
 
 Ich habe für gestern einen kleinen Test vorbereitet.
 
-Ihr findet ihn unter: XYZ.de
+Ihr findet ihn unter: https://benedict-witzenberger.de/ifp-r-bootcamp19/Test1.html
 
 Versucht euch an den Aufgaben. Wenn es Fragen gibt, gebt Bescheid.
 
@@ -1093,7 +1093,7 @@ readr::read_tsv("http://www.sthda.com/upload/boxplot_format.txt")
 ```
 # A tibble: 72 x 3
    Nom   variable Group
-   <chr>    <int> <chr>
+   <chr>    <dbl> <chr>
  1 IND1        10 A    
  2 IND2         7 A    
  3 IND3        20 A    
@@ -1104,7 +1104,7 @@ readr::read_tsv("http://www.sthda.com/upload/boxplot_format.txt")
  8 IND8        23 A    
  9 IND9        17 A    
 10 IND10       20 A    
-# ... with 62 more rows
+# … with 62 more rows
 ```
 
 
@@ -1264,7 +1264,7 @@ aktuelle_zeit
 ```
 
 ```
-[1] "2019-04-13 17:30:40 CEST"
+[1] "2019-04-15 09:52:29 CEST"
 ```
 
 Die Umwandlung von POSIXct ist kompliziert, denn man muss Zeitzonen und Formate im Blick behalten. Aber: as.POSIXct kann das alles handlen.

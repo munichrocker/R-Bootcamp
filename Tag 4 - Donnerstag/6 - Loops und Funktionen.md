@@ -9,6 +9,8 @@ Recap
 
 Es gibt wieder eine Übung zu allem, was wir gestern gelernt haben:
 
+https://benedict-witzenberger.de/ifp-r-bootcamp19/Test2.html
+
 Was wir heute vorhaben
 ========================================================
 

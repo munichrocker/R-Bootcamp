@@ -566,6 +566,32 @@ Branches:
 
 Für Github gibt es auch grafische Benutzeroberflächen - was euch lieber ist.
 
+Merge Conflict I
+========================================================
+
+Beispiel: Wir pushen in ein Repository, in dem jemand anderes gerade eben den Code, den wir pushen wollen verändert hat. Git überprüft das und meldet uns einen "merge conflict".
+
+```
+$ git status
+# On branch contact-form
+# You have unmerged paths.
+#   (fix conflicts and run "git commit")
+#
+# Unmerged paths:
+#   (use "git add <file>..." to mark resolution)
+#
+#       both modified:   contact.html
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+Merge Conflict II
+========================================================
+In der Datei mit dem merge conflict:
+
+![](merge_conflict.png)
+
+Lösung: Die Datei so bearbeiten, wie sie sein soll. Dann neu committen.
+
 Übung Git
 ========================================================
 
