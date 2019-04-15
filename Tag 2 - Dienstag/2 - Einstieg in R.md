@@ -377,9 +377,9 @@ Programme installieren
 
 **Windows:** schwierig
 
-**Linux** (als Admin): Über apt install
+**Linux** (als Admin): Über `apt install`
 
-Mac** OS**: Paketmanager Homebrew: https://brew.sh/
+**Mac OS**: Paketmanager Homebrew: https://brew.sh/
 
 ------
 

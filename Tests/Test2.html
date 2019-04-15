@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Benedict Witzenberger" />
+
+
+<title>Donnerstags-Test</title>
+
+<script src="Test2_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="Test2_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="Test2_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="Test2_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="Test2_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="Test2_files/navigation-1.1/tabsets.js"></script>
+<link href="Test2_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="Test2_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Donnerstags-Test</h1>
+<h4 class="author">Benedict Witzenberger</h4>
+<h4 class="date">18. April 2019</h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<div id="subsetting-bei-einem-vektor" class="section level2">
+<h2>Subsetting bei einem Vektor</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuXG5zdWJzX3ZlYyA8LSBjKDEsIDIsIDQsIDUsIDcsIDgsIDksIDEyLCAxNCwgMTYsIDE4LCAyMCkiLCJzYW1wbGUiOiIjIERlciBWZWt0b3Igc3Vic192ZWMgaXN0IGJlcmVpdHMgZGVmaW5pZXJ0LlxuIyBaZWlnZSBpaG4gaW4gZGVyIEtvbnNvbGUgYW46XG5cbiMgTGFzcyBEaXIgZGFzIHp3ZWl0ZSBFbGVtZW50IGRlcyBWZWt0b3JzIGFuemVpZ2VuOlxuXG4jIExhc3MgRGlyIGFsbGUgRWxlbWVudGUgZGVzIFZla3RvcnMgYW56ZWlnZW4sIGRpZSBnclx1MDBmNlx1MDBkZmVyIHNpbmQgYWxzIDU6XG5cbiMgTGFzcyBEaXIgYWxsZSBFbGVtZW50ZSBkZXMgdmVrdG9ycyBhbnplaWdlbiwgZGllIGR1cmNoIDIgdGVpYmFyIHNpbmQ6Iiwic29sdXRpb24iOiIjIERlciBWZWt0b3Igc3Vic192ZWMgaXN0IGJlcmVpdHMgZGVmaW5pZXJ0LlxuIyBaZWlnZSBpaG4gaW4gZGVyIEtvbnNvbGUgYW46XG5zdWJzX3ZlY1xuIyBMYXNzIERpciBkYXMgendlaXRlIEVsZW1lbnQgZGVzIFZla3RvcnMgYW56ZWlnZW46XG5zdWJzX3ZlY1syXVxuIyBMYXNzIERpciBhbGxlIEVsZW1lbnRlIGRlcyBWZWt0b3JzIGFuemVpZ2VuLCBkaWUgZ3JcdTAwZjZcdTAwZGZlciBzaW5kIGFscyA1Olxuc3Vic192ZWNbc3Vic192ZWMgPiA1XVxuIyBMYXNzIERpciBhbGxlIEVsZW1lbnRlIGRlcyB2ZWt0b3JzIGFuemVpZ2VuLCBkaWUgZHVyY2ggMiB0ZWliYXIgc2luZDpcbnN1YnNfdmVjW3N1YnNfdmVjICUlIDIgPT0gMF0iLCJzY3QiOiIjIEhpZXIgYmVnaW5uZW4gZGllIFRlc3RzLiBFcyBnaWJ0IHZlcnNjaGllZGVuZSBWYXJpYW50ZW46XG5cbnRlc3Rfc3R1ZGVudF90eXBlZChjKFwic3Vic192ZWNcIiwgXCJwcmludChzdWJzX3ZlY1wiKSlcblxudGVzdF9vdXRwdXRfY29udGFpbnMoMiwgaW5jb3JyZWN0X21zZyA9IFwiSGFzdCBEdSBkYXMgZmFsc2NoZSBFbGVtZW50IGRlcyBWZWt0b3JzIGF1c2dlZ2ViZW4/XCIpXG5cbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKGMoNywgOCwgOSwgMTIsIDE0LCAxNiwgMTgsIDIwKSwgaW5jb3JyZWN0X21zZyA9IFwiSGFzdCBEdSBkYXMgZmFsc2NoZSBFbGVtZW50IGRlcyBWZWt0b3JzIGF1c2dlZ2ViZW4/XCIpXG5cbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKGMoMiwgNCwgOCwgMTIsIDE0LCAxNiwgMTgsIDIwKSwgaW5jb3JyZWN0X21zZyA9IFwiSGFzdCBEdSBkYXMgZmFsc2NoZSBFbGVtZW50IGRlcyBWZWt0b3JzIGF1c2dlZ2ViZW4/XCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztTdWJzZXR0aW5nIGJlaSBWZWt0b3JlbiBmdW5rdGlvbmllcnQgbWl0IFtdJnJkcXVvOyJ9
+</div>
+</div>
+<div id="erstelle-einen-dataframe" class="section level2">
+<h2>Erstelle einen Dataframe</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuIiwic2FtcGxlIjoiIyBFcnN0ZWxsZSBkZW4gRGF0YWZyYW1lIGRmIG1pdCBlaW5lIFNwYWx0ZSBudW1iZXJzIG1pdCBkZW4gV2VydGVuIDEgYmlzIDEwLCBlaW5lciBTcGFsdGUgbGV0dGVycyBtaXQgZGVtIGVyc3RlbiB6ZWhuIEJ1Y2hzdGFiZW4gKG51dHplIGRhZlx1MDBmY3IgYW0gYmVzdGVuIGRlbiB2b3JoYW5kZW5lbiBWZWt0b3IgbGV0dGVycyksIHVuZCBlaW5lciBTcGFsdGUgbG9naWNhbHMgbWl0IGZcdTAwZmNuZm1hbCBUUlVFIHVuZCBmXHUwMGZjbmZtYWwgRkFMU0UiLCJzb2x1dGlvbiI6IiMgRXJzdGVsbGUgZGVuIERhdGFmcmFtZSBkZiBtaXQgZWluZSBTcGFsdGUgbnVtYmVycyBtaXQgZGVuIFdlcnRlbiAxIGJpcyAxMCwgZWluZXIgU3BhbHRlIGxldHRlcnMgbWl0IGRlbSBlcnN0ZW4gemVobiBCdWNoc3RhYmVuIChudXR6ZSBkYWZcdTAwZmNyIGFtIGJlc3RlbiBkZW4gdm9yaGFuZGVuZW4gVmVrdG9yIGxldHRlcnMpLCB1bmQgZWluZXIgU3BhbHRlIGxvZ2ljYWxzIG1pdCBmXHUwMGZjbmZtYWwgVFJVRSB1bmQgZlx1MDBmY25mbWFsIEZBTFNFXG5cbmRmIDwtIGRhdGEuZnJhbWUobnVtYmVycyA9IDE6MTAsIGxldHRlcnMgPSBsZXR0ZXJzWzE6MTBdLCBsb2dpY2FscyA9IGMocmVwKFRSVUUsIDUpLCByZXAoRkFMU0UsIDUpKSkiLCJzY3QiOiIjIEhpZXIgYmVnaW5uZW4gZGllIFRlc3RzLiBFcyBnaWJ0IHZlcnNjaGllZGVuZSBWYXJpYW50ZW46XG50ZXN0X2NvcnJlY3QodGVzdF9vYmplY3QoXCJkZlwiKSwgdGVzdF9mdW5jdGlvbihcImRhdGEuZnJhbWVcIiwgYXJncyA9IGMoXCJudW1iZXJzXCIsIFwibGV0dGVyc1wiLCBcImxvZ2ljYWxzXCIpKSkgIyBmb3IgeCA8LSBtZWFuKDE6MyksIGRvZXMgbm90IGNoZWNrIGNhbGN1bGF0aW9uXG5cbiMgdGVzdF9vYmplY3QoXCJkZlwiLFxuIyAgICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJQbGVhc2UgbWFrZSBzdXJlIHRvIGRlZmluZSBhIHZhcmlhYmxlIGBiYC5cIixcbiMgICAgICAgICAgICAgaW5jb3JyZWN0X21zZyA9IFwiTWFrZSBzdXJlIHRoYXQgeW91IGFzc2lnbiB0aGUgY29ycmVjdCB2YWx1ZSB0byBgYmAuXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztEYXRhZnJhbWVzIGRlZmluaWVyc3QgRHUgbWl0IDxjb2RlPmRhdGEuZnJhbWUoKTwvY29kZT4uJnJkcXVvOyJ9
+</div>
+</div>
+<div id="subsetting-in-dataframes" class="section level2">
+<h2>Subsetting in Dataframes</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImRmIDwtIGRhdGEuZnJhbWUoeCA9IHJlcCgxOjQsIDIpLCB5ID0gbGV0dGVyc1sxOjhdLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpIiwic2FtcGxlIjoiIyBGXHUwMGZjciBkaWNoIHd1cmRlIGRlciBEYXRhZnJhbWUgZGYgZGVmaW5pZXJ0XG4jIEZpbmRlIGFsbGUgWmVpbGVuIHZvbiBkZiwgaW4gZGVuZW4gZGllIFNwYWx0ZSB4IDQgaXN0XG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5cbiMgTFx1MDBmNnNjaGUgZGllIFNwYWx0ZSB5Iiwic29sdXRpb24iOiIjIEZcdTAwZmNyIGRpY2ggd3VyZGUgZGVyIERhdGFmcmFtZSBkZiBkZWZpbmllcnRcbiMgRmluZGUgYWxsZSBaZWlsZW4gdm9uIGRmLCBpbiBkZW5lbiBkaWUgU3BhbHRlIHggNCBpc3RcbmRmW2RmJHggPT0gNCxdXG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5kZiR6IDwtIGxldHRlcnNbMTo4XVxuXG4jIExcdTAwZjZzY2hlIGRpZSBTcGFsdGUgeVxuZGYkeSA8LSBOVUxMIiwic2N0IjoidGVzdF9jb3JyZWN0KHRlc3Rfb2JqZWN0KFwiZGZcIikpXG50ZXN0X3N0dWRlbnRfdHlwZWQoYyhcImRmJHogPC0gbGV0dGVyc1sxOjhdXCIsIFwiZGYkejwtbGV0dGVyc1sxOjhdXCIpKVxudGVzdF9zdHVkZW50X3R5cGVkKGMoXCJkZiR5IDwtIE5VTExcIiwgXCJkZiR5PC1OVUxMXCIpKSAifQ==
+</div>
+</div>
+<div id="ein-neuer-dataframe" class="section level2">
+<h2>Ein neuer Dataframe</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6Im10Y2FycyA8LSBtdGNhcnMiLCJzYW1wbGUiOiIjIERlciBEYXRhZnJhbWUgYG10Y2Fyc2Agd3VyZGUgZlx1MDBmY3IgRGljaCBnZWxhZGVuXG4jIFplaWdlIGRpZSBTdHJ1a3R1ciBkZXIgRGF0ZW4gYW5cblxuIyB6ZWlnZSBkaWUgZXJzdGVuIHNlY2hzIFplaWxlbiBkZXMgRGF0YWZyYW1lcyBhblxuXG4jIFplaWdlIGRpZSBsZXR6dGVuIHNlY2hzIFplaWxlbiBkZXMgRGF0YWZyYW1lcyBhblxuXG4jIGxhc3MgRGlyIGVpbmUgU3VtbWFyeSBkZXMgRGF0YWZyYW1lcyBhbnplaWdlbiIsInNvbHV0aW9uIjoiIyBEZXIgRGF0YWZyYW1lIGBtdGNhcnNgIHd1cmRlIGZcdTAwZmNyIERpY2ggZ2VsYWRlblxuIyBaZWlnZSBkaWUgU3RydWt0dXIgZGVyIERhdGVuIGFuXG5zdHIobXRjYXJzKVxuIyB6ZWlnZSBkaWUgZXJzdGVuIHNlY2hzIFplaWxlbiBkZXMgRGF0YWZyYW1lcyBhblxuaGVhZChtdGNhcnMpXG4jIFplaWdlIGRpZSBsZXR6dGVuIHNlY2hzIFplaWxlbiBkZXMgRGF0YWZyYW1lcyBhblxudGFpbChtdGNhcnMpXG4jIGxhc3MgRGlyIGVpbmUgU3VtbWFyeSBkZXMgRGF0YWZyYW1lcyBhbnplaWdlblxuc3VtbWFyeShtdGNhcnMpIiwic2N0IjoiIyBIaWVyIGJlZ2lubmVuIGRpZSBUZXN0cy4gRXMgZ2lidCB2ZXJzY2hpZWRlbmUgVmFyaWFudGVuOlxudGVzdF9mdW5jdGlvbihcInN0clwiLCBhcmdzID0gYyhcIm9iamVjdFwiKSlcbnRlc3RfZnVuY3Rpb24oXCJoZWFkXCIsIGFyZ3MgPSBjKFwieFwiKSlcbnRlc3RfZnVuY3Rpb24oXCJ0YWlsXCIsIGFyZ3MgPSBjKFwieFwiKSlcbnRlc3RfZnVuY3Rpb24oXCJzdW1tYXJ5XCIsIGFyZ3MgPSBjKFwib2JqZWN0XCIpKVxuXG5zdWNjZXNzX21zZyhcIlN1cGVyLCBEdSBoYXN0IGFsbGUgQXVmZ2FiZW4gaW4gZGllc2VtIEJsb2NrIGVyZm9sZ3JlaWNoIGdlbFx1MDBmNnN0IVwiKSIsImhpbnQiOiImbGRxdW87Rlx1MDBmY3IgZGllc2UgXHUwMGRjYnVuZyBnaWJ0IGVzIGtlaW5lIEhpbGZlLiBEaWUgTmFtZW4gZGVyIEZ1bmt0aW9uZW4gbXVzc3QgRHUgc2VsYmVyIGhlcmF1c2ZpbmRlbi4mcmRxdW87In0=
+</div>
+</div>
+<div id="einen-dataframe-offnen" class="section level2">
+<h2>Einen Dataframe öffnen</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuXG5uYW1lc19jc3YgPC0gYyhcImFnc1wiLCBcImdlYmlldFwiLCBcImZsYWVjaGVfYXJcIiwgXCJmbGFlY2hlX2hhXCIsIFwiZmxhZWNoZV9xa21cIikiLCJzYW1wbGUiOiIjIExhZGUgYml0dGUgZWluZSBDU1YgZGVzIGJheWVyaXNjaGVuIExhbmRlc2FtdGVzIGZcdTAwZmNyIFN0YXRpc3Rpay4gTGVpZGVyIGhhYmVuIGRpZSBTdGF0aXN0aWtlciB2b3IgdW5kIG5hY2ggZGVuIERhdGVuIGVpbmVuIEhlYWRlciwgYnp3LiBGb290ZXIsIGRlciBpbiBSIGVpbmVuIEZlaGxlciBnaWJ0LiBMYXNzZSBkZXN3ZWdlbiBiZWltIEVpbmxlc2VuIGRpZSBlcnN0ZW4gNiBaZWlsZW4gd2VnLCB1bmQgbGVzZSBkYW5uIG51ciAyMTc3IFplaWxlbiBlaW4uIERpZSBTcGFsdGVubmFtZW4gc2luZCBiZXJlaXRzIGltIFZla3RvciBuYW1lc19jc3Ygdm9yYmVyZWl0ZXQsIGdpYiBkaWVzZSBtaXQgaW4gZGVuIHJlYWQuY3N2Mi1CZWZlaGwgZWluLlxuXG5kZl9jc3YgPC0gcmVhZC5jc3YyKFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL211bmljaHJvY2tlci9SLUJvb3RjYW1wL21hc3Rlci9UZXN0cy9mbGFlY2hlbl9nZW1laW5kZW4uY3N2XCIpXG5cbiMgTGFzcyBEaXIgZGllIERhdGVuc3RydWt0dXIgYW56ZWlnZW5cblxuXG4jIFdpciB3b2xsZW4gamV0enQgZGVuIE9ydCBmaW5kZW4sIGRlciBpbiBCYXllcm4gZGllIGdyXHUwMGY2XHUwMGRmdGUgRmxcdTAwZTRjaGUgaGF0LiBMZWlkZXIgZW50aFx1MDBlNGx0IGRlciBEYXRlbnNhdHogYXVjaCBSZWdpZXJ1bmdzYmV6aXJrZS4gQW5oYW5kIGRlciBBR1MgKEFtdGxpY2hlciBHZW1laW5kZXNjaGxcdTAwZmNzc2VsKSBrXHUwMGY2bm5lbiB3aXIgYWJlciBmaWx0ZXJuLiBXZW5uIGRlciBBR1MgZ2xlaWNoIG9kZXIgbWVociBhbHMgNSBTdGVsbGVuIGhhdCwgZGFzcyBpc3QgZXMgZWluIE9ydC4gV2lyIGtcdTAwZjZubmVuIGRhZlx1MDBmY3IgZGVuIEJlZmVobCBuY2hhcigpIGJlbnV0emVuLiBGaWx0ZXJlIGRlbiBEYXRlbnNhdHosIHNvIGRhc3MgbnVyIG5vY2ggT3J0ZSBkYXJpbiBzaW5kLiBTcGVpY2hlcmUgaWhuIGluIGRpZSBWYXJpYWJsZSBkZl9jc3ZfZmlsdGVyZWRcblxuZGZfY3N2X2ZpbHRlcmVkIDwtIFxuXG4jIFNvcnRpZXJlIGpldHp0IGRlbiBEYXRlbnNhdHogc28sIGRhc3MgZGllIGdyXHUwMGY2XHUwMGRmdGUgRmxcdTAwZTRjaGUgaW4gUXVhZHJhdGtpbG9tZXRlcm4gZ2FueiBvYmVuIHN0ZWh0LiBTcGVpY2hlcmUgZGllIGVyc3RlIFplaWxlIGFscyByZXN1bHRfdmVjdG9yLlxuXG5yZXN1bHRfdmVjdG9yIDwtIFxuXG4jIEdpYiByZXN1bHRfdmVjdG9yIGluIGRlciBLb25zb2xlIGF1czoiLCJzb2x1dGlvbiI6IiMgTGFkZSBiaXR0ZSBlaW5lIENTViBkZXMgYmF5ZXJpc2NoZW4gTGFuZGVzYW10ZXMgZlx1MDBmY3IgU3RhdGlzdGlrLiBMZWlkZXIgaGFiZW4gZGllIFN0YXRpc3Rpa2VyIHZvciB1bmQgbmFjaCBkZW4gRGF0ZW4gZWluZW4gSGVhZGVyLCBiencuIEZvb3RlciwgZGVyIGluIFIgZWluZW4gRmVobGVyIGdpYnQuIExhc3NlIGRlc3dlZ2VuIGJlaW0gRWlubGVzZW4gZGllIGVyc3RlbiA2IFplaWxlbiB3ZWcsIHVuZCBsZXNlIGRhbm4gbnVyIDIxNzcgWmVpbGVuIGVpbi4gRGllIFNwYWx0ZW5uYW1lbiBzaW5kIGJlcmVpdHMgaW0gVmVrdG9yIG5hbWVzX2NzdiB2b3JiZXJlaXRldCwgZ2liIGRpZXNlIG1pdCBpbiBkZW4gcmVhZC5jc3YyLUJlZmVobCBlaW4uXG5cbmRmX2NzdiA8LSByZWFkLmNzdjIoXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbXVuaWNocm9ja2VyL1ItQm9vdGNhbXAvbWFzdGVyL1Rlc3RzL2ZsYWVjaGVuX2dlbWVpbmRlbi5jc3ZcIiwgbnJvd3MgPSAyMTc3LCBza2lwID0gNiwgY29sLm5hbWVzID0gbmFtZXNfY3N2KVxuXG4jIExhc3MgRGlyIGRpZSBEYXRlbnN0cnVrdHVyIGFuemVpZ2VuXG5zdHIoZGZfY3N2KVxuXG4jIFdpciB3b2xsZW4gamV0enQgZGVuIE9ydCBmaW5kZW4sIGRlciBpbiBCYXllcm4gZGllIGdyXHUwMGY2XHUwMGRmdGUgRmxcdTAwZTRjaGUgaGF0LiBMZWlkZXIgZW50aFx1MDBlNGx0IGRlciBEYXRlbnNhdHogYXVjaCBSZWdpZXJ1bmdzYmV6aXJrZS4gQW5oYW5kIGRlciBBR1MgKEFtdGxpY2hlciBHZW1laW5kZXNjaGxcdTAwZmNzc2VsKSBrXHUwMGY2bm5lbiB3aXIgYWJlciBmaWx0ZXJuLiBXZW5uIGRlciBBR1MgZ2xlaWNoIG9kZXIgbWVociBhbHMgNSBTdGVsbGVuIGhhdCwgZGFzcyBpc3QgZXMgZWluIE9ydC4gV2lyIGtcdTAwZjZubmVuIGRhZlx1MDBmY3IgZGVuIEJlZmVobCBuY2hhcigpIGJlbnV0emVuLiBGaWx0ZXJlIGRlbiBEYXRlbnNhdHosIHNvIGRhc3MgbnVyIG5vY2ggT3J0ZSBkYXJpbiBzaW5kLiBTcGVpY2hlcmUgaWhuIGluIGRpZSBWYXJpYWJsZSBkZl9jc3ZfZmlsdGVyZWRcblxuZGZfY3N2X2ZpbHRlcmVkIDwtIGRmX2NzdltuY2hhcihkZl9jc3YkYWdzKSA+PSA1LF1cblxuIyBTb3J0aWVyZSBqZXR6dCBkZW4gRGF0ZW5zYXR6IHNvLCBkYXNzIGRpZSBnclx1MDBmNlx1MDBkZnRlIEZsXHUwMGU0Y2hlIGluIFF1YWRyYXRraWxvbWV0ZXJuIGdhbnogb2JlbiBzdGVodC4gU3BlaWNoZXJlIGRpZSBlcnN0ZSBaZWlsZSBhbHMgcmVzdWx0X3ZlY3Rvci5cblxucmVzdWx0X3ZlY3RvciA8LSBkZl9jc3ZfZmlsdGVyZWRbb3JkZXIoLWRmX2Nzdl9maWx0ZXJlZCRmbGFlY2hlX3FrbSksXVsxLF1cblxuIyBHaWIgcmVzdWx0X3ZlY3RvciBpbiBkZXIgS29uc29sZSBhdXM6XG5yZXN1bHRfdmVjdG9yIiwic2N0IjoiIyBIaWVyIGJlZ2lubmVuIGRpZSBUZXN0cy4gRXMgZ2lidCB2ZXJzY2hpZWRlbmUgVmFyaWFudGVuOlxuXG50ZXN0X29iamVjdChcImRmX2NzdlwiLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiV3VyZGUgYGRmX2NzdmAgcmljaHRpZyBlaW5nZWxlc2VuPyBWZXJzdWNoZSBlcyBub2NoIGVpbm1hbC5cIixcbiAgICAgICAgICAgIGluY29ycmVjdF9tc2cgPSBcImBkZl9jc3Zgc3RpbW10IG5pY2h0LiBWZXJzdWNoZSBlcyBub2NoIGVpbm1hbC5cIilcblxudGVzdF9vYmplY3QoXCJkZl9jc3ZfZmlsdGVyZWRcIixcbiAgICAgICAgICAgIHVuZGVmaW5lZF9tc2cgPSBcIld1cmRlIGBkZl9jc3ZfZmlsdGVyZWRgIHJpY2h0aWcgZWluZ2VsZXNlbj8gVmVyc3VjaGUgZXMgbm9jaCBlaW5tYWwuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgZGZfY3N2X2ZpbHRlcmVkYHN0aW1tdCBuaWNodC4gVmVyc3VjaGUgZXMgbm9jaCBlaW5tYWwuXCIpXG5cbnRlc3Rfb2JqZWN0KFwicmVzdWx0X3ZlY3RvclwiLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiV3VyZGUgYHJlc3VsdF92ZWN0b3JgIHJpY2h0aWcgenVnZXdpZXNlbj8gVmVyc3VjaGUgZXMgbm9jaCBlaW5tYWwuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgcmVzdWx0X3ZlY3RvcmBzdGltbXQgbmljaHQuIFZlcnN1Y2hlIGVzIG5vY2ggZWlubWFsLlwiKVxuXG5zdWNjZXNzX21zZyhcIlN1cGVyLCBEdSBoYXN0IGFsbGUgQXVmZ2FiZW4gaW4gZGllc2VtIEJsb2NrIGVyZm9sZ3JlaWNoIGdlbFx1MDBmNnN0IVwiKSIsImhpbnQiOiImbGRxdW87RGllIEJlZmVobGUgZlx1MDBmY3IgZGFzIEVpbmxlc2VuIHNpbmQ6IG5yb3cgPSwgc2tpcCA9LCB1bmQgY2xvLm5hbWVzID0uIEZcdTAwZmNyIGRhcyBTb3J0aWVyZW4gaXN0IGRlciBCZWZlaGx0IG9yZGVyKCksIG1pdCBkZW0gZGllIGVudHNwcmVjaGVuZGUgU3BhbHRlIGF1c2dld1x1MDBlNGhsdCB3aXJkLiZyZHF1bzsifQ==
+</div>
+</div>
+<div id="arbeiten-mit-datumsangaben" class="section level2">
+<h2>Arbeiten mit Datumsangaben</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuIiwic2FtcGxlIjoiIyBXYW5kbGUgZGllIGZvbGdlbmRlbiBEYXR1bXNhbmdhYmVuIGluIFBPU0lYY3RzIHVtLCBkYW1pdCBEdSBpbiBSIGRhbWl0IHJlY2huZW4ga2FubnN0LlxuKFwiMTEuMTIuMTk5MFwiKVxuKFwiMjAxOS0wNC0xOFwiKVxuKFwiMDQvMjMvMjAxOVwiKVxuKFwiMTQgQXByaWwgMjAxOVwiKSIsInNvbHV0aW9uIjoiIyBXYW5kbGUgZGllIGZvbGdlbmRlbiBEYXR1bXNhbmdhYmVuIGluIFBPU0lYY3RzIHVtLCBkYW1pdCBEdSBpbiBSIGRhbWl0IHJlY2huZW4ga2FubnN0LlxuYXMuUE9TSVhjdChcIjExLjEyLjE5OTBcIiwgZm9ybWF0ID0gXCIlZC4lbS4lWVwiKVxuYXMuUE9TSVhjdChcIjIwMTktMDQtMThcIilcbmFzLlBPU0lYY3QoXCIwNC8yMy8yMDE5XCIsIGZvcm1hdCA9IFwiJW0vJWQvJVlcIilcbmFzLlBPU0lYY3QoXCIxNCBBcHJpbCAyMDE5XCIsIGZvcm1hdCA9IFwiJWQgJUIgJVlcIikiLCJzY3QiOiIjIEhpZXIgYmVnaW5uZW4gZGllIFRlc3RzLiBFcyBnaWJ0IHZlcnNjaGllZGVuZSBWYXJpYW50ZW46XG50ZXN0X2Z1bmN0aW9uKFwiYXMuUE9TSVhjdFwiLCBhcmdzID0gYyhcInhcIiwgXCJmb3JtYXRcIikpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztIaWxmZSBiZWkgZGVyIFVtd2FuZGx1bmcgZmluZGVzdCBEdSB1bnRlciA8Y29kZT4/c3RycHRpbWU8L2NvZGU+LiZyZHF1bzsifQ==
+</div>
+</div>
+<div id="fehlende-werte" class="section level2">
+<h2>Fehlende Werte</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuXG5kZiA8LSBkYXRhLmZyYW1lKGEgPSBjKDE6NSwgTkEsIDc6MTApLCBiID0gYyhOQSwgTkEsIDM6MTApLCBjID0gYygxOjcsIE5BLCA5OjEwKSkiLCJzYW1wbGUiOiIjIGRmIGlzdCBhbHMgRGF0YWZyYW1lIGRlZmluaWVydC4gTGFzc2UgRGlyIG51ciB2b2xsc3RcdTAwZTRuZGlnZSBaZWlsZW4gYW56ZWlnZW4sIG5pY2h0IGRpZSwgZGllIE5BcyBlbnRoYWx0ZW5cbmRmW2NvbXBsZXRlLmNhc2VzKGRmKSxdXG5cbiMgTGFzc2UgRGlyIGpldHp0IG51ciBkaWUgWmVpbGVuIGFuemVpZ2VuLCBkaWUgTkFzIGVudGhhbHRlbi5cbmRmWyFjb21wbGV0ZS5jYXNlcyhkZiksXVxuXG4jIEJlcmVjaG5lIGRpZSBTdW1tZSB2b24gU3BhbHRlIGEsIG9obmUgZGllIE5Bc1xuc3VtKGRmJGEsIG5hLnJtID0gVFJVRSkiLCJzb2x1dGlvbiI6IiMgZGYgaXN0IGFscyBEYXRhZnJhbWUgZGVmaW5pZXJ0LiBMYXNzZSBEaXIgbnVyIHZvbGxzdFx1MDBlNG5kaWdlIFplaWxlbiBhbnplaWdlbiwgbmljaHQgZGllLCBkaWUgTkFzIGVudGhhbHRlblxuZGZbY29tcGxldGUuY2FzZXMoZGYpLF1cblxuIyBMYXNzZSBEaXIgamV0enQgbnVyIGRpZSBaZWlsZW4gYW56ZWlnZW4sIGRpZSBOQXMgZW50aGFsdGVuLlxuZGZbIWNvbXBsZXRlLmNhc2VzKGRmKSxdXG5cbiMgQmVyZWNobmUgZGllIFN1bW1lIHZvbiBTcGFsdGUgYSwgb2huZSBkaWUgTkFzXG5zdW0oZGYkYSwgbmEucm0gPSBUUlVFKSIsInNjdCI6IiMgSGllciBiZWdpbm5lbiBkaWUgVGVzdHMuIEVzIGdpYnQgdmVyc2NoaWVkZW5lIFZhcmlhbnRlbjpcblxudGVzdF9zdHVkZW50X3R5cGVkKGMoXCJkZltjb21wbGV0ZS5jYXNlcyhkZiksXVwiLCBcImRmWyFjb21wbGV0ZS5jYXNlcyhkZiksXVwiKSlcblxudGVzdF9mdW5jdGlvbihcInN1bVwiLCBhcmdzID0gYyhcIm5hLnJtXCIpKVxuXG50ZXN0X291dHB1dF9jb250YWlucyg0OSwgaW5jb3JyZWN0X21zZyA9IFwiSGFzdCBEdSBkaWNoIHZlcmVjaG5ldD9cIilcblxuc3VjY2Vzc19tc2coXCJTdXBlciwgRHUgaGFzdCBhbGxlIEF1ZmdhYmVuIGluIGRpZXNlbSBCbG9jayBlcmZvbGdyZWljaCBnZWxcdTAwZjZzdCFcIikiLCJoaW50IjoiJmxkcXVvOyZyZHF1bzsifQ==
+</div>
+</div>
+<div id="if" class="section level2">
+<h2>IF</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuXG5hIDwtIDk3Iiwic2FtcGxlIjoiI1NjaHJlaWJlIGVpbmUgZWluZmFjaCBJZi4uLmVsc2UtU2NobGVpZmU6IFdlbm4gYSBnclx1MDBmNlx1MDBkZmVyIGlzdCBhbHMgMTAwLCBkYW5uIHdpcmQgYiBcImdyb1x1MDBkZlwiLCB3ZW5uIGEgendpc2NoZW4gNjAgdW5kIDk5IGlzdCwgZGFubiB3aXJkIGIgXCJtaXR0ZWxcIiwgc29uc3Qgd2lyZCBiIFwia2xlaW5cIi4iLCJzb2x1dGlvbiI6IiNTY2hyZWliZSBlaW5lIGVpbmZhY2ggSWYuLi5lbHNlLVNjaGxlaWZlOiBXZW5uIGEgZ3JcdTAwZjZcdTAwZGZlciBpc3QgYWxzIDEwMCwgZGFubiB3aXJkIGIgXCJncm9cdTAwZGZcIiwgd2VubiBhIHp3aXNjaGVuIDYwIHVuZCA5OSBpc3QsIGRhbm4gd2lyZCBiIFwibWl0dGVsXCIsIHNvbnN0IHdpcmQgYiBcImtsZWluXCIuXG5pZiAoYSA+IDEwMCkge1xuICBiIDwtIFwiZ3JvXHUwMGRmXCJcbn0gZWxzZSBpZiAoYSA+PSA2MCAmIGEgPD0gOTkpIHtcbiAgYiA8LSBcIm1pdHRlbFwiXG59IGVsc2Uge1xuICBiIDwtIFwia2xlaW5cIlxufSIsInNjdCI6IiMgSGllciBiZWdpbm5lbiBkaWUgVGVzdHMuIEVzIGdpYnQgdmVyc2NoaWVkZW5lIFZhcmlhbnRlbjpcbnRlc3Rfb2JqZWN0KFwiYlwiLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiUGxlYXNlIG1ha2Ugc3VyZSB0byBkZWZpbmUgYSB2YXJpYWJsZSBgYmAuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJNYWtlIHN1cmUgdGhhdCB5b3UgYXNzaWduIHRoZSBjb3JyZWN0IHZhbHVlIHRvIGBiYC5cIilcblxuc3VjY2Vzc19tc2coXCJTdXBlciwgRHUgaGFzdCBhbGxlIEF1ZmdhYmVuIGluIGRpZXNlbSBCbG9jayBlcmZvbGdyZWljaCBnZWxcdTAwZjZzdCFcIikiLCJoaW50IjoiJmxkcXVvOyZyZHF1bzsifQ==
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,7 +1,8 @@
 # This Script renders all Presentations as PDFs and saves them imto the folder /pdf
 library(rmarkdown)
 
-setwd("~/R Bootcamp")
+# On WIndows: setwd("~/R Bootcamp")
+setwd("~/Documents/R-Projekte/R-Bootcamp")
 
 all_md <- grep(pattern = ".+\\/(?!R|readme).+[^R]md", list.files(recursive = TRUE), perl = T, value = T)
 

@@ -85,12 +85,12 @@ Anmeldung über: ddj19.slack.com
 R installieren
 ========================================================
 
-Zunächst installieren wir **R** (die Hauptsoftware)
+Zunächst installieren wir [**R**](https://cran.r-project.org/) (die Hauptsoftware)
 
-Danach **RStudio** - eine Oberfläche, mit der wir komfortabler mit R arbeiten können
+Danach [**RStudio**](https://www.rstudio.com/products/rstudio/download/) - eine Oberfläche, mit der wir komfortabler mit R arbeiten können
 
-Die Links zu den Downloaddateien liegen auf **Github**. 
+START: Die Links zu den Downloaddateien liegen auf [**Github**](https://github.com/munichrocker/R-Bootcamp). 
 
-Wer dort schon einen Account hat, sagt bitte Bescheid. Ich füge euch dann zum Repository hinzu.
+Wer dort schon einen Account hat, kann direkt loslegen.
 
-Wer noch keinen hat, registriert sich bitte zunächst unter https://github.com
+Wer noch keinen hat, registriert sich bitte zunächst unter https://github.com und legt dann los.
