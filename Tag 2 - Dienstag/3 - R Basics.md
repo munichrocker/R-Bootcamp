@@ -1005,17 +1005,13 @@ Schnelles Beispiel:
 ========================================================
 
 
-```r
-#install.packages(c("quantmod", "dygraphs"))
 
-library(quantmod)
-library(dygraphs)
 
-google_stocks <- getSymbols("GOOG", src = "yahoo", from = "2007-01-01", auto.assign = FALSE)
 
-plot(google_stocks[,"GOOG.Close"], main = "Googles Börsenkurs seit 2007", type = "l")
 ```
-
-![plot of chunk unnamed-chunk-34](3 - R Basics-figure/unnamed-chunk-34-1.png)
-
-![](Rplot.png)
+processing file: 3 - R Basics.Rpres
+Quitting from lines 746-754 (3 - R Basics.Rpres) 
+Fehler in library(quantmod) : there is no package called 'quantmod'
+Ruft auf: knit ... withCallingHandlers -> withVisible -> eval -> eval -> library
+Ausführung angehalten
+```

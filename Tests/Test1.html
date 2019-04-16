@@ -70,9 +70,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -97,22 +95,92 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -122,10 +190,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Mittwochs-Test ifp R-Bootcamp</h1>
-<h4 class="author"><em>Benedict Witzenberger</em></h4>
-<h4 class="date"><em><ol start="17" style="list-style-type: decimal">
-<li>April 2019</li>
-</ol></em></h4>
+<h4 class="author">Benedict Witzenberger</h4>
+<h4 class="date">17. April 2019</h4>
 
 </div>
 
@@ -159,13 +225,13 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEVyc3RlbGxlIGVpbmVuIFZla3RvciBkdXJjaF92ZWMg
 <h2>5. Schnell summieren</h2>
 <p>Was ist der schnellste Weg, die Zahlen von 1 bis 10 zu summieren?</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEdpYiBoaWVyIGRpZSBMXHUwMGY2c3VuZyBlaW4iLCJzb2x1dGlvbiI6IiMgR2liIGhpZXIgZGllIExcdTAwZjZzdW5nIGVpblxuc3VtKDE6MTApIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoNTUsIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgZGljaCB2ZXJlY2huZXQ/XCIpXG50ZXN0X2Z1bmN0aW9uKFwic3VtXCIsIGFyZ3MgPSBjKFwiLi4uXCIpKSIsImhpbnQiOiImbGRxdW87RGllIExcdTAwZjZzdW5nIGhcdTAwZTRuZ3QgbWl0IGRlciBGdW5rdGlvbiA8Y29kZT5zdW0oKTwvY29kZT4genVzYW1tZW4mcmRxdW87In0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEdpYiBoaWVyIGRpZSBMXHUwMGY2c3VuZyBlaW4iLCJzb2x1dGlvbiI6IiMgR2liIGhpZXIgZGllIExcdTAwZjZzdW5nIGVpblxuc3VtKDE6MTApIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoNTUsIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgZGljaCB2ZXJlY2huZXQ/XCIpXG50ZXN0X2Z1bmN0aW9uKFwic3VtXCIsIGFyZ3MgPSBjKFwiLi4uXCIpKSIsImhpbnQiOiImbGRxdW87RGllIExcdTAwZjZzdW5nIGhcdTAwYzNcdTAwYTRuZ3QgbWl0IGRlciBGdW5rdGlvbiA8Y29kZT5zdW0oKTwvY29kZT4genVzYW1tZW4mcmRxdW87In0=
 </div>
 </div>
 <div id="vektoren-testen" class="section level2">
 <h2>Vektoren testen</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InggPC0gYygxTCwgNUwsIDhMLCAyNTVMKSIsInNhbXBsZSI6IiMgRGVyIFZla3RvciB4IHd1cmRlIGZcdTAwZmNyIERpY2ggdm9yZGVmaW5pZXJ0LlxuIyBXYXMgaXN0IGRlciBUeXAgZGVzIFZla3RvcnMgeD9cblxuXG4jIFdhbmRsZSBkZW4gVmVrdG9yIHggaW4gZWluZW4gbnVtZXJpc2NoZW4gVmVrdG9yIHVtOlxuXG5cbiMgUHJcdTAwZmNmZSwgb2IgZGVyIFZla3RvciBqZXR6dCBub2NoIGVpbiBJbnRlZ2VyIGlzdDpcblxuIyBHaWIgZGVtIFZla3RvciBkaWUgTmFtZW4gYSwgYiwgYywgZCIsInNvbHV0aW9uIjoiIyBEZXIgVmVrdG9yIHggd3VyZGUgZlx1MDBmY3IgRGljaCB2b3JkZWZpbmllcnQuXG4jIFdhcyBpc3QgZGVyIFR5cCBkZXMgVmVrdG9ycyB4P1xudHlwZW9mKHgpXG5cbiMgV2FuZGxlIGRlbiBWZWt0b3IgeCBpbiBlaW5lbiBudW1lcmlzY2hlbiBWZWt0b3IgdW06XG54IDwtIGFzLm51bWVyaWMoeClcblxuIyBQclx1MDBmY2ZlLCBvYiBkZXIgVmVrdG9yIGpldHp0IG5vY2ggZWluIEludGVnZXIgaXN0OlxuaXMuaW50ZWdlcih4KVxuXG4jIEdpYiBkZW0gVmVrdG9yIGRpZSBOYW1lbiBhLCBiLCBjLCBkXG5uYW1lcyh4KSA8LSBjKFwiYVwiLCBcImJcIiwgXCJjXCIsIFwiZFwiKSIsInNjdCI6InRlc3Rfb2JqZWN0KFwieFwiLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IHggcmljaHRpZyB1bWdld2FuZGVsdD9cIilcblxudGVzdF9jb3JyZWN0KHRlc3Rfb2JqZWN0KFwieFwiKSwgdGVzdF9mdW5jdGlvbihcImFzLm51bWVyaWNcIiwgYXJncyA9IGMoXCJ4XCIpKSlcblxudGVzdF9vdXRwdXRfY29udGFpbnMoRkFMU0UsIGluY29ycmVjdF9tc2cgPSBcIklzdCB4IHdpcmtsaWNoIGVpbiBJbnRlZ2VyP1wiKVxuXG50ZXN0X2Z1bmN0aW9uX3Jlc3VsdChcIm5hbWVzXCIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InggPC0gYygxTCwgNUwsIDhMLCAyNTVMKSIsInNhbXBsZSI6IiMgRGVyIFZla3RvciB4IHd1cmRlIGZcdTAwZmNyIERpY2ggdm9yZGVmaW5pZXJ0LlxuIyBXYXMgaXN0IGRlciBUeXAgZGVzIFZla3RvcnMgeD9cblxuXG4jIFdhbmRsZSBkZW4gVmVrdG9yIHggaW4gZWluZW4gbnVtZXJpc2NoZW4gVmVrdG9yIHVtOlxuXG5cbiMgUHJcdTAwYzNcdTAwYmNmZSwgb2IgZGVyIFZla3RvciBqZXR6dCBub2NoIGVpbiBJbnRlZ2VyIGlzdDpcblxuIyBHaWIgZGVtIFZla3RvciBkaWUgTmFtZW4gYSwgYiwgYywgZCIsInNvbHV0aW9uIjoiIyBEZXIgVmVrdG9yIHggd3VyZGUgZlx1MDBmY3IgRGljaCB2b3JkZWZpbmllcnQuXG4jIFdhcyBpc3QgZGVyIFR5cCBkZXMgVmVrdG9ycyB4P1xudHlwZW9mKHgpXG5cbiMgV2FuZGxlIGRlbiBWZWt0b3IgeCBpbiBlaW5lbiBudW1lcmlzY2hlbiBWZWt0b3IgdW06XG54IDwtIGFzLm51bWVyaWMoeClcblxuIyBQclx1MDBmY2ZlLCBvYiBkZXIgVmVrdG9yIGpldHp0IG5vY2ggZWluIEludGVnZXIgaXN0OlxuaXMuaW50ZWdlcih4KVxuXG4jIEdpYiBkZW0gVmVrdG9yIGRpZSBOYW1lbiBhLCBiLCBjLCBkXG5uYW1lcyh4KSA8LSBjKFwiYVwiLCBcImJcIiwgXCJjXCIsIFwiZFwiKSIsInNjdCI6InRlc3Rfb2JqZWN0KFwieFwiLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IHggcmljaHRpZyB1bWdld2FuZGVsdD9cIilcblxudGVzdF9jb3JyZWN0KHRlc3Rfb2JqZWN0KFwieFwiKSwgdGVzdF9mdW5jdGlvbihcImFzLm51bWVyaWNcIiwgYXJncyA9IGMoXCJ4XCIpKSlcblxudGVzdF9vdXRwdXRfY29udGFpbnMoRkFMU0UsIGluY29ycmVjdF9tc2cgPSBcIklzdCB4IHdpcmtsaWNoIGVpbiBJbnRlZ2VyP1wiKVxuXG50ZXN0X2Z1bmN0aW9uX3Jlc3VsdChcIm5hbWVzXCIpIn0=
 </div>
 </div>
 <div id="listen" class="section level2">
@@ -174,10 +240,10 @@ eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6InggPC0gYygxTCwgNUwsIDhMLCAyNTVM
 eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6Imxpc3RfeCA8LSBsaXN0KDE6MywgXCJhXCIsIGMoVFJVRSwgRkFMU0UsIFRSVUUpLCBjKDIuMywgNS45KSkiLCJzYW1wbGUiOiIjIERpZSBMaXN0ZSBsaXN0X3ggd3VyZGUgZlx1MDBmY3IgZGljaCBkZWZpbmllcnRcbiMgTGFzcyBEaXIgZGllIFN0cnVrdHVyIGRlciBsaXN0X3ggYW56ZWlnZW5cblxuIyBHcmVpZmUgYXVmIGRhcyBFbGVtZW50IG1pdCBkZW0gV2VydCA1LjkgaW4gZGVyIExpc3RlIHp1XG5cbiMgV2FuZGxlIGRpZSBMaXN0ZSBpbiBlaW5lbiBWZWt0b3IgdW0iLCJzb2x1dGlvbiI6IiMgRGllIExpc3RlIGxpc3RfeCB3dXJkZSBmXHUwMGZjciBkaWNoIGRlZmluaWVydFxuIyBMYXNzIERpciBkaWUgU3RydWt0dXIgZGVyIGxpc3RfeCBhbnplaWdlblxuc3RyKGxpc3RfeClcblxuIyBHcmVpZmUgYXVmIGRhcyBFbGVtZW50IG1pdCBkZW0gV2VydCA1LjkgaW4gZGVyIExpc3RlIHp1XG5saXN0X3hbWzRdXVsyXVxuXG4jIFdhbmRsZSBkaWUgTGlzdGUgaW4gZWluZW4gVmVrdG9yIHVtXG51bmxpc3QobGlzdF94KSIsInNjdCI6InRlc3RfZnVuY3Rpb24oXCJzdHJcIiwgYXJncyA9IGMoXCJvYmplY3RcIiksIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgZGllIHJpY2h0aWdlIEZ1bmt0aW9uIHp1ciBVbnRlcnN1Y2h1bmcgZGVyIFN0cnVrdHVyIGF1ZmdlcnVmZW4/XCIpXG5cbnRlc3RfZnVuY3Rpb24oXCJ1bmxpc3RcIiwgYXJncyA9IGMoXCJ4XCIpLCBpbmNvcnJlY3RfbXNnID0gXCJIYXN0IER1IGRpZSBGdW5rdGlvbiBhdWZnZXJ1ZmVuLCBkaWUgZGllIExpc3RlIHp1bSBWZWt0b3IgdW13YW5kZWx0P1wiKVxuXG50ZXN0X291dHB1dF9jb250YWlucyg1LjksIGluY29ycmVjdF9tc2cgPSBcIkhhc3QgRHUgYXVmIGRhcyByaWNodGlnZSBPYmpla3QgenVnZWdyaWZmZW4/XCIpIn0=
 </div>
 </div>
-<div id="subsetting-in-dataframes" class="section level2">
-<h2>Subsetting in Dataframes</h2>
+<div id="erstelle-einen-dataframe" class="section level2">
+<h2>Erstelle einen Dataframe</h2>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImRmIDwtIGRhdGEuZnJhbWUoeCA9IHJlcCgxOjQsIDIpLCB5ID0gbGV0dGVyc1sxOjhdLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpIiwic2FtcGxlIjoiIyBGXHUwMGZjciBkaWNoIHd1cmRlIGRlciBEYXRhZnJhbWUgZGYgZGVmaW5pZXJ0XG4jIEZpbmRlIGFsbGUgWmVpbGVuIHZvbiBkZiwgaW4gZGVuZW4gZGllIFNwYWx0ZSB4IDQgaXN0XG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5cbiMgTFx1MDBmNnNjaGUgZGllIFNwYWx0ZSB5Iiwic29sdXRpb24iOiIjIEZcdTAwZmNyIGRpY2ggd3VyZGUgZGVyIERhdGFmcmFtZSBkZiBkZWZpbmllcnRcbiMgRmluZGUgYWxsZSBaZWlsZW4gdm9uIGRmLCBpbiBkZW5lbiBkaWUgU3BhbHRlIHggNCBpc3RcbmRmW2RmJHggPT0gNCxdXG5cbiMgRXJnXHUwMGU0bnplIGVpbmUgZHJpdHRlIFNwYWx0ZSBtaXQgZGVtIE5hbWVuIHosIGluIGRlciBEdSBkaWUgZXJzdGVuIEJ1Y2hzdGFiZW4gZGVzIEFscGhhYmV0cyBlaW5mXHUwMGZjZ3N0XG5kZiR6IDwtIGxldHRlcnNbMTo4XVxuXG4jIExcdTAwZjZzY2hlIGRpZSBTcGFsdGUgeVxuZGYkeSA8LSBOVUxMIiwic2N0IjoidGVzdF9vYmplY3QoXCJkZlwiKSJ9
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuIiwic2FtcGxlIjoiIyBFcnN0ZWxsZSBkZW4gRGF0YWZyYW1lIGRmIG1pdCBlaW5lIFNwYWx0ZSBudW1iZXJzIG1pdCBkZW4gV2VydGVuIDEgYmlzIDEwLCBlaW5lciBTcGFsdGUgbGV0dGVycyBtaXQgZGVtIGVyc3RlbiB6ZWhuIEJ1Y2hzdGFiZW4gKG51dHplIGRhZlx1MDBmY3IgYW0gYmVzdGVuIGRlbiB2b3JoYW5kZW5lbiBWZWt0b3IgbGV0dGVycyksIHVuZCBlaW5lciBTcGFsdGUgbG9naWNhbHMgbWl0IGZcdTAwZmNuZm1hbCBUUlVFIHVuZCBmXHUwMGZjbmZtYWwgRkFMU0UiLCJzb2x1dGlvbiI6IiMgRXJzdGVsbGUgZGVuIERhdGFmcmFtZSBkZiBtaXQgZWluZSBTcGFsdGUgbnVtYmVycyBtaXQgZGVuIFdlcnRlbiAxIGJpcyAxMCwgZWluZXIgU3BhbHRlIGxldHRlcnMgbWl0IGRlbSBlcnN0ZW4gemVobiBCdWNoc3RhYmVuIChudXR6ZSBkYWZcdTAwZmNyIGFtIGJlc3RlbiBkZW4gdm9yaGFuZGVuZW4gVmVrdG9yIGxldHRlcnMpLCB1bmQgZWluZXIgU3BhbHRlIGxvZ2ljYWxzIG1pdCBmXHUwMGZjbmZtYWwgVFJVRSB1bmQgZlx1MDBmY25mbWFsIEZBTFNFXG5cbmRmIDwtIGRhdGEuZnJhbWUobnVtYmVycyA9IDE6MTAsIGxldHRlcnMgPSBsZXR0ZXJzWzE6MTBdLCBsb2dpY2FscyA9IGMocmVwKFRSVUUsIDUpLCByZXAoRkFMU0UsIDUpKSkiLCJzY3QiOiIjIEhpZXIgYmVnaW5uZW4gZGllIFRlc3RzLiBFcyBnaWJ0IHZlcnNjaGllZGVuZSBWYXJpYW50ZW46XG50ZXN0X2NvcnJlY3QodGVzdF9vYmplY3QoXCJkZlwiKSwgdGVzdF9mdW5jdGlvbihcImRhdGEuZnJhbWVcIiwgYXJncyA9IGMoXCJudW1iZXJzXCIsIFwibGV0dGVyc1wiLCBcImxvZ2ljYWxzXCIpKSkgIyBmb3IgeCA8LSBtZWFuKDE6MyksIGRvZXMgbm90IGNoZWNrIGNhbGN1bGF0aW9uXG5cbiMgdGVzdF9vYmplY3QoXCJkZlwiLFxuIyAgICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJQbGVhc2UgbWFrZSBzdXJlIHRvIGRlZmluZSBhIHZhcmlhYmxlIGBiYC5cIixcbiMgICAgICAgICAgICAgaW5jb3JyZWN0X21zZyA9IFwiTWFrZSBzdXJlIHRoYXQgeW91IGFzc2lnbiB0aGUgY29ycmVjdCB2YWx1ZSB0byBgYmAuXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztEYXRhZnJhbWVzIGRlZmluaWVyc3QgRHUgbWl0IDxjb2RlPmRhdGEuZnJhbWUoKTwvY29kZT4uJnJkcXVvOyJ9
 </div>
 </div>
 

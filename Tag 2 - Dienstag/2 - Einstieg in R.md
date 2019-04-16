@@ -566,6 +566,25 @@ Branches:
 
 Für Github gibt es auch grafische Benutzeroberflächen - was euch lieber ist.
 
+Probleme
+========================================================
+```
+### Resetten:
+
+git pull origin master --allow-unrelated-histories
+
+Im Editor: I -> Esc -> :wq 
+
+----
+
+git status
+
+git add .
+
+git commit -m "Commit-Message"
+
+git push origin master
+```
 Merge Conflict I
 ========================================================
 

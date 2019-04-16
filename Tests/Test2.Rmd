@@ -58,40 +58,6 @@ success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 "Subsetting bei Vektoren funktioniert mit []"
 ```
 
-
-## Erstelle einen Dataframe
-
-```{r ex="1_dataframe", type="pre-exercise-code"}
-#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
-```
-
-
-```{r ex="1_dataframe", type="sample-code"}
-# Erstelle den Dataframe df mit eine Spalte numbers mit den Werten 1 bis 10, einer Spalte letters mit dem ersten zehn Buchstaben (nutze dafür am besten den vorhandenen Vektor letters), und einer Spalte logicals mit fünfmal TRUE und fünfmal FALSE
-```
-
-
-```{r ex="1_dataframe", type="solution"}
-# Erstelle den Dataframe df mit eine Spalte numbers mit den Werten 1 bis 10, einer Spalte letters mit dem ersten zehn Buchstaben (nutze dafür am besten den vorhandenen Vektor letters), und einer Spalte logicals mit fünfmal TRUE und fünfmal FALSE
-
-df <- data.frame(numbers = 1:10, letters = letters[1:10], logicals = c(rep(TRUE, 5), rep(FALSE, 5)))
-```
-
-```{r ex="1_dataframe", type="sct"}
-# Hier beginnen die Tests. Es gibt verschiedene Varianten:
-test_correct(test_object("df"), test_function("data.frame", args = c("numbers", "letters", "logicals"))) # for x <- mean(1:3), does not check calculation
-
-# test_object("df",
-#             undefined_msg = "Please make sure to define a variable `b`.",
-#             incorrect_msg = "Make sure that you assign the correct value to `b`.")
-
-success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
-```
-
-```{r ex = "1_dataframe", type = "hint"}
-"Dataframes definierst Du mit `data.frame()`."
-```
-
 ## Subsetting in Dataframes
 
 ```{r ex="2_dataframes", type="pre-exercise-code"}

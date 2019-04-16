@@ -754,3 +754,12 @@ plot(google_stocks[,"GOOG.Close"], main = "Googles Börsenkurs seit 2007", type 
 ```
 
 ![](Rplot.png)
+
+Noch ein Beispiel:
+========================================================
+
+Dataset `AirPassenger` ist in R vorinstalliert. Zeigt die Zahl der internationalen Fluggäste von 1949 bis 1960:
+
+```{r}
+plot(AirPassengers, main = "Flugpassagiere")
+```
