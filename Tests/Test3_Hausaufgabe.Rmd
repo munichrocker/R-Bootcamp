@@ -1,0 +1,463 @@
+---
+title: "Hausaufgaben-Test"
+author: "Benedict Witzenberger""
+date: "19. April 2019"
+output:
+  html_document:
+    self_contained: false
+---
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+Diese Seite ist der Test für die Hausaufgabe zu **Modul 1** des R-Bootcamps beim ifp.
+
+Wir wiederholen die wichtigsten Datentypen: Vektoren, Listen und Dataframes.
+Und wir schreiben if else-Funktionen, Loops und eine eigene Funktion.
+
+Das ist eine Vorlage, um automatisierte Tests mit [Datacamp Light]() zu erstellen.
+
+Die folgenden Tutorials helfen:
+
+[Datacamp Light auf Github](https://github.com/datacamp/datacamp-light)
+
+[Tutorial-Package]() für die Umwandlung des Rmd in ein HTML
+
+[Hilfe zu den Tests](https://datacamp.github.io/testwhat/articles/test-to-check.html)
+Anmerkung: aktuell scheinen beim Umwandeln nur die test_*-Funktionen zu funktionieren
+
+# Vektoren
+
+## Einen Vektor definieren
+
+```{r ex="1_vector", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+```
+
+
+```{r ex="1_vector", type="sample-code"}
+# Definiere den Vektor petra. Er enthält die Zahlen von 10 bis 1 in absteigender Reihenfolge:
+
+
+# Prüfe, welche Klasse der Vektor hat:
+
+
+# Lasse Dir die fünfte Stelle von Petra ausgeben, und speichere Sie in die Variable petra_fuenf
+
+
+# Filtere petra, Dir sollen nur noch die Elemente angezeigt werden, die durch 2 ohne Rest teilbar sind. Speichere sie in die variable petra_gerade
+
+
+```
+
+
+```{r ex="1_vector", type="solution"}
+# Definiere den Vektor petra. Er enthält die Zahlen von 10 bis 1 in absteigender Reihenfolge:
+petra <- c(10:1)
+
+# Prüfe, welche Klasse der Vektor hat:
+class(petra)
+
+# Lasse Dir die fünfte Stelle von Petra ausgeben, und speichere Sie in die Variable petra_fuenf
+petra_fuenf <- petra[5]
+
+# Filtere petra, Dir sollen nur noch die Elemente angezeigt werden, die durch 2 ohne Rest teilbar sind. Speichere sie in die variable petra_gerade
+petra_gerade <- petra[petra %% 2 == 0]
+
+```
+
+```{r ex="1_vector", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+test_object(petra,
+            undefined_msg = "Bitte definiere `petra` richtig.",
+            incorrect_msg = "`petra` hat die falschen Werte.")
+
+
+test_function("class", args = c("x"))
+
+test_object(petra_fuenf,
+            undefined_msg = "Bitte definiere `petra_fuenf` richtig.",
+            incorrect_msg = "`petra_fuenf` hat den falschen Wert.")
+
+test_object(petra_gerade,
+            undefined_msg = "Bitte definiere `petra_gerade` richtig.",
+            incorrect_msg = "`petra_gerade` hat den falschen Wert.")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "1_vector", type = "hint"}
+"Gib den Code für die Übung ein, achte darauf, dass nur der Code dasteht, der verlangt ist. Variablen weißt Du mit `<-` zu. Den Rest einer Division bekommst Du mit dem Modulo-Befehl: `%%`, dann musst Du nur noch testen, ob er `==` 0 ist."
+```
+
+## Mit einem Vektor arbeiten
+
+Für Dich wurde jetzt der Vektor `fcb_goal_diff` definiert. Er enthält die Tordifferenz aller FC Bayern-Spiele seit der Winterpause 18/19 bis zum 19. April 2019.
+
+```{r ex="2_vector", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+fcb_goal_diff <- c(Hoffenheim = 2, Stuttgart = 3, Leverkusen = -2, Schalke = 2, Augsburg = 1, Hertha = 1, Gladbach = 4, Mainz = 6, Freiburg = 0, Dortmund = 5, Duesseldorf = 3)
+```
+
+
+```{r ex="2_vector", type="sample-code"}
+# Lasse Dir die Struktur von fcb_goal_diff anzeigen. Er ist ein Vektor mit Namen: Die jeweiligen gegnerischen Mannschaften.
+
+
+# Lass Dir dir die Verteilung der Ergebnisse als Grafik anzeigen. Nutze dafür `hist()`:
+
+
+# Du solltest sehen: Die meisten Ergebnisse liegen zwischen 0 und 2. Stimmt das? Hilfreich ist bei Verteilungen von Werten die Funktion `summary()`. Probiere es aus:
+
+
+# Das Ergebnis von summary() zeigt: Im Median gewinnen die Bayern mit zwei Toren Vorsprung. Aber wann haben Sie mit mehr als 3,5 Toren gewonnen? Filtere den Vektor so, dass Du die Antwort bekommst - und schreibe das Ergebnis in fcb_high_victories:
+
+
+# Gladbach, Mainz und Dortmund also. Aber wann haben die Bayern verloren oder unentscheiden gespielt? Finde es heraus und schreibe das Ergebnis in fcb_lost_tie:
+
+
+```
+
+
+```{r ex="2_vector", type="solution"}
+# Lasse Dir die Struktur von fcb_goal_diff anzeigen. Er ist ein Vektor mit Namen: Die jeweiligen gegnerischen Mannschaften.
+str(fcb_goal_diff)
+
+# Lass Dir dir die Verteilung der Ergebnisse als Histogramm anzeigen. Nutze dafür `hist()`:
+hist(fcb_goal_diff)
+
+# Du solltest sehen: Die meisten Ergebnisse liegen zwischen 0 und 2. Stimmt das? Hilfreich ist bei Verteilungen von Werten die Funktion `summary()`. Probiere es aus:
+summary(fcb_goal_diff)
+
+# Das Ergebnis von summary() zeigt: Im Median gewinnen die Bayern mit zwei Toren Vorsprung. Aber wann haben Sie mit mehr als 3,5 Toren gewonnen? Filtere den Vektor so, dass Su die Antwort bekommst - und schreibe das Ergebnis in fcb_high_victories. Gib die Variable dann aus:
+fcb_high_victories <- fcb_goal_diff[fcb_goal_diff >= 3.5]
+fcb_high_victories
+
+
+# Gladbach, Mainz und Dortmund also. Aber wann haben die Bayern verloren oder unentscheiden gespielt? Finde es heraus und schreibe das Ergebnis in fcb_lost_tie. Gib die Variable dann aus:
+fcb_lost_tie <- fcb_goal_diff[fcb_goal_diff <= 0]
+fcb_lost_tie
+```
+
+```{r ex="2_vector", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+test_student_typed(c("TRUE & FALSE", "FALSE & TRUE")) #OR:
+test_student_typed("[H|h]ello,*\\s*[W|w]orld\\!*", fixed = FALSE)
+
+test_function("str", args = c("object"))
+test_function("hist", args = c("x"))
+test_function("summary", args = c("object"))
+
+test_object(fcb_high_victories,
+            undefined_msg = "Bitte definiere `fcb_high_victories` richtig.",
+            incorrect_msg = "`fcb_high_victories` hat den falschen Wert.")
+
+test_object(fcb_lost_tie,
+            undefined_msg = "Bitte definiere `fcb_lost_tie` richtig.",
+            incorrect_msg = "`fcb_lost_tie` hat den falschen Wert.")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "2_vector", type = "hint"}
+"`str()` zeigt Dir die Struktur an. `hist()` mit dem einzigen Argument des Vektors zeigt Dir ein Histogramm an. `summary()` berechnet die Verteilung der Werte."
+```
+
+
+## Vom Vektor zum Dataframe
+
+Ein Vektor ist nicht genug. Jetzt wandelst du `fcb_goal_diff` in einen Dataframe um:
+
+```{r ex="3_vector_df", type="pre-exercise-code"}
+fcb_goal_diff <- c(Hoffenheim = 2, Stuttgart = 3, Leverkusen = -2, Schalke = 2, Augsburg = 1, Hertha = 1, Gladbach = 4, Mainz = 6, Freiburg = 0, Dortmund = 5, Duesseldorf = 3)
+```
+
+
+```{r ex="3_vector_df", type="sample-code"}
+# Du möchtest einen Dataframe erstellen, in der in der ersten Spalte die Gegner des FCB stehen. Ziehe dafür die Namen aus `fcb_goal_diff` - und speichere Sie in die Variable namen_fcb.
+
+
+# Welchen Typ hat der Vektor namen_fcb?
+
+
+# Füge jetzt namen_fcb und fcb_goal_diff zum Dataframe df_fcb_diff zusammen. Gib als zusätzliche Argumente ein: `row.names = NULL` und `stringsAsFactors = FALSE`. 
+
+
+# Super, es gibt einen Dataframe. Aber die Spaltennamen sind noch sehr wenig aussagekräftig. Ändere die Spaltennamen von df_fcb_diff in `c("gegner", "tordifferenz")`:
+
+
+# Damit wir die Werte in der richtigen Reihenfolge plotten können, müssen wir die Gegner als Factor definieren. Die Reihenfoolge der Levels muss die sein, die wir später plotten wollen (das erste Spiel des Jahres als erstes, das letzte als letztes)
+
+
+# Plotte jetzt die Tordifferenz:
+
+
+```
+
+
+```{r ex="3_vector_df", type="solution"}
+# Du möchtest einen Dataframe erstellen, in der in der ersten Spalte die Gegner des FCB stehen. Ziehe dafür die Namen aus `fcb_goal_diff` - und speichere Sie in die Variable namen_fcb.
+namen_fcb <- names(fcb_goal_diff)
+
+# Welchen Typ hat der Vektor namen_fcb?
+class(namen_fcb)
+
+# Füge jetzt namen_fcb und fcb_goal_diff zum Dataframe df_fcb_diff zusammen. Gib als zusätzliche Argumente ein: `row.names = NULL` und `stringsAsFactors = FALSE`. 
+df_fcb_diff <- data.frame(namen_fcb, fcb_goal_diff, row.names = NULL, stringsAsFactors = FALSE)
+
+# Super, es gibt einen Dataframe. Aber die Spaltennamen sind noch sehr wenig aussagekräftig. Ändere die Spaltennamen von df_fcb_diff in `c("gegner", "tordifferenz")`:
+names(df_fcb_diff) <- c("gegner", "tordifferenz")
+
+# Damit wir die Werte in der richtigen Reihenfolge plotten können, müssen wir die Gegner als Factor definieren. Die Reihenfoolge der Levels muss die sein, die wir später plotten wollen (das erste Spiel des Jahres als erstes, das letzte als letztes)
+df_fcb_diff$gegner <- factor(df_fcb_diff$gegner, levels = df_fcb_diff$gegner)
+
+# Plotte jetzt die Tordifferenz:
+plot(df_fcb_diff)
+```
+
+```{r ex="3_vector_df", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+
+test_function("names", args = c("x"))
+test_function("plot", args = c("x"))
+
+test_function_result("factor")
+
+test_object(df_fcb_diff,
+            undefined_msg = "Bitte definiere `df_fcb_diff` richtig.",
+            incorrect_msg = "`df_fcb_diff` hat den falschen Wert.")
+
+test_object(df_fcb_diff$gegner,
+            undefined_msg = "Bitte definiere `df_fcb_diff$gegner` richtig.",
+            incorrect_msg = "`df_fcb_diff$gegner` hat den falschen Wert.")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "3_vector_df", type = "hint"}
+"Einen Dataframe erstelst du einfach mit `data.frame()`. Die Spaltennamen änderst Du mit `names(x)` oder `colnames(x)`. Den Facotr erstellst Du mit dem gleichnamigen Befehl. Darin legt das Argument `levels` die Levels fest."
+```
+
+
+## Listen
+
+### Kurzer Exkurz zu Listen
+
+FÜr Dich wurde die Liste `liste_bla` definiert. Sie besteht aus vier Abschnitten, die verschiedene Daten enthalten.
+
+```{r ex="4_list", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+liste_bla <- list(1:3, c("a", "b"), c(TRUE, FALSE, TRUE, TRUE), c(2.3, 5.9, 11.9))
+```
+
+
+```{r ex="4_list", type="sample-code"}
+# Zeige die Struktur von `liste_bla` an:
+
+
+# Subsetting in Listen: Greife auf das Element zu, dasden Wert 11.9 hat. Speichere es in value_list_bla
+
+
+# Wandle die Liste jetzt in den Vektor `bla_vector` um:
+
+
+```
+
+
+```{r ex="4_list", type="solution"}
+# Zeige die Struktur von `liste_bla` an:
+str(liste_bla)
+
+# Subsetting in Listen: Greife auf das Element zu, dasden Wert 11.9 hat. Speichere es in value_list_bla
+value_list_bla <- liste_bla[[4]][3]
+
+# Wandle die Liste jetzt in den Vektor `bla_vector` um:
+bla_vector <- unlist(liste_bla)
+```
+
+```{r ex="4_list", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+test_function("str", args = c("object"))
+
+test_object(value_list_bla,
+            undefined_msg = "Bitte definiere `value_list_bla` richtig.",
+            incorrect_msg = "`value_list_bla` hat den falschen Wert.")
+
+test_object(bla_vector,
+            undefined_msg = "Bitte definiere `bla_vector` richtig.",
+            incorrect_msg = "`petra_gerade` hat den falschen Wert.")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "4_list", type = "hint"}
+"Für das Subsetting in Listen musst Du mit `[]` und `[[]]` arbeiten. Denk daran: Welche eckigen Klammern sind die Waggons, welche die Inhalte der Waggons in unserer Eselsbrücke?"
+```
+
+## Dataframes
+
+Jetzt wollen wir mit einem Dataframe arbeiten. Zuerst laden wir ihn, dann analysieren wir ihn.
+
+Das Thema: Oktoberfest in München. Die Stadt München veröffentlicht dazu Daten auf ihrem [Open Data-Portal](https://www.opengov-muenchen.de/dataset/oktoberfest).
+
+Wir arbeiten mit zwei Datensätzen. Einer enthält die Infos zu den Besuchern des Oktoberfests von 1985 bis 2017, einer enthält die Bierpreise für die gleiche Zeit (bereits umgerechnet in Euro).
+
+```{r ex="5_df", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+```
+
+
+```{r ex="5_df", type="sample-code"}
+# Zunächst laden wir die beiden Dateien: `df_besucher` und `df_bierpreise`. Die Funktionen und die Links sind bereits definiert, gib nur noch die Variablen ein.
+read.csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/56a0c3c8-c2ea-4b42-bbd2-21cb72d80803/download/oktoberfestbierkonsum19852017.csv")
+read.csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/52fda541-c4dd-4eb6-8f2a-84ca24ffe775/download/oktoberfestbierpreis19852017.csv")
+
+# Lass Dir von beiden Datensätzen head() und tail() anzeigen.
+
+
+# Jetzt wollen wir die beiden Datensätze verbinden. Dafür hast Du bereits die Funktion `cbind()` kennengelernt. Schreibe die verbundenen Datensätze in die Variable df_oktoberfest
+
+
+# Berechne jetzt die `summary` von df_oktoberfest, damit Du einen Überblick über die Verteilung der Werte bekommst.
+
+
+# Du möchtest jetzt auf einen Blick prüfe, welche Klassen die Spalten haben. Dafür können wir die Funktion `sapply` benutzen. Was musst Du in sapply als Argumente hinzufügen?
+
+
+```
+
+
+```{r ex="5_df", type="solution"}
+# Zunächst laden wir die beiden Dateien: `df_besucher` und `df_bierpreise`. Die Funktionen und die Links sind bereits definiert, gib nur noch die Variablen ein.
+df_besucher <- read.csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/56a0c3c8-c2ea-4b42-bbd2-21cb72d80803/download/oktoberfestbierkonsum19852017.csv")
+df_bierpreise <- read.csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/52fda541-c4dd-4eb6-8f2a-84ca24ffe775/download/oktoberfestbierpreis19852017.csv")
+
+# Lass Dir von beiden Datensätzen head() und tail() anzeigen.
+head(df_besucher)
+tail(df_besucher)
+
+head(df_bierpreise)
+tail(df_bierpreise)
+
+# Jetzt wollen wir die beiden Datensätze verbinden. Dafür hast Du bereits die Funktion `cbind()` kennengelernt. Schreibe die verbundenen Datensätze in die Variable df_oktoberfest
+df_oktoberfest <- cbind(df_besucher, df_bierpreise)
+
+# Berechne jetzt die `summary` von df_oktoberfest, damit Du einen Überblick über die Verteilung der Werte bekommst.
+summary(df_oktoberfest)
+
+# Du möchtest jetzt auf einen Blick prüfe, welche Klassen die Spalten haben. Dafür können wir die Funktion `sapply` benutzen. Was musst Du in sapply als Argumente hinzufügen?
+sapply(X = , FUN = )
+```
+
+```{r ex="5_df", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+test_student_typed(c("TRUE & FALSE", "FALSE & TRUE")) #OR:
+test_student_typed("[H|h]ello,*\\s*[W|w]orld\\!*", fixed = FALSE)
+
+test_function("class", args = c("x"))
+
+test_function_result("mean")
+
+test_correct(test_object("x"), test_function("mean", args = c("x"))) # for x <- mean(1:3), does not check calculation
+
+test_object(petra_fuenf,
+            undefined_msg = "Bitte definiere `petra_fuenf` richtig.",
+            incorrect_msg = "`petra_fuenf` hat den falschen Wert.")
+
+test_object(petra_gerade,
+            undefined_msg = "Bitte definiere `petra_gerade` richtig.",
+            incorrect_msg = "`petra_gerade` hat den falschen Wert.")
+
+test_output_contains(VALUE, incorrect_msg = "Hast Du dich verechnet? Oder d nicht ausgegeben?")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "5_df", type = "hint"}
+"Hier kannst Du Hilfetext eingeben. Auch Code funktioniert mit ``"
+```
+
+### Das Oktoberfest in Zahlen
+
+In dieser Übung analysierst Du die Oktoberfest-Daten. Die beiden Datensätze sind als `df_oktoberfest` bereits für Dich geladen.
+
+```{r ex="6_df_plot", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+df_besucher <- read.csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/56a0c3c8-c2ea-4b42-bbd2-21cb72d80803/download/oktoberfestbierkonsum19852017.csv")
+df_bierpreise <- read.csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/52fda541-c4dd-4eb6-8f2a-84ca24ffe775/download/oktoberfestbierpreis19852017.csv")
+df_oktoberfest <- cbind(df_besucher, df_bierpreise)
+```
+
+
+```{r ex="6_df_plot", type="sample-code"}
+# Die Struktur des Datensatzes kennst Du ja schon. Lass uns herausfinden, in welchem Jahr am meisten Besucher kamen. Ordne den Datensatz so an, dass das Jahr mit den meisten Besuchern ganz oben steht. Speichere ihn in die Variable df_oktoberfest_besucher - und lasse sie dir anzeigen.
+
+
+# Hat der Besucherrekord etwa mit dem Bierpreis zu tun? Sortiere den Datensatz nach dem niedrigsten Bierpreis und speichere das Ergebnis in df_oktoberfest_bier. Gib die Variable dann wieder aus:
+
+
+# Anmerkung zur Lösung: Na gut, in Wirklichkeit war das Fest eine Jubiläums-Wiesn: 175 Jahre Oktoberfest.
+
+# Seit wann kostet die Mass Bier über 5 Euro? Filtere df_oktoberfest danach
+
+
+# Wichtigste Frage: Wie hat sich der Bierpreis entwickelt? (Spoiler: Nach oben)
+# Nutze `plot()` mit dem Argument `type = "b"` und den Datensatz `df_oktoberfest`, um es herauszufinden:
+
+
+```
+
+
+```{r ex="6_df_plot", type="solution"}
+# Die Struktur des Datensatzes kennst Du ja schon. Lass uns herausfinden, in welchem Jahr am meisten Besucher kamen. Ordne den Datensatz so an, dass das Jahr mit den meisten Besuchern ganz oben steht. Speichere ihn in die Variable df_oktoberfest_besucher - und lasse sie dir anzeigen.
+df_oktoberfest_besucher <- df_oktoberfest[order(df_oktoberfest$besucher_gesamt, decreasing = TRUE), ]
+df_oktoberfest_besucher
+
+# Hat der Besucherrekord etwa mit dem Bierpreis zu tun? Sortiere den Datensatz nach dem niedrigsten Bierpreis und speichere das Ergebnis in df_oktoberfest_bier. Gib die Variable dann wieder aus:
+df_oktoberfest_bier <- df_oktoberfest[order(df_oktoberfest$bier_preis), ]
+df_oktoberfest_bier
+
+# Anmerkung zur Lösung: Na gut, in Wirklichkeit war das Fest eine Jubiläums-Wiesn: 175 Jahre Oktoberfest.
+
+# Seit wann kostet die Mass Bier über 5 Euro? Filtere df_oktoberfest danach
+df_oktoberfest[df_oktoberfest$bier_preis >= 5, ]
+
+# Wichtigste Frage: Wie hat sich der Bierpreis entwickelt? (Spoiler: Nach oben)
+# Nutze `plot()` mit dem Argument `type = "b"` und den Datensatz `df_oktoberfest`, um es herauszufinden:
+plot(df_oktoberfest$jahr, df_oktoberfest$bier_preis, type = "b")
+```
+
+```{r ex="6_df_plot", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+test_student_typed(c("df_oktoberfest[df_oktoberfest$bier_preis >= 5, ]", "df_oktoberfest[df_oktoberfest$bier_preis > 5, ]"))
+
+test_function("plot", args = c("x", "y", "type"))
+
+test_object(df_oktoberfest_besucher,
+            undefined_msg = "Bitte definiere `df_oktoberfest_besucher` richtig.",
+            incorrect_msg = "`df_oktoberfest_besucher` hat den falschen Wert.")
+
+test_object(df_oktoberfest_bier,
+            undefined_msg = "Bitte definiere `df_oktoberfest_bier` richtig.",
+            incorrect_msg = "`df_oktoberfest_bier` hat den falschen Wert.")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "6_df_plot", type = "hint"}
+"Die Subsetting funktioneren nach dem Standarf `df[ , ]`. Beim Plot-Befehl gibts Du dir Argumente `x`, `y` und `type` ein."
+```
+
+## If und else
+
+## Loops
+
+Es gibt drei Loop-Typen in R. Der häufigste ist der For-Loop. Ihn trainieren wir hier:
+
+## Eigene Funktionen
+
+Manchmal müssen wir eigene Funktionen schreiben, so wie in diesem Beispiel:
