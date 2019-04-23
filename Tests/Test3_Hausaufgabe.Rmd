@@ -454,10 +454,134 @@ success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 
 ## If und else
 
+Schreibe einen If...else-Test, der die aktuelle Uhrzeit nutzt. Dafür kannst Du die Funktion `Sys.time()` verwenden, die die aktuelle Datum und Uhrzeit zurückgibt. Weil der Test hier über einen amerikanischen Sevrer läuft, kann die Zeit von Deiner Zeit abweichen.
+
+```{r ex="7_ifelse", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+
+```
+
+
+```{r ex="7_ifelse", type="sample-code"}
+# Definiere die Variable `current_time` mit Sys.time()
+
+
+# Ziehe mit der Funktion format() die Stunde aus dem Datum und speichere Sie als `current_hour`. Ein Beispiel: format(foo$start.time, format='%H:%M'). Achte auf die Klasse von current_hour - sie muss ein Numeric sein.
+
+
+# Schreibe einen if...else-Test, der je nach Uhrzeit "Guten Morgen" (0 bis 10 Uhr), "Guten Tag" (10 bis 16 Uhr) oder "Guten Abend" (16 bis 0 Uhr) printet.
+
+```
+
+
+```{r ex="7_ifelse", type="solution"}
+# Definiere die Variable `current_time` mit Sys.time()
+current_time <- Sys.time()
+
+# Ziehe mit der Funktion format() die Stunde aus dem Datum und speichere Sie als `current_hour`. Ein Beispiel: format(foo$start.time, format='%H:%M'). Achte auf die Klasse von current_hour - sie muss ein Numeric sein.
+current_hour <- as.numeric(format(current_time, format='%H'))
+
+# Schreibe einen if...else-Test, der je nach Uhrzeit "Guten Morgen" (0 bis 10 Uhr), "Guten Tag" (10 bis 16 Uhr) oder "Guten Abend" (16 bis 0 Uhr) printet.
+if (current_hour >= 0 & current_hour <= 10) {
+  print("GUten Morgen")
+} else if (current_hour > 10 & current_hour <= 16) {
+  print("Guten Tag")
+} else {
+  print("Guten Abend")
+}
+```
+
+```{r ex="7_ifelse", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+test_student_typed("%H")
+
+test_function("Sys.time")
+
+test_function("format", args = c("x", "format"))
+
+test_function("as.numeric")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "7_ifelse", type = "hint"}
+"Definiere zuerst die Variable mit Sys.time(). Extrahiere dann die Stunde, wie im Beispiel. Dann Schreibe einen if...else-Test."
+```
+
+
 ## Loops
 
 Es gibt drei Loop-Typen in R. Der häufigste ist der For-Loop. Ihn trainieren wir hier:
 
+```{r ex="8_forloop", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+
+```
+
+
+```{r ex="8_forloop", type="sample-code"}
+# Schreibe einen For-Loop, der jeden Buchstaben von a bis z aus dem Vektor `letters` einzeln ausgibt
+
+
+```
+
+
+```{r ex="8_forloop", type="solution"}
+# Schreibe einen For-Loop, der jeden Buchstaben von a bis z aus dem Vektor `letters` einzeln ausgibt
+for (i in letters) {
+  print(i)
+}
+```
+
+```{r ex="8_forloop", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+test_student_typed("for (i in letters)")
+
+test_function("print", args = c("x"))
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "8_forloop", type = "hint"}
+"Nutze `i` als Variable für die Iteration."
+```
+
 ## Eigene Funktionen
 
 Manchmal müssen wir eigene Funktionen schreiben, so wie in diesem Beispiel:
+
+
+```{r ex="9_function", type="pre-exercise-code"}
+#Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+
+```
+
+
+```{r ex="9_function", type="sample-code"}
+
+```
+
+
+```{r ex="9_function", type="solution"}
+
+```
+
+```{r ex="9_function", type="sct"}
+# Hier beginnen die Tests. Es gibt verschiedene Varianten:
+
+test_student_typed("%H")
+
+test_function("Sys.time")
+
+test_function("format", args = c("x", "format"))
+
+test_function("as.numeric")
+
+success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
+```
+
+```{r ex = "9_function", type = "hint"}
+""
+```
