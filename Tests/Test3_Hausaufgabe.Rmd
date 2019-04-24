@@ -1,11 +1,12 @@
 ---
 title: "Hausaufgaben-Test"
-author: "Benedict Witzenberger""
+author: "Benedict Witzenberger"
 date: "19. April 2019"
 output:
   html_document:
     self_contained: false
 ---
+
 ```{r, include=FALSE}
 tutorial::go_interactive()
 ```
@@ -537,7 +538,7 @@ for (i in letters) {
 ```{r ex="8_forloop", type="sct"}
 # Hier beginnen die Tests. Es gibt verschiedene Varianten:
 
-test_student_typed("for (i in letters)")
+test_student_typed(c("for (i in letters)", "for(i in letters)"))
 
 test_function("print", args = c("x"))
 
@@ -550,38 +551,76 @@ success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 
 ## Eigene Funktionen
 
-Manchmal müssen wir eigene Funktionen schreiben, so wie in diesem Beispiel:
+Manchmal müssen wir eigene Funktionen schreiben, so wie in diesem Beispiel: Manchmal werden in Dataframes Listen gespeichert. Dann wird statt eines Vektors in einer Spalte eine Liste eingefügt. Das ist erstmal unproblematisch - bis wir die Liste mit write.csv() speichern wollen. Wir wollen daher eine Funktion schreiben, die testet, ob eine Spalte eine Liste ist, und diese dann in einen Vektor umwandelt.
+
+Der Dataframe heißt in diesem Beispiel "tibble". Das ist eine Abwandlung.
+
+FÜr Dich wurde der Dataframe `restaurants` definiert. Er besteht aus drei Spalten, davon zwei Listen.
 
 
 ```{r ex="9_function", type="pre-exercise-code"}
 #Hier wird der Code eingegeben, der für die Übung definiert sein muss.
+library(tibble)
 
+restaurant_name <- c('Pizza Hut', 'KFC', 'McDonald`s')
+oeffnungszeiten <- list(c("Montag: 5 - 24 Uhr", "Dienstag: 3 - 2 Uhr", "Mittwoch: 6 -24 Uhr")) 
+services <- list(c("Fett", "Zucker", "Ungesund"))
+
+restaurants <- tibble(restaurant_name, oeffnungszeiten, services)
 ```
 
 
 ```{r ex="9_function", type="sample-code"}
+# Schreibe eine Funktion `set_lists_to_chars`, die Du über die Spalten eines Dataframes laufen lässt. Wenn eine Spalte die Klasse "list" hat, dann nutze "unlist()" und "paste()", um aus der Liste einen Vektor zu erstellen. Und gib diesen Vektor am Ende der Funktion mit `return` zurück.
 
+____ <- function(x) {
+    if(____ == ____) {
+    y <- ____(____(x[1]), sep='', collapse=', ')
+    } else {
+    ____ 
+    }
+    ____
+}
+
+# Führe die Funktion dann mit lapply auf alle Spalten von `restaurants` aus:
+data.frame(lapply(____, ____), stringsAsFactors = F)
 ```
 
 
 ```{r ex="9_function", type="solution"}
+# Schreibe eine Funktion `set_lists_to_chars`, die Du über die Spalten eines Dataframes laufen lässt. Wenn eine Spalte die Klasse "list" hat, dann nutze "unlist()" und "paste()", um aus der Liste einen Vektor zu erstellen. Und gib diesen Vektor am Ende der Funktion mit `return` zurück.
 
+set_lists_to_chars <- function(x) {
+    if(class(x) == 'list') {
+    y <- paste(unlist(x[1]), sep='', collapse=', ')
+    } else {
+    y <- x 
+    }
+    return(y)
+}
+
+# Führe die Funktion dann mit lapply aus:
+data.frame(lapply(restaurants, set_lists_to_chars), stringsAsFactors = F)
 ```
 
 ```{r ex="9_function", type="sct"}
 # Hier beginnen die Tests. Es gibt verschiedene Varianten:
 
-test_student_typed("%H")
+test_function_definition("set_lists_to_chars",
+                         function_test = {
+                           test_expression_result("lapply(restaurants, set_lists_to_chars")
+                         },
+                         body_test = {
+                           test_function("unlist", "x")
+                           test_function("paste", c("x", "sep", "collapse"))
+                           test_function("return")
+                         }, undefined_msg = "Die Funktion wurde falsch definiert.")
 
-test_function("Sys.time")
-
-test_function("format", args = c("x", "format"))
-
-test_function("as.numeric")
+test_function("data.frame")
 
 success_msg("Super, Du hast alle Aufgaben in diesem Block erfolgreich gelöst!")
 ```
 
 ```{r ex = "9_function", type = "hint"}
-""
+"Setze die Funktionen in der richtigen Reihenfolge in die Platzhalter ____ ein."
 ```
