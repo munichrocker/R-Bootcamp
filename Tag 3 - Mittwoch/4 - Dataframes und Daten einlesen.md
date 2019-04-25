@@ -864,7 +864,7 @@ Viele R-Beispiele kommen mit den gleichen Datensätzen.
 
 Das Packet ggplot2 installiert sie:
 
-`install.package(ggplot2)`
+`install.packages("ggplot2")`
 
 Pakete werden in R ganz zu Beginn des Skripts geladen:
 
@@ -1264,7 +1264,7 @@ aktuelle_zeit
 ```
 
 ```
-[1] "2019-04-15 09:52:29 CEST"
+[1] "2019-04-17 14:34:42 CEST"
 ```
 
 Die Umwandlung von POSIXct ist kompliziert, denn man muss Zeitzonen und Formate im Blick behalten. Aber: as.POSIXct kann das alles handlen.

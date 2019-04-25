@@ -504,7 +504,7 @@ Viele R-Beispiele kommen mit den gleichen Datensätzen.
 
 Das Packet ggplot2 installiert sie:
 
-`install.package(ggplot2)`
+`install.packages("ggplot2")`
 
 Pakete werden in R ganz zu Beginn des Skripts geladen:
 ```{r}

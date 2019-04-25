@@ -398,7 +398,17 @@ Bei Fragen könnt ihr jederzeit in Slack (ddj19) schreiben, oder mir eine Mail s
 Hausaufgabe
 ========================================================
 
-Im Github habe ich eine Aufgabe vorbereitet, die euer Wissen aus diesem Seminar testen soll.
+Auf was wir uns geeinigt haben:
+
+* Git-Aufgaben aus der Präsentation
+
+* Aufgaben "For-Loop bei Matrix" und "Normalisieren" aus der Funktionen-Präsentation
+
+* Steffens Datensatz: Wir analysieren ihn und besprechen, wie weit weir gekommen sind.
+
+* ein zusätzliches Arbeitsblatt, wie die Morgentests, vor allem mit Subsetting
+
+**Tipp:** klont euch das R-Bootcamp-Repository mit `git clone https://github.com/munichrocker/R-Bootcamp`
 
 Abschluss Block 1
 ========================================================

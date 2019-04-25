@@ -278,6 +278,10 @@ if (weekdays(Sys.time()) == "Mittwoch") {
 }
 ```
 
+```
+[1] "Heute ist Mittwoch"
+```
+
 ### Die Locale
 
 Achtet bei Tests mit ausgeschriebenen Wochentagen auf die Locale eures Rechners. Sie bestimmt, ob ein Datum als "Wednesday" oder "Mittwoch" ausgegeben wird.
