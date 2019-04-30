@@ -92,3 +92,11 @@ Leider müsst ihr diesmal eure Aufgaben mit der Lösung händisch vergleichen:
 https://github.com/munichrocker/R-Bootcamp/blob/master/Tests/Test3_Alternative_Aufgaben.R
 
 https://github.com/munichrocker/R-Bootcamp/blob/master/Tests/Test3_Alternative_Loesung.R
+
+## Rechtsextreme Aufmärsche
+
+Der Datensatz ist als csv (mit Komma separiert) hier zu finden: https://github.com/munichrocker/R-Bootcamp/blob/master/Tests/rechtsextreme_aufmaersche.csv
+
+Spielt damit rum, und schaut, dass ihr die Teilnehmerzahlen so bereinigt, dass ihr damit arbeiten könnt.
+
+Hilfreiche Funktionen: read.csv(), as.numeric
