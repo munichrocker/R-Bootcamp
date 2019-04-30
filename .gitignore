@@ -26,3 +26,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+
+# Special Files
+Tests/Test3_Hausaufgabe*
