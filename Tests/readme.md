@@ -87,8 +87,8 @@ head(dataframe_normalize, n = 10)
 
 Liegt auf dem Server:
 
-Wie schon die beiden Aufgaben aus dem Kurs:
+Leider müsst ihr diesmal eure Aufgaben mit der Lösung händisch vergleichen:
 
-https://benedict-witzenberger.de/ifp-r-bootcamp19/Test1.html
+https://github.com/munichrocker/R-Bootcamp/blob/master/Tests/Test3_Alternative_Aufgaben.R
 
-https://benedict-witzenberger.de/ifp-r-bootcamp19/Test2.html
+https://github.com/munichrocker/R-Bootcamp/blob/master/Tests/Test3_Alternative_Loesung.R
