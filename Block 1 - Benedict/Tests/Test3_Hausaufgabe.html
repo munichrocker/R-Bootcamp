@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Benedict Witzenberger" />
+
+
+<title>Hausaufgaben-Test</title>
+
+<script src="Test3_Hausaufgabe_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="Test3_Hausaufgabe_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="Test3_Hausaufgabe_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="Test3_Hausaufgabe_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="Test3_Hausaufgabe_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="Test3_Hausaufgabe_files/navigation-1.1/tabsets.js"></script>
+<link href="Test3_Hausaufgabe_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="Test3_Hausaufgabe_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Hausaufgaben-Test</h1>
+<h4 class="author">Benedict Witzenberger</h4>
+<h4 class="date">19. April 2019</h4>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<p>Diese Seite ist der Test für die Hausaufgabe zu <strong>Modul 1</strong> des R-Bootcamps beim ifp.</p>
+<p>Wir wiederholen die wichtigsten Datentypen: Vektoren, Listen und Dataframes. Und wir schreiben if else-Funktionen, Loops und eine eigene Funktion.</p>
+<div id="vektoren" class="section level1">
+<h1>Vektoren</h1>
+<div id="einen-vektor-definieren" class="section level2">
+<h2>Einen Vektor definieren</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuIiwic2FtcGxlIjoiIyBEZWZpbmllcmUgZGVuIFZla3RvciBwZXRyYS4gRXIgZW50aFx1MDBlNGx0IGRpZSBaYWhsZW4gdm9uIDEwIGJpcyAxIGluIGFic3RlaWdlbmRlciBSZWloZW5mb2xnZTpcblxuXG4jIFByXHUwMGZjZmUsIHdlbGNoZSBLbGFzc2UgZGVyIFZla3RvciBoYXQ6XG5cblxuIyBMYXNzZSBEaXIgZGllIGZcdTAwZmNuZnRlIFN0ZWxsZSB2b24gUGV0cmEgYXVzZ2ViZW4sIHVuZCBzcGVpY2hlcmUgU2llIGluIGRpZSBWYXJpYWJsZSBwZXRyYV9mdWVuZlxuXG5cbiMgRmlsdGVyZSBwZXRyYSwgRGlyIHNvbGxlbiBudXIgbm9jaCBkaWUgRWxlbWVudGUgYW5nZXplaWd0IHdlcmRlbiwgZGllIGR1cmNoIDIgb2huZSBSZXN0IHRlaWxiYXIgc2luZC4gU3BlaWNoZXJlIHNpZSBpbiBkaWUgdmFyaWFibGUgcGV0cmFfZ2VyYWRlIiwic29sdXRpb24iOiIjIERlZmluaWVyZSBkZW4gVmVrdG9yIHBldHJhLiBFciBlbnRoXHUwMGU0bHQgZGllIFphaGxlbiB2b24gMTAgYmlzIDEgaW4gYWJzdGVpZ2VuZGVyIFJlaWhlbmZvbGdlOlxucGV0cmEgPC0gYygxMDoxKVxuXG4jIFByXHUwMGZjZmUsIHdlbGNoZSBLbGFzc2UgZGVyIFZla3RvciBoYXQ6XG5jbGFzcyhwZXRyYSlcblxuIyBMYXNzZSBEaXIgZGllIGZcdTAwZmNuZnRlIFN0ZWxsZSB2b24gUGV0cmEgYXVzZ2ViZW4sIHVuZCBzcGVpY2hlcmUgU2llIGluIGRpZSBWYXJpYWJsZSBwZXRyYV9mdWVuZlxucGV0cmFfZnVlbmYgPC0gcGV0cmFbNV1cblxuIyBGaWx0ZXJlIHBldHJhLCBEaXIgc29sbGVuIG51ciBub2NoIGRpZSBFbGVtZW50ZSBhbmdlemVpZ3Qgd2VyZGVuLCBkaWUgZHVyY2ggMiBvaG5lIFJlc3QgdGVpbGJhciBzaW5kLiBTcGVpY2hlcmUgc2llIGluIGRpZSB2YXJpYWJsZSBwZXRyYV9nZXJhZGVcbnBldHJhX2dlcmFkZSA8LSBwZXRyYVtwZXRyYSAlJSAyID09IDBdIiwic2N0IjoiIyBIaWVyIGJlZ2lubmVuIGRpZSBUZXN0cy4gRXMgZ2lidCB2ZXJzY2hpZWRlbmUgVmFyaWFudGVuOlxudGVzdF9vYmplY3QocGV0cmEsXG4gICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJCaXR0ZSBkZWZpbmllcmUgYHBldHJhYCByaWNodGlnLlwiLFxuICAgICAgICAgICAgaW5jb3JyZWN0X21zZyA9IFwiYHBldHJhYCBoYXQgZGllIGZhbHNjaGVuIFdlcnRlLlwiKVxuXG50ZXN0X29iamVjdChwZXRyYV9mdWVuZixcbiAgICAgICAgICAgIHVuZGVmaW5lZF9tc2cgPSBcIkJpdHRlIGRlZmluaWVyZSBgcGV0cmFfZnVlbmZgIHJpY2h0aWcuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgcGV0cmFfZnVlbmZgIGhhdCBkZW4gZmFsc2NoZW4gV2VydC5cIilcblxudGVzdF9vYmplY3QocGV0cmFfZ2VyYWRlLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiQml0dGUgZGVmaW5pZXJlIGBwZXRyYV9nZXJhZGVgIHJpY2h0aWcuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgcGV0cmFfZ2VyYWRlYCBoYXQgZGVuIGZhbHNjaGVuIFdlcnQuXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztHaWIgZGVuIENvZGUgZlx1MDBmY3IgZGllIFx1MDBkY2J1bmcgZWluLCBhY2h0ZSBkYXJhdWYsIGRhc3MgbnVyIGRlciBDb2RlIGRhc3RlaHQsIGRlciB2ZXJsYW5ndCBpc3QuIFZhcmlhYmxlbiB3ZWlcdTAwZGZ0IER1IG1pdCA8Y29kZT4mbHQ7LTwvY29kZT4genUuIERlbiBSZXN0IGVpbmVyIERpdmlzaW9uIGJla29tbXN0IER1IG1pdCBkZW0gTW9kdWxvLUJlZmVobDogPGNvZGU+JSU8L2NvZGU+LCBkYW5uIG11c3N0IER1IG51ciBub2NoIHRlc3Rlbiwgb2IgZXIgPGNvZGU+PT08L2NvZGU+IDAgaXN0LiZyZHF1bzsifQ==
+</div>
+</div>
+<div id="mit-einem-vektor-arbeiten" class="section level2">
+<h2>Mit einem Vektor arbeiten</h2>
+<p>Für Dich wurde jetzt der Vektor <code>fcb_goal_diff</code> definiert. Er enthält die Tordifferenz aller FC Bayern-Spiele seit der Winterpause 18/19 bis zum 19. April 2019.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuXG5mY2JfZ29hbF9kaWZmIDwtIGMoSG9mZmVuaGVpbSA9IDIsIFN0dXR0Z2FydCA9IDMsIExldmVya3VzZW4gPSAtMiwgU2NoYWxrZSA9IDIsIEF1Z3NidXJnID0gMSwgSGVydGhhID0gMSwgR2xhZGJhY2ggPSA0LCBNYWlueiA9IDYsIEZyZWlidXJnID0gMCwgRG9ydG11bmQgPSA1LCBEdWVzc2VsZG9yZiA9IDMpIiwic2FtcGxlIjoiIyBMYXNzZSBEaXIgZGllIFN0cnVrdHVyIHZvbiBmY2JfZ29hbF9kaWZmIGFuemVpZ2VuLiBFciBpc3QgZWluIFZla3RvciBtaXQgTmFtZW46IERpZSBqZXdlaWxpZ2VuIGdlZ25lcmlzY2hlbiBNYW5uc2NoYWZ0ZW4uXG5cblxuIyBMYXNzIERpciBkaXIgZGllIFZlcnRlaWx1bmcgZGVyIEVyZ2Vibmlzc2UgYWxzIEdyYWZpayBhbnplaWdlbi4gTnV0emUgZGFmXHUwMGZjciBgaGlzdCgpYDpcblxuXG4jIER1IHNvbGx0ZXN0IHNlaGVuOiBEaWUgbWVpc3RlbiBFcmdlYm5pc3NlIGxpZWdlbiB6d2lzY2hlbiAwIHVuZCAyLiBTdGltbXQgZGFzPyBIaWxmcmVpY2ggaXN0IGJlaSBWZXJ0ZWlsdW5nZW4gdm9uIFdlcnRlbiBkaWUgRnVua3Rpb24gYHN1bW1hcnkoKWAuIFByb2JpZXJlIGVzIGF1czpcblxuXG4jIERhcyBFcmdlYm5pcyB2b24gc3VtbWFyeSgpIHplaWd0OiBJbSBNZWRpYW4gZ2V3aW5uZW4gZGllIEJheWVybiBtaXQgendlaSBUb3JlbiBWb3JzcHJ1bmcuIEFiZXIgd2FubiBoYWJlbiBTaWUgbWl0IG1laHIgYWxzIDMsNSBUb3JlbiBnZXdvbm5lbj8gRmlsdGVyZSBkZW4gVmVrdG9yIHNvLCBkYXNzIER1IGRpZSBBbnR3b3J0IGJla29tbXN0IC0gdW5kIHNjaHJlaWJlIGRhcyBFcmdlYm5pcyBpbiBmY2JfaGlnaF92aWN0b3JpZXM6XG5cblxuIyBHbGFkYmFjaCwgTWFpbnogdW5kIERvcnRtdW5kIGFsc28uIEFiZXIgd2FubiBoYWJlbiBkaWUgQmF5ZXJuIHZlcmxvcmVuIG9kZXIgdW5lbnRzY2hlaWRlbiBnZXNwaWVsdD8gRmluZGUgZXMgaGVyYXVzIHVuZCBzY2hyZWliZSBkYXMgRXJnZWJuaXMgaW4gZmNiX2xvc3RfdGllOiIsInNvbHV0aW9uIjoiIyBMYXNzZSBEaXIgZGllIFN0cnVrdHVyIHZvbiBmY2JfZ29hbF9kaWZmIGFuemVpZ2VuLiBFciBpc3QgZWluIFZla3RvciBtaXQgTmFtZW46IERpZSBqZXdlaWxpZ2VuIGdlZ25lcmlzY2hlbiBNYW5uc2NoYWZ0ZW4uXG5zdHIoZmNiX2dvYWxfZGlmZilcblxuIyBMYXNzIERpciBkaXIgZGllIFZlcnRlaWx1bmcgZGVyIEVyZ2Vibmlzc2UgYWxzIEhpc3RvZ3JhbW0gYW56ZWlnZW4uIE51dHplIGRhZlx1MDBmY3IgYGhpc3QoKWA6XG5oaXN0KGZjYl9nb2FsX2RpZmYpXG5cbiMgRHUgc29sbHRlc3Qgc2VoZW46IERpZSBtZWlzdGVuIEVyZ2Vibmlzc2UgbGllZ2VuIHp3aXNjaGVuIDAgdW5kIDIuIFN0aW1tdCBkYXM/IEhpbGZyZWljaCBpc3QgYmVpIFZlcnRlaWx1bmdlbiB2b24gV2VydGVuIGRpZSBGdW5rdGlvbiBgc3VtbWFyeSgpYC4gUHJvYmllcmUgZXMgYXVzOlxuc3VtbWFyeShmY2JfZ29hbF9kaWZmKVxuXG4jIERhcyBFcmdlYm5pcyB2b24gc3VtbWFyeSgpIHplaWd0OiBJbSBNZWRpYW4gZ2V3aW5uZW4gZGllIEJheWVybiBtaXQgendlaSBUb3JlbiBWb3JzcHJ1bmcuIEFiZXIgd2FubiBoYWJlbiBTaWUgbWl0IG1laHIgYWxzIDMsNSBUb3JlbiBnZXdvbm5lbj8gRmlsdGVyZSBkZW4gVmVrdG9yIHNvLCBkYXNzIFN1IGRpZSBBbnR3b3J0IGJla29tbXN0IC0gdW5kIHNjaHJlaWJlIGRhcyBFcmdlYm5pcyBpbiBmY2JfaGlnaF92aWN0b3JpZXMuIEdpYiBkaWUgVmFyaWFibGUgZGFubiBhdXM6XG5mY2JfaGlnaF92aWN0b3JpZXMgPC0gZmNiX2dvYWxfZGlmZltmY2JfZ29hbF9kaWZmID49IDMuNV1cbmZjYl9oaWdoX3ZpY3Rvcmllc1xuXG5cbiMgR2xhZGJhY2gsIE1haW56IHVuZCBEb3J0bXVuZCBhbHNvLiBBYmVyIHdhbm4gaGFiZW4gZGllIEJheWVybiB2ZXJsb3JlbiBvZGVyIHVuZW50c2NoZWlkZW4gZ2VzcGllbHQ/IEZpbmRlIGVzIGhlcmF1cyB1bmQgc2NocmVpYmUgZGFzIEVyZ2VibmlzIGluIGZjYl9sb3N0X3RpZS4gR2liIGRpZSBWYXJpYWJsZSBkYW5uIGF1czpcbmZjYl9sb3N0X3RpZSA8LSBmY2JfZ29hbF9kaWZmW2ZjYl9nb2FsX2RpZmYgPD0gMF1cbmZjYl9sb3N0X3RpZSIsInNjdCI6IiMgSGllciBiZWdpbm5lbiBkaWUgVGVzdHMuIEVzIGdpYnQgdmVyc2NoaWVkZW5lIFZhcmlhbnRlbjpcblxuIyB0ZXN0X2Z1bmN0aW9uKFwic3RyXCIsIGFyZ3MgPSBjKFwib2JqZWN0XCIpKVxuIyB0ZXN0X2Z1bmN0aW9uKFwiaGlzdFwiLCBhcmdzID0gYyhcInhcIikpXG4jIHRlc3RfZnVuY3Rpb24oXCJzdW1tYXJ5XCIsIGFyZ3MgPSBjKFwib2JqZWN0XCIpKVxuXG50ZXN0X29iamVjdChmY2JfaGlnaF92aWN0b3JpZXMsXG4gICAgICAgICAgICB1bmRlZmluZWRfbXNnID0gXCJCaXR0ZSBkZWZpbmllcmUgYGZjYl9oaWdoX3ZpY3Rvcmllc2AgcmljaHRpZy5cIixcbiAgICAgICAgICAgIGluY29ycmVjdF9tc2cgPSBcImBmY2JfaGlnaF92aWN0b3JpZXNgIGhhdCBkZW4gZmFsc2NoZW4gV2VydC5cIilcblxudGVzdF9vYmplY3QoZmNiX2xvc3RfdGllLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiQml0dGUgZGVmaW5pZXJlIGBmY2JfbG9zdF90aWVgIHJpY2h0aWcuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgZmNiX2xvc3RfdGllYCBoYXQgZGVuIGZhbHNjaGVuIFdlcnQuXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bzs8Y29kZT5zdHIoKTwvY29kZT4gemVpZ3QgRGlyIGRpZSBTdHJ1a3R1ciBhbi4gPGNvZGU+aGlzdCgpPC9jb2RlPiBtaXQgZGVtIGVpbnppZ2VuIEFyZ3VtZW50IGRlcyBWZWt0b3JzIHplaWd0IERpciBlaW4gSGlzdG9ncmFtbSBhbi4gPGNvZGU+c3VtbWFyeSgpPC9jb2RlPiBiZXJlY2huZXQgZGllIFZlcnRlaWx1bmcgZGVyIFdlcnRlLiZyZHF1bzsifQ==
+</div>
+</div>
+<div id="vom-vektor-zum-dataframe" class="section level2">
+<h2>Vom Vektor zum Dataframe</h2>
+<p>Ein Vektor ist nicht genug. Jetzt wandelst du <code>fcb_goal_diff</code> in einen Dataframe um:</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6ImZjYl9nb2FsX2RpZmYgPC0gYyhIb2ZmZW5oZWltID0gMiwgU3R1dHRnYXJ0ID0gMywgTGV2ZXJrdXNlbiA9IC0yLCBTY2hhbGtlID0gMiwgQXVnc2J1cmcgPSAxLCBIZXJ0aGEgPSAxLCBHbGFkYmFjaCA9IDQsIE1haW56ID0gNiwgRnJlaWJ1cmcgPSAwLCBEb3J0bXVuZCA9IDUsIER1ZXNzZWxkb3JmID0gMykiLCJzYW1wbGUiOiIjIER1IG1cdTAwZjZjaHRlc3QgZWluZW4gRGF0YWZyYW1lIGVyc3RlbGxlbiwgaW4gZGVyIGluIGRlciBlcnN0ZW4gU3BhbHRlIGRpZSBHZWduZXIgZGVzIEZDQiBzdGVoZW4uIFppZWhlIGRhZlx1MDBmY3IgZGllIE5hbWVuIGF1cyBgZmNiX2dvYWxfZGlmZmAgLSB1bmQgc3BlaWNoZXJlIFNpZSBpbiBkaWUgVmFyaWFibGUgbmFtZW5fZmNiLlxuXG5cbiMgV2VsY2hlbiBUeXAgaGF0IGRlciBWZWt0b3IgbmFtZW5fZmNiP1xuXG5cbiMgRlx1MDBmY2dlIGpldHp0IG5hbWVuX2ZjYiB1bmQgZmNiX2dvYWxfZGlmZiB6dW0gRGF0YWZyYW1lIGRmX2ZjYl9kaWZmIHp1c2FtbWVuLiBHaWIgYWxzIHp1c1x1MDBlNHR6bGljaGUgQXJndW1lbnRlIGVpbjogYHJvdy5uYW1lcyA9IE5VTExgIHVuZCBgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFYC4gXG5cblxuIyBTdXBlciwgZXMgZ2lidCBlaW5lbiBEYXRhZnJhbWUuIEFiZXIgZGllIFNwYWx0ZW5uYW1lbiBzaW5kIG5vY2ggc2VociB3ZW5pZyBhdXNzYWdla3JcdTAwZTRmdGlnLiBcdTAwYzRuZGVyZSBkaWUgU3BhbHRlbm5hbWVuIHZvbiBkZl9mY2JfZGlmZiBpbiBgYyhcImdlZ25lclwiLCBcInRvcmRpZmZlcmVuelwiKWA6XG5cblxuIyBEYW1pdCB3aXIgZGllIFdlcnRlIGluIGRlciByaWNodGlnZW4gUmVpaGVuZm9sZ2UgcGxvdHRlbiBrXHUwMGY2bm5lbiwgbVx1MDBmY3NzZW4gd2lyIGRpZSBHZWduZXIgYWxzIEZhY3RvciBkZWZpbmllcmVuLiBEaWUgUmVpaGVuZm9vbGdlIGRlciBMZXZlbHMgbXVzcyBkaWUgc2VpbiwgZGllIHdpciBzcFx1MDBlNHRlciBwbG90dGVuIHdvbGxlbiAoZGFzIGVyc3RlIFNwaWVsIGRlcyBKYWhyZXMgYWxzIGVyc3RlcywgZGFzIGxldHp0ZSBhbHMgbGV0enRlcylcblxuXG4jIFBsb3R0ZSBqZXR6dCBkaWUgVG9yZGlmZmVyZW56OiIsInNvbHV0aW9uIjoiIyBEdSBtXHUwMGY2Y2h0ZXN0IGVpbmVuIERhdGFmcmFtZSBlcnN0ZWxsZW4sIGluIGRlciBpbiBkZXIgZXJzdGVuIFNwYWx0ZSBkaWUgR2VnbmVyIGRlcyBGQ0Igc3RlaGVuLiBaaWVoZSBkYWZcdTAwZmNyIGRpZSBOYW1lbiBhdXMgYGZjYl9nb2FsX2RpZmZgIC0gdW5kIHNwZWljaGVyZSBTaWUgaW4gZGllIFZhcmlhYmxlIG5hbWVuX2ZjYi5cbm5hbWVuX2ZjYiA8LSBuYW1lcyhmY2JfZ29hbF9kaWZmKVxuXG4jIFdlbGNoZW4gVHlwIGhhdCBkZXIgVmVrdG9yIG5hbWVuX2ZjYj9cbmNsYXNzKG5hbWVuX2ZjYilcblxuIyBGXHUwMGZjZ2UgamV0enQgbmFtZW5fZmNiIHVuZCBmY2JfZ29hbF9kaWZmIHp1bSBEYXRhZnJhbWUgZGZfZmNiX2RpZmYgenVzYW1tZW4uIEdpYiBhbHMgenVzXHUwMGU0dHpsaWNoZSBBcmd1bWVudGUgZWluOiBgcm93Lm5hbWVzID0gTlVMTGAgdW5kIGBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0VgLiBcbmRmX2ZjYl9kaWZmIDwtIGRhdGEuZnJhbWUobmFtZW5fZmNiLCBmY2JfZ29hbF9kaWZmLCByb3cubmFtZXMgPSBOVUxMLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5cbiMgU3VwZXIsIGVzIGdpYnQgZWluZW4gRGF0YWZyYW1lLiBBYmVyIGRpZSBTcGFsdGVubmFtZW4gc2luZCBub2NoIHNlaHIgd2VuaWcgYXVzc2FnZWtyXHUwMGU0ZnRpZy4gXHUwMGM0bmRlcmUgZGllIFNwYWx0ZW5uYW1lbiB2b24gZGZfZmNiX2RpZmYgaW4gYGMoXCJnZWduZXJcIiwgXCJ0b3JkaWZmZXJlbnpcIilgOlxubmFtZXMoZGZfZmNiX2RpZmYpIDwtIGMoXCJnZWduZXJcIiwgXCJ0b3JkaWZmZXJlbnpcIilcblxuIyBEYW1pdCB3aXIgZGllIFdlcnRlIGluIGRlciByaWNodGlnZW4gUmVpaGVuZm9sZ2UgcGxvdHRlbiBrXHUwMGY2bm5lbiwgbVx1MDBmY3NzZW4gd2lyIGRpZSBHZWduZXIgYWxzIEZhY3RvciBkZWZpbmllcmVuLiBEaWUgUmVpaGVuZm9vbGdlIGRlciBMZXZlbHMgbXVzcyBkaWUgc2VpbiwgZGllIHdpciBzcFx1MDBlNHRlciBwbG90dGVuIHdvbGxlbiAoZGFzIGVyc3RlIFNwaWVsIGRlcyBKYWhyZXMgYWxzIGVyc3RlcywgZGFzIGxldHp0ZSBhbHMgbGV0enRlcylcbmRmX2ZjYl9kaWZmJGdlZ25lciA8LSBmYWN0b3IoZGZfZmNiX2RpZmYkZ2VnbmVyLCBsZXZlbHMgPSBkZl9mY2JfZGlmZiRnZWduZXIpXG5cbiMgUGxvdHRlIGpldHp0IGRpZSBUb3JkaWZmZXJlbno6XG5wbG90KGRmX2ZjYl9kaWZmKSIsInNjdCI6IiMgSGllciBiZWdpbm5lbiBkaWUgVGVzdHMuIEVzIGdpYnQgdmVyc2NoaWVkZW5lIFZhcmlhbnRlbjpcblxuXG50ZXN0X2Z1bmN0aW9uKFwibmFtZXNcIiwgYXJncyA9IGMoXCJ4XCIpKVxudGVzdF9mdW5jdGlvbihcInBsb3RcIiwgYXJncyA9IGMoXCJ4XCIpKVxuXG50ZXN0X2Z1bmN0aW9uX3Jlc3VsdChcImZhY3RvclwiKVxuXG50ZXN0X29iamVjdChkZl9mY2JfZGlmZixcbiAgICAgICAgICAgIHVuZGVmaW5lZF9tc2cgPSBcIkJpdHRlIGRlZmluaWVyZSBgZGZfZmNiX2RpZmZgIHJpY2h0aWcuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgZGZfZmNiX2RpZmZgIGhhdCBkZW4gZmFsc2NoZW4gV2VydC5cIilcblxudGVzdF9vYmplY3QoZGZfZmNiX2RpZmYkZ2VnbmVyLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiQml0dGUgZGVmaW5pZXJlIGBkZl9mY2JfZGlmZiRnZWduZXJgIHJpY2h0aWcuXCIsXG4gICAgICAgICAgICBpbmNvcnJlY3RfbXNnID0gXCJgZGZfZmNiX2RpZmYkZ2VnbmVyYCBoYXQgZGVuIGZhbHNjaGVuIFdlcnQuXCIpXG5cbnN1Y2Nlc3NfbXNnKFwiU3VwZXIsIER1IGhhc3QgYWxsZSBBdWZnYWJlbiBpbiBkaWVzZW0gQmxvY2sgZXJmb2xncmVpY2ggZ2VsXHUwMGY2c3QhXCIpIiwiaGludCI6IiZsZHF1bztFaW5lbiBEYXRhZnJhbWUgZXJzdGVsc3QgZHUgZWluZmFjaCBtaXQgPGNvZGU+ZGF0YS5mcmFtZSgpPC9jb2RlPi4gRGllIFNwYWx0ZW5uYW1lbiBcdTAwZTRuZGVyc3QgRHUgbWl0IDxjb2RlPm5hbWVzKHgpPC9jb2RlPiBvZGVyIDxjb2RlPmNvbG5hbWVzKHgpPC9jb2RlPi4gRGVuIEZhY290ciBlcnN0ZWxsc3QgRHUgbWl0IGRlbSBnbGVpY2huYW1pZ2VuIEJlZmVobC4gRGFyaW4gbGVndCBkYXMgQXJndW1lbnQgPGNvZGU+bGV2ZWxzPC9jb2RlPiBkaWUgTGV2ZWxzIGZlc3QuJnJkcXVvOyJ9
+</div>
+</div>
+<div id="listen" class="section level2">
+<h2>Listen</h2>
+<div id="kurzer-exkurz-zu-listen" class="section level3">
+<h3>Kurzer Exkurz zu Listen</h3>
+<p>Für Dich wurde die Liste <code>liste_bla</code> definiert. Sie besteht aus vier Abschnitten, die verschiedene Daten enthalten.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJwcmVfZXhlcmNpc2VfY29kZSI6IiNIaWVyIHdpcmQgZGVyIENvZGUgZWluZ2VnZWJlbiwgZGVyIGZcdTAwZmNyIGRpZSBcdTAwZGNidW5nIGRlZmluaWVydCBzZWluIG11c3MuXG5saXN0ZV9ibGEgPC0gbGlzdCgxOjMsIGMoXCJhXCIsIFwiYlwiKSwgYyhUUlVFLCBGQUxTRSwgVFJVRSwgVFJVRSksIGMoMi4zLCA1LjksIDExLjkpKSIsInNhbXBsZSI6IiMgWmVpZ2UgZGllIFN0cnVrdHVyIHZvbiBgbGlzdGVfYmxhYCBhbjpcblxuXG4jIFN1YnNldHRpbmcgaW4gTGlzdGVuOiBHcmVpZmUgYXVmIGRhcyBFbGVtZW50IHp1LCBkYXNkZW4gV2VydCAxMS45IGhhdC4gU3BlaWNoZXJlIGVzIGluIHZhbHVlX2xpc3RfYmxhXG5cblxuIyBXYW5kbGUgZGllIExpc3RlIGpldHp0IGluIGRlbiBWZWt0b3IgYGJsYV92ZWN0b3JgIHVtOiIsInNvbHV0aW9uIjoiIyBaZWlnZSBkaWUgU3RydWt0dXIgdm9uIGBsaXN0ZV9ibGFgIGFuOlxuc3RyKGxpc3RlX2JsYSlcblxuIyBTdWJzZXR0aW5nIGluIExpc3RlbjogR3JlaWZlIGF1ZiBkYXMgRWxlbWVudCB6dSwgZGFzZGVuIFdlcnQgMTEuOSBoYXQuIFNwZWljaGVyZSBlcyBpbiB2YWx1ZV9saXN0X2JsYVxudmFsdWVfbGlzdF9ibGEgPC0gbGlzdGVfYmxhW1s0XV1bM11cblxuIyBXYW5kbGUgZGllIExpc3RlIGpldHp0IGluIGRlbiBWZWt0b3IgYGJsYV92ZWN0b3JgIHVtOlxuYmxhX3ZlY3RvciA8LSB1bmxpc3QobGlzdGVfYmxhKSIsInNjdCI6IiMgSGllciBiZWdpbm5lbiBkaWUgVGVzdHMuIEVzIGdpYnQgdmVyc2NoaWVkZW5lIFZhcmlhbnRlbjpcbnRlc3RfZnVuY3Rpb24oXCJzdHJcIiwgYXJncyA9IGMoXCJvYmplY3RcIikpXG5cbnRlc3Rfb2JqZWN0KHZhbHVlX2xpc3RfYmxhLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiQml0dGUgZGVmaW5pZXJlIGB2YWx1ZV9saXN0X2JsYWAgcmljaHRpZy5cIixcbiAgICAgICAgICAgIGluY29ycmVjdF9tc2cgPSBcImB2YWx1ZV9saXN0X2JsYWAgaGF0IGRlbiBmYWxzY2hlbiBXZXJ0LlwiKVxuXG50ZXN0X29iamVjdChibGFfdmVjdG9yLFxuICAgICAgICAgICAgdW5kZWZpbmVkX21zZyA9IFwiQml0dGUgZGVmaW5pZXJlIGBibGFfdmVjdG9yYCByaWNodGlnLlwiLFxuICAgICAgICAgICAgaW5jb3JyZWN0X21zZyA9IFwiYHBldHJhX2dlcmFkZWAgaGF0IGRlbiBmYWxzY2hlbiBXZXJ0LlwiKVxuXG5zdWNjZXNzX21zZyhcIlN1cGVyLCBEdSBoYXN0IGFsbGUgQXVmZ2FiZW4gaW4gZGllc2VtIEJsb2NrIGVyZm9sZ3JlaWNoIGdlbFx1MDBmNnN0IVwiKSIsImhpbnQiOiImbGRxdW87Rlx1MDBmY3IgZGFzIFN1YnNldHRpbmcgaW4gTGlzdGVuIG11c3N0IER1IG1pdCA8Y29kZT5bXTwvY29kZT4gdW5kIDxjb2RlPltbXV08L2NvZGU+IGFyYmVpdGVuLiBEZW5rIGRhcmFuOiBXZWxjaGUgZWNraWdlbiBLbGFtbWVybiBzaW5kIGRpZSBXYWdnb25zLCB3ZWxjaGUgZGllIEluaGFsdGUgZGVyIFdhZ2dvbnMgaW4gdW5zZXJlciBFc2Vsc2JyXHUwMGZjY2tlPyZyZHF1bzsifQ==
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
