@@ -1,12 +1,13 @@
-aufmaersche <- read.csv("rechtsextreme_aufmaersche.csv", stringsAsFactors = FALSE)
+aufmaersche <- read.csv("rechtsextreme_aufmaersche.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 
 # *Fragen und Aufgaben für den Aufmärsche-Datensatz*
 # 
-# 1. Entfernt die Zeilen mit NAs in der TN.-Spalte.
-aufmaersche <- na.omit(aufmaersche)
-
-# 2. Wandelt die TN.-Spalte in Numeric um.
+# 1. Wandelt die TN.-Spalte in Numeric um.
 aufmaersche$TN. <- as.numeric(gsub(".", "", aufmaersche$TN., fixed = TRUE))
+
+# 2. Entfernt die Zeilen mit NAs in der TN.-Spalte.
+aufmaersche <- na.omit(aufmaersche)
+#aufmaersche[!is.na(aufmaersche$TN.), ]
 
 # 3. Bei welcher Demo gab es die meisten Teilnehmer?
 aufmaersche[order(aufmaersche$TN., decreasing = TRUE),]
@@ -19,7 +20,7 @@ aufmaersche[order(aufmaersche$TN., decreasing = FALSE),]
 sum(aufmaersche[aufmaersche$Ort == "Chemnitz", ]$TN.)
 
 # 6. Entfernt die "\n" aus der Spalte Ort mit gsub() (Hinweis: funktioniert mit RegEx (nicht `fixed = TRUE`), für optionale Zeichen könnt ihr `(Zeichen)?`verwenden.)
-aufmaersche$Ort <- gsub("(-)?\n", "", aufmaersche$Ort, fixed = T)
+aufmaersche$Ort <- gsub("(-)?\n", "", aufmaersche$Ort, fixed = F)
 table(aufmaersche$Ort)
 
 # 7. Verfahrt ebenso mit den Veranstaltern der Demos. Zählt mit table() die Veranstalter.
@@ -27,7 +28,7 @@ aufmaersche$Veranstalter <- gsub("(-)?\n", " ", aufmaersche$Veranstalter, fixed 
 table(aufmaersche$Veranstalter)
 
 # 8. Wie viele Demos gab es in Ost-, wie viele in Westdeutschland? (Hilfreiche Funktion: `aufmaersche$Ost_West <- ifelse(aufmaersche$Land %in% c("NW", "RP", "HH", "NI"), TRUE, FALSE)`)
-aufmaersche$Ost_West <- ifelse(aufmaersche$Land %in% c("NW", "RP", "HH", "NI"), FALSE, TRUE)
+aufmaersche$Ost_West <- ifelse(aufmaersche$Land %in% c("NW", "RP", "HH", "NI"), "West", "Ost")
 table(aufmaersche$Ost_West)
 
 # 9. Wie viele Teilnehmer hatten die Demos in Ost-, bzw. Westdeutschland in der Summe?
