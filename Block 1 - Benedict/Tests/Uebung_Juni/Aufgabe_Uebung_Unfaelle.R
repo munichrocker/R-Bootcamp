@@ -42,10 +42,6 @@
 # Als Lösung könnt ihr die Bibliothek `destatiscleaner` auf Github suchen, oder eine eigene Funktion schreiben.
 # Ich habe das für euch gemacht - wenn ihr wollt, schaut, ob ihr sie verstehen könnt.
 
-df <- read.csv2("Unfaelle_Destatis_46241-0001.csv", header = F)
-skip_before <- 6
-header_length <- 4 
-
 clean_destatis_header <- function(df, skip_before, header_length = 1) {
   df <- df[(skip_before + 1):(skip_before + header_length),]
   
