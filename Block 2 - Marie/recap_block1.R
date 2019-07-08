@@ -2,18 +2,25 @@
 
 # Erstelle einen Vector mit den Zahlen von 1 bis 20
 
-
 # Erstelle einen Vektor mit den Zahlen von 1 bis 20, wobei sich jede Zahl direkt doppeln soll. 
 # Tipp: Sieh dir die Funktion rep an.
 
 
 # Lies den Datensatz ew19.csv ein, speicher ihn in der Programmierumgebung als benannten Dataframe ab.
 
+# Kurzer Check über das Environment-Window: Passen alle Namen, 
+# ist alles richtig eingelesen (integer, factor, characters, Trennzeichen richtig gesetzt, utf-8)? 
 
 # Lass dir nur die ersten sechs Zeilen ausgeben. Sieh dir dazu beispielsweise die Hilfeseite der Funktion head an.
 
 
 # Lass dir nur die letzten drei Zeilen ausgeben
+
+
+# Berechne die Gesamtanzahl der Nichtwähler in Deutschland. Tipp: Nutze die Funktion sum.
+
+
+# Wie hoch war der Wähleranteil in ganz Deustchland?
 
 
 # Füge eine neue Spalte mit dem relativen Wahlergebnis der SPD zum Datensatz hinzu. Benutze dafür den Dollar-Operator.
@@ -40,9 +47,9 @@
 #Schmeiß die Spalte mit den prozentualen Werten der SPD nochmal aus dem Datensatz raus.
 
 
+
 # Challenge: Berechne für alle weiteren Parteien die prozentualen Werte und füge sie als neue Spalte hinzu.
 # Benutze dafür zB eine for-Schleife
-
 
 
 

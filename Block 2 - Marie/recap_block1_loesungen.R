@@ -22,6 +22,12 @@ tail(ew19, n=3) # Wieder mehrere Möglichleiten: tail ist das Gegenstück zu hea
 ew19[(nrow(ew19)-2):nrow(ew19),] # Wer nicht nachgucken will, welche Indizes die letzten drei Zeilen 
 # genau haben, kann das mit nrow programmatisch lösen. Die Funktion gibt die Anzahl Zeilen eines Datensatzes aus.
 
+# Berechne die Gesamtanzahl der Nichtwähler in Deutschland. Tipp: Nutze die Funktion sum.
+sum(ew19$Wahlberechtigte)-sum(ew19$Wähler)
+
+# Wie hoch war der Wähleranteil in ganz Deustchland?
+sum(ew19$Wähler)/sum(ew19$Wahlberechtigte)
+
 # Füge eine neue Spalte mit dem relativen Wahlergebnis der SPD zum Datensatz hinzu. Benutze dafür den Dollar-Operator.
 # Tipp: Das relative Wahlergebnis ergibt sich aus der Division von den Stimmen und den gültigen Stimmen.
 ew19$SPD_rel <- ew19$SPD/ew19$Gültige.Stimmen
