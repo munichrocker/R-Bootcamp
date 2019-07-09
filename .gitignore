@@ -26,6 +26,7 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+Block 2 - Marie/.DS_Store
 .DS_Store
 
 # Special Files
