@@ -29,23 +29,15 @@ Ergebnisse der Wahlen zum europäischen Parlament nach nach Kreisen und kreisfre
 
 ### Links zu DDJ-Projekten
 
-#### SZ: [Das gespaltene Parlament](http://sz.de/afdimbundestag)
-
-*Daten & Code zum Artikel:* [github.com/sueddeutsche/afd-im-bundestag](https://github.com/sueddeutsche/afd-im-bundestag)
-
-*Team Github Repo:* [github.com/sueddeutsche](https://github.com/sueddeutsche)
-
-#### DW Data: [Die Vorlieben der Oscar-Academy](https://www.dw.com/a-47499539) | [Was Hollywood-Filme über Vorurteile offenbaren](https://www.dw.com/a-47561600)
-
-*Daten & Code zum Artikel:* [github.com/dw-data/movie-tropes](https://github.com/dw-data/movie-tropes)
-
-*Team Github Repo:* [github.com/dw-data](https://github.com/dw-data)
-
-#### BR Data: [Das verbaute Land](http://web.br.de/interaktiv/flaechenverbrauch/)
-
-*Daten & Code zum Artikel:* [github.com/br-data/2018-flaechenverbrauch-analyse](https://github.com/br-data/2018-flaechenverbrauch-analyse)
-
-*Team Github Repo:* [github.com/br-data](https://github.com/br-data)
+1. SZ: [Das gespaltene Parlament](http://sz.de/afdimbundestag)
+	- *Daten & Code zum Artikel:* [github.com/sueddeutsche/afd-im-bundestag](https://github.com/sueddeutsche/afd-im-bundestag)
+	- *Team Github Repo:* [github.com/sueddeutsche](https://github.com/sueddeutsche)
+2. DW Data: [Die Vorlieben der Oscar-Academy](https://www.dw.com/a-47499539) | [Was Hollywood-Filme über Vorurteile offenbaren](https://www.dw.com/a-47561600)
+	- *Daten & Code zum Artikel:* [github.com/dw-data/movie-tropes](https://github.com/dw-data/movie-tropes)
+	- *Team Github Repo:* [github.com/dw-data](https://github.com/dw-data)
+3. BR Data: [Das verbaute Land](http://web.br.de/interaktiv/flaechenverbrauch/)
+	- *Daten & Code zum Artikel:* [github.com/br-data/2018-flaechenverbrauch-analyse](https://github.com/br-data/2018-flaechenverbrauch-analyse)
+	- *Team Github Repo:* [github.com/br-data](https://github.com/br-data)
 
 ### Aufgabenstellung
 
