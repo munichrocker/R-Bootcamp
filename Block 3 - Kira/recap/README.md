@@ -1,6 +1,6 @@
-# ifp R Bootcamp: Modul 3
+# Tag 1: Aufwärmübungen und Datenanalyse
+ifp R Bootcamp: Modul 3
 
-Tag 1: Aufwärmübungen und Datenanalyse
 
 ## Aufwärmübungen
 
