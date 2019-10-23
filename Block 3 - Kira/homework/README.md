@@ -1,5 +1,5 @@
 # Hausaufgaben
-ifp R Bootcamp: Modul 3
+*ifp R Bootcamp: Modul 3*
 
 
 ## Übung: Wahlumfragen
@@ -12,14 +12,12 @@ Unser Ziel: Wir wollen die Ergebnisse von allen Sonntagsfragen vergleichen könn
 
 #### Vorgehen
 
-1. Auf der Seite [wahlrecht.de/umfragen](http://www.wahlrecht.de/umfragen/index.htm) scrapen wir die Links zu den Unterseiten der Umfrageinsitute.
+1. Auf der Seite [wahlrecht.de/umfragen](http://www.wahlrecht.de/umfragen/index.htm) scrapen wir die Links zu den Unterseiten der Umfrageinstitute.
 ![Screenshot Hauptseite wahlrecht.de](img/wahlrecht_1.png)
 2. Dort scrapen wir die Links zu den vorherigen Zeiträumen (z.B. [wahlrecht.de/umfragen/allensbach/2002.htm](http://www.wahlrecht.de/umfragen/allensbach/2002.htm))
 ![Screenshot Unterseite wahlrecht.de](img/wahlrecht_2.png)
 3. Durch diese Linkliste gehen wir systematisch durch und scrapen die Tabellen mit den Umfrageergebnissen, die darauf eingetragen sind
 4. Zuletzt säubern wir die gesammelten Daten, um sie in einen nutzbaren Datensatz zu verwandeln.
-
-[Wahlergebnisse](https://www.bundeswahlleiter.de/europawahlen/2019/ergebnisse.html) | [Strukturdaten](https://www.bundeswahlleiter.de/europawahlen/2019/strukturdaten.html), abgerufen am: 10.06.2019
 
 ### Teil 2: Analysefragen überlegen
 
