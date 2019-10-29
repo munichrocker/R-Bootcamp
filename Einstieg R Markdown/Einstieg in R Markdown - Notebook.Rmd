@@ -1,0 +1,63 @@
+---
+title: "Einstieg in R Markdown - Notebook"
+author: "Benedict Witzenberger, SZ"
+date: "`r format(Sys.time(), '%d.%B.%Y')`"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(glue) # install.packages("glue")
+```
+
+Markdown ist eine einfache Auszeichnungssprache - mit der wir schnell und einfach Dokumente erstellen können, die wir in verschiedensten Vormaten ausspielen können.
+
+[RMarkdown](https://rmarkdown.rstudio.com/) ist die R-Variante davon. Sie kann R-Code ausführen und die Ergebnisse in das Dokument einbinden.
+
+Das tolle: Wir können unsere Analyse durchführen - und die Ergebnisse hinterher ganz einfach teilen:
+
+* als HTML-Seite
+* als PDF
+* als Word-Datei
+* als Präsentation
+* als Buch
+* ...
+
+## Ein Beispiel
+
+Wir laden die Daten des Oktoberfest-Datensatzes in R:
+
+```{r}
+df_oktoberfest <- read_csv("https://www.opengov-muenchen.de/dataset/8d6c8251-7956-4f92-8c96-f79106aab828/resource/e0f664cf-6dd9-4743-bd2b-81a8b18bd1d2/download/oktoberfestgesamt19852018.csv")
+```
+
+Der Datensatz enthält `r nrow(df_oktoberfest)` Jahre. Von `r min(df_oktoberfest$jahr)` bis `r max(df_oktoberfest$jahr)`.
+
+Diese Variablen enthält der Datensatz:
+
+```{r}
+df_oktoberfest %>% 
+  str()
+```
+
+Im Schnitt dauerte das Fest `r median(df_oktoberfest$dauer)` Tage.
+
+So hat sich der Bierpreis verändert:
+
+```{r}
+ggplot(df_oktoberfest, aes(jahr, bier_preis)) +
+  geom_line() +
+  scale_y_continuous(limits = c(0, 15)) +
+  ylab("Maßpreis in Euro")
+```
+
+Was waren die besuchterstärksten Jahre?
+
+```{r results='asis', warning=FALSE, echo=FALSE}
+df_oktoberfest %>% 
+  arrange(desc(besucher_gesamt)) %>% 
+  top_n(3, wt = besucher_gesamt) %>% 
+  glue_data("* Im Jahr **{jahr}** kamen insgesamt {besucher_gesamt} Mio. Menschen in {dauer} Tagen auf das Fest. Im Schnitt waren das etwa {format(besucher_tag * 1000, big.mark = '.')} pro Tag.")
+```
+
