@@ -31,4 +31,5 @@
 ## Links
 
 - [R for Data Science](https://r4ds.had.co.nz/introduction.html)
+- [Modern R with tidyverse](https://b-rodrigues.github.io/modern_R/)
 - [Financial Times: Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf)
