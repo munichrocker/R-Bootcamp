@@ -1,25 +1,43 @@
+# Pakete installieren und laden
+## install.packages(c("rvest", "dplyr"))
 library(rvest);
 library(dplyr);
 
-# Datensatz scrapen: https://stekhn.de/esc/esc_winners.html
 
-# Datensatz in einen Vektor, Data-Frame oder Tibble umwandeln
+# Daten vorbereiten
+## HTML-Code der Webseite laden: https://stekhn.de/esc/esc_winners.html
+
+## Tabelle aus dem HTML-Code in ein Data-Frame oder Tibble umwandeln
+
 
 # Datensatz kennenlernen:
-## - Ist der Datensatz vollständig?
-## - Welche Anomalien gibt es?
-## - Was gibt es noch zu klären, bevor du mit der Analyse beginnst
+## Welche Informationen haben wir?
 
-# Analysefragen
-## - Welche Länder haben am häufigsten gewonnen?
-## - Welches Land war am häufigsten Zweiter (“runner-up”)?
-## - Lieder mit welcher Sprache haben am häufigsten gewonnen?
-## - Wo fand der ESC am häufigsten statt?
-## - Bonus: Gibt es ein geografisches Muster?
+## Ist der Datensatz vollständig?
 
-# Was könnte man noch analysieren?
+## Welche Anomalien gibt es?
 
-# Du bist heute verantwortlicher Redakteuer
-## - Was ist hier die erzählenswerte Geschichte?
-## - Wie würdest du die Geschichte (visuell?) aufbereiten
+## Was gibt es noch zu klären, bevor du mit der Analyse beginnst?
+
+
+# Daten analysieren
+## Welche Länder haben am häufigsten gewonnen?
+
+## Welches Land war am häufigsten Zweiter (“runner-up”)?
+
+## Lieder in welcher Sprache haben am häufigsten gewonnen?
+
+## Welches Land hat mit der höchsten Punktzahl gewonnen?
+
+## Was war der durchschnittliche Punkteabstand zum Zweitplatzierten?
+
+## Warum sind alle Analysen der Punktzahl problematisch?
+
+## Was könnte man noch analysieren?
+
+
+# Du bist heute verantwortlicher Redakteuer:
+## Was ist hier die erzählenswerte Geschichte?
+
+## Wie würdest du die Geschichte (visuell?) aufbereiten
 
