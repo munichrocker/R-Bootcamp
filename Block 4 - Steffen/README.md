@@ -49,3 +49,19 @@ Alle Cheat Sheets finden sich auch bei [RStudio auf Github](https://github.com/r
 - [Leaflet](https://github.com/rstudio/cheatsheets/blob/master/leaflet.pdf)
 - [R Markdown](https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf)
 - [Regex](https://github.com/rstudio/cheatsheets/blob/master/regex.pdf)
+
+## Über den Autor
+
+Steffen Kühne arbeitet als Datenjournalist beim Bayerischen Rundfunk und beschäftigt sich vor allem mit Datenanalysen und Visualisierung. Nach einem Studium der Journalistik studierte er Medieninformatik, um dann ein Volontariat als Datenjournalist und digitaler Designer bei der Süddeutschen Zeitung zu beginnen. Bis 2015 arbeitete er dort in der Entwicklungsredaktion. Außerdem ist Steffen Kühne als Trainer für verschiedene Medien und Journalistenschulen tätig.
+
+- Webseite: [stekhn.de](https://stekhn.de)
+- Github: [stekhn](https://github.com/stekhn)
+- Twitter: [stekhn](https://twitter.com/stekhn)
+- LinkedIn: [stekhn](https://www.linkedin.com/in/stekhn/)
+- Xing: [Steffen Kühne](https://www.xing.com/profile/Steffen_Kuehne11/cv)
+
+## Weitere Workshops
+
+- [Grundlagen der Programmierung mit HTML, CSS und JavaScript](https://github.com/stekhn/programming-workshop/)
+- [Datenvisualisierung mit D3.js lernen](https://github.com/stekhn/d3-workshop)
+- [Kartenvisualisierung mit Leaflet lernen](https://github.com/stekhn/leaflet-workshop)
