@@ -459,24 +459,24 @@ Datum,Ort,Bundesland,Veranstalter,Zuordnung,Kategorie,Motto,Teilnehmer
 27.08.2018,Rostock,Mecklenburg-Vorpommern,Autonome Nationalisten Rostock,Rechtsextremisten / Neonazis,sonstige,Solidaritätsaktion Chemnitz ist überall,20
 29.08.2018,Kaiserslautern,Rheinland-Pfalz,,Rechtsextremisten / Neonazis,sonstige,Es reicht – Abschieben statt integrieren – Merkel muss weg!,50
 01.09.2018,Leinefelde,Thüringen,NPD/JN,Kreisverband (KV) Eichsfeld,NPD,"Das Eichsfeld im Herzen, Deutschland im Sinn",170
-01.09.2018,Plauen,Sachsen,Der III. Weg,Stützpunkt Vogtland,III. Weg,Bürger schützen! Zuzugsstop für Asylanten - jetzt!,1.000
+01.09.2018,Plauen,Sachsen,Der III. Weg,Stützpunkt Vogtland,III. Weg,Bürger schützen! Zuzugsstop für Asylanten - jetzt!,1000
 03.09.2018,Dresden,Sachsen,Freie Kräfte Dresden,Rechtsextremisten / Neonazis,sonstige,Innere Sicherheit – Schützt unsere Familien!,25
 05.09.2018,Hamburg,Hamburg,,Rechtsextremisten / Neonazis,sonstige,Merkel muss weg,180
 08.09.2018,Chemnitz,Sachsen,,Rechtsextremisten / Neonazis,sonstige,Trauer und Gedenken den Opfern vom 26.08.2018,25
-09.09.2018,Köthen,Sachsen-Anhalt,,Rechtsextremisten / Neonazis,sonstige,,2.500
+09.09.2018,Köthen,Sachsen-Anhalt,,Rechtsextremisten / Neonazis,sonstige,,2500
 10.09.2018,Halle,Sachsen-Anhalt,,Rechtsextremisten / Neonazis,sonstige,Holen wir uns unser Land zurück,450
 21.09.2018,Dortmund,Nordrhein-Westfalen,Die Rechte,KV Dortmund,Die Rechte,Gegen Repressionen und Polizeigewalt,72
 29.09.2018,Köthen,Sachsen-Anhalt,,Rechtsextremisten / Neonazis,sonstige,Wir sind Köthen,460
 03.10.2018,Dortmund,Nordrhein-Westfalen,Die Rechte KV Dortmund,Parteien,Die Rechte,"Sicherheit für Dortmund schaffen: Politische Willkür beenden, Polizeikapazitäten sinnvoll nutzen, Kriminalität zurückdrängen",50
 03.10.2018,RamsteinMiesbach,Rheinland-Pfalz,,Rechtsextremisten/ Neonazis,sonstige,Deutsche Einheit in Freiheit – Abzug aller US-Truppen aus Deutschland,50
-03.10.2018,Berlin,Berlin,Wir für Deutschland e. V.,Rechtsextremisten/ Neonazis,sonstige,Tag der Nation 2018,1.900
-05.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1.100
+03.10.2018,Berlin,Berlin,Wir für Deutschland e. V.,Rechtsextremisten/ Neonazis,sonstige,Tag der Nation 2018,1900
+05.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1100
 12.10.2018,Stralsund,Mecklenburg-Vorpommern,Vereint für Stralsund,Rechtsextremisten/ Neonazis,sonstige,Wir haben die Schnauze voll,140
-12.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1.100
+12.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1100
 19.10.2018,Neunkirchen,Saarland,,Rechtsextremisten/ Neonazis,sonstige,Merkel muss weg,30
-19.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1.000
+19.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1000
 20.10.2018,Schwarzenberg/Erzg.,Sachsen,Freigeist e. V.,Rechtsextremisten/ Neonazis,sonstige,Schutzzone Erzgebirge – Sicherheit auch für Deutsche,300
-26.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1.050
+26.10.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1050
 27.10.2018,Tangermünde,Sachsen-Anhalt,,Rechtsextremisten/ Neonazis,sonstige,Für ein freies und souveränes Deutschland,50
 27.10.2018,Kloster Veßra,Thüringen,,Rechtsextremisten/ Neonazis,sonstige,,250
 27.10.2018,Jamel,Mecklenburg-Vorpommern,Dorfgemeinschaft Jamel,Rechtsextremisten/ Neonazis,sonstige,Lichterfest,100
@@ -485,12 +485,12 @@ Datum,Ort,Bundesland,Veranstalter,Zuordnung,Kategorie,Motto,Teilnehmer
 07.11.2018,Hamburg,Hamburg,,Rechtsextremisten/ Neonazis,sonstige,Merkel muss weg!,100
 09.11.2018,Berlin,Berlin,Wir für Deutschland e. V.,Rechtsextremisten/ Neonazis,sonstige,Trauermarsch für die Opfer von Politik!,150
 09.11.2018,Stralsund,Mecklenburg-Vorpommern,Vereint für Stralsund,Rechtsextremisten/ Neonazis,sonstige,Heimatliebe ist kein Verbrechen,100
-09.11.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1.200
+09.11.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/ Neonazis,sonstige,Sicherheit für Chemnitz,1200
 10.11.2018,Bielefeld,Nordrhein-Westfalen,Die Rechte LVNW,Parteien,Die Rechte,Freiheit für Ursula Haverbeck,413
 10.11.2018,Magdeburg,Sachsen-Anhalt,Bürgerinitiative Magdeburg,Rechtsextremisten/ Neonazis,sonstige,Fackelmarsch Für die Opfer der Politik und für sichere Städte,700
 10.11.2018,Güstrow,Mecklenburg-Vorpommern,Kameradschaft Güstrow,Rechtsextremisten/ Neonazis,sonstige,Für die Sicherheit unserer Kinder,35
 16.11.2018,Chemnitz,Sachsen,,Rechtsextremisten/Neonazis,sonstige,Lang lebe die Kanzlerin,200
-16.11.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/Neonazis,sonstige,Sicherheit für Chemnitz,2.500
+16.11.2018,Chemnitz,Sachsen,Pro Chemnitz,Rechtsextremisten/Neonazis,sonstige,Sicherheit für Chemnitz,2500
 17.11.2018,Wunsiedel,Bayern,Der III.Weg Stützpunkt Ostbayern,Parteien,III. Weg,"Heldengedenken: Tot sind nur jene, die vergessen werden!",250
 17.11.2018,Remagen,Rheinland-Pfalz,,Rechtsextremisten/ Neonazis,sonstige,Gedenkmarsch,150
 17.11.2018,Schleusingen,Thüringen,Bündnis Zukunft Hildburghausen,Rechtsextremisten/ Neonazis,sonstige,Heldengedenken,80
@@ -519,7 +519,7 @@ Datum,Ort,Bundesland,Veranstalter,Zuordnung,Kategorie,Motto,Teilnehmer
 23.01.2019,Heidenau,Sachsen,NPD/JN,Parteien,NPD,Identität bewahren – Zuwanderung stoppen!,30
 26.01.2019,Roßlau,Sachsen-Anhalt,,Rechtsextremisten / Neonazis,sonstige,Keine Toleranz für linke Gewalt – wir zeigen Gesicht,40
 08.02.2019,Templin,Brandenburg,,Rechtsextremisten / Neonazis,sonstige,Nicht meine Ehrenbürgerin – nicht meine Kanzlerin,70
-15.02.2019,Dresden,Sachsen,NPD/JN,Parteien,NPD,Vergesst niemals Dresden! Gedenkmarsch zu Ehren der Dresdner Luftkriegstoten des 13. Februar 1945,1.500
+15.02.2019,Dresden,Sachsen,NPD/JN,Parteien,NPD,Vergesst niemals Dresden! Gedenkmarsch zu Ehren der Dresdner Luftkriegstoten des 13. Februar 1945,1500
 16.02.2019,Fulda,Hessen,Der III. Weg,Parteien,III. Weg,Ein Licht für Dresden,150
 19.02.2019,Dessau-Roßlau,Sachsen-Anhalt,,Rechtsextremisten / Neonazis,sonstige,Solidarität mit den Opfern vom 19. Januar!,
 22.02.2019,Rostock,Mecklenburg-Vorpommern,Vereint für Stralsund/Vereint für Rostock,Rechtsextremisten / Neonazis,sonstige,Heimatliebe ist kein Verbrechen,100
