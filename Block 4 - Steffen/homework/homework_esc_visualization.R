@@ -28,35 +28,64 @@ table %>%
 
 hist.default(table$Points)
 
-plot(table$Points, type = "l")
-
 ## Was gibt es noch zu klären, bevor du mit der Analyse beginnst?
 
 
 # Daten analysieren
 ## Welche Länder haben am häufigsten gewonnen?
-table %>%
+winners <- table %>%
   group_by(Winner) %>%
   summarise(count = n()) %>%
-  arrange(desc(count)) %>%
+  arrange(desc(count))
+
+barplot(
+  winners$count,
+  names.arg = winners$Winner,
+  las = 2,
+  ylab = "Erstplatzierungen",
+  main = "Welche Länder haben am häufigsten gewonnen?"
+)
 
 ## Welches Land war am häufigsten Zweiter (“runner-up”)?
-table %>%
+runner_ups <- table %>%
   group_by(`Runner-up`) %>%
   summarise(count = n()) %>%
   arrange(desc(count))
 
+barplot(
+  runner_ups$count,
+  names.arg = runner_ups$`Runner-up`,
+  las = 2,
+  ylab = "Zweitplatzierungen",
+  main = "Welches Land war am häufigsten Zweiter?"
+)
+
 ## Lieder in welcher Sprache haben am häufigsten gewonnen?
-table %>%
+languages <- table %>%
   group_by(Language) %>%
   summarise(count = n()) %>%
   arrange(desc(count))
 
+barplot(
+  languages$count,
+  names.arg = languages$`Language`,
+  las = 2,
+  ylab = "Anzahl",
+  main = "Lieder in welcher Sprache haben am häufigsten gewonnen?"
+)
+
 ## Welches Land hat mit der höchsten Punktzahl gewonnen?
-table %>%
+highest_score <- table %>%
   filter(!is.na(Points)) %>%
-  arrange(desc(Points)) %>%
-  filter(Points %in% range(Points))
+  arrange(desc(Points))
+
+barplot(
+  highest_score$Points,
+  names.arg = highest_score$Winner,
+  las = 2,
+  ylab = "Punktzahl",
+  main = "Welches Land hat mit der höchsten Punktzahl gewonnen?"
+)
 
 ## ... oder noch einfacher
 table %>%
@@ -71,9 +100,20 @@ table %>%
 
 ## Was könnte man noch analysieren?
 
+## Wie hat sich die Punktezahl entwickelt?
+plot(
+  table$Year,
+  table$Points,
+  type = "S",
+  main = "Wie hat sich die Punktezahl entwickelt?"
+)
+
+## Plot speichern
+# pdf("filename.pdf") 
+# plot()
+# dev.off() 
 
 # Du bist heute verantwortlicher Redakteuer:
 ## Was ist hier die erzählenswerte Geschichte?
 
 ## Wie würdest du die Geschichte (visuell?) aufbereiten
-
