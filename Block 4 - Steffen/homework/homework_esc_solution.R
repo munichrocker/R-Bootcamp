@@ -38,7 +38,7 @@ plot(table$Points, type = "l")
 table %>%
   group_by(Winner) %>%
   summarise(count = n()) %>%
-  arrange(desc(count)) %>%
+  arrange(desc(count))
 
 ## Welches Land war am häufigsten Zweiter (“runner-up”)?
 table %>%
