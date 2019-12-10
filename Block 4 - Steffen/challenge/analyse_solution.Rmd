@@ -44,12 +44,12 @@ a {
 library(tidyverse)
 library(lubridate)
 
-source("theme_ifp.R")
+source("utils/theme_ifp.R")
 theme_set(theme_ifp())
 
-## Tabelle laden und richtige Spaltenformate setzen 
+## Tabelle laden und richtige Spaltenformate setzen
 data <- read_csv(
-  "rechtsextreme_aufmaersche.csv",
+  "data/rechtsextreme_aufmaersche.csv",
   col_types = cols(
     .default = col_character(),
     Datum = col_date(format = "%d.%m.%Y"),
@@ -132,7 +132,7 @@ data %>%
   facet_wrap(~ Bundesland) +
   scale_x_discrete(limits = c(2014, 2019)) +
   # scale_x_date(date_breaks = '2 years', date_labels = '%Y') +
-  # scale_x_continuous(breaks = seq(2014, 2016, 2018)) + 
+  # scale_x_continuous(breaks = seq(2014, 2016, 2018)) +
   xlab(label = "")
 ```
 

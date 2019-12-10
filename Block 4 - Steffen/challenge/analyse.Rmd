@@ -1,0 +1,38 @@
+---
+title: "Rechtsextreme Aufmärsche in Deutschland"
+author: "Autoren: Teilnehmer des ifp Coding Bootcamps"
+date: "Letze Aktualisierung: `r format(Sys.time(), '%d.%m.%Y')`"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  echo = F,
+  warning = F,
+  message = F
+)
+```
+
+```{r}
+library(tidyverse)
+library(lubridate)
+
+theme_set(theme_minimal())
+
+## Tabelle laden und richtige Spaltenformate setzen
+data <- read_csv(
+  "data/rechtsextreme_aufmaersche.csv",
+  col_types = cols(
+    .default = col_character(),
+    Datum = col_date(format = "%d.%m.%Y"),
+    Teilnehmer = col_integer()
+  )
+)
+
+## Eigene Spalten für Jahr und Monat hinzufügen
+data <- data %>%
+  mutate(
+    Jahr = year(Datum),
+    Monat = month(Datum)
+  )
+```
