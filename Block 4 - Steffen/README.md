@@ -1,6 +1,12 @@
 # 4. Datenvisualisierung mit R
 
+Datenvisualisierung ist ein mächtiges Werkzeug, um komplexe Datensätze greifbar zu machen. Die Art der Visualisierung hängt dabei stark davon ab, ob man selbst einen Datensatz besser verstehen oder einem Publikum ein Thema grafisch näher bringen möchte. Die statistische Programmiersprache R, mit seiner Vielzahl an Erweiterung, bietet für jeden Anwendungfall das richtige Werkzeug.
+
+![Explorative und erklärende Datenvisualisierung](preview.png?raw=true)
+
 ## Inhalte
+
+Diese Seminar ist Teil des [R-Bootcamps](https://journalistenschule-ifp.de/seminardetails/950) des ifp und soll Journalisten die Grundlagen der Datenvisualisierung in R vermitteln.
 
 #### Wiederholung mit Aufwärmübungen
 
@@ -28,8 +34,39 @@
 - Symbolkarte erstellen
 - Karten veröffentlichen
 
-## Links
+## Vorbereitung
 
+Vor Beginn des Seminar sollte jeder Teilnehmer [RStudio](https://rstudio.com/products/rstudio/download/#download) installieren. Diese integrierte Entwicklungsumgebung für R bietet eine Autovervollständigung, Syntaxhervorhebung, Paketverwaltung und eine integrierte Hilfefunktion.
+
+Nach der Installation von RStudio sollten noch folgende R-Pakete installiert werden:
+
+```r
+install.packages(c("tidyverse", "rmarkdown", "rvest", "lubridate", "plotly", "leaflet"))
+```
+
+**Hinweis**: ggplot2 und viele andere Pakete sind bereits im Paket tidyverse enthalten.
+
+## Hausaufgabe: Eurovision Song Contest
+
+Seit 1956 ist der Eurovision Song Contest der wohl gelichzeitig beliebteste und meistgehasst Musikwettbewerb Europas. Wir wollen uns anschauen: Wer dominiert den ESC? Wer sind die ewigen Zweiten und mit welche Sprache gewinnt man am ehesten? Die Hausaufgabe ist eine Wiederholung der Inhalte aus den letzten Seminarblöcken: Daten scrapen, verstehen und analysieren.
+
+Alle Daten und Skripte finden sich im Ordner `homework`.
+
+Ein paar Hinweise und Tipps:
+
+- Verwendet die Funktionen von dplyr (tidyverse). Das macht die Arbeit erheblich einfacher und den Code leichter zu lesen. Druckt das [dplyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf) aus und legt es neben euch.
+- Manche der Fragen lassen sich nicht mit Code beantworten. In diesem Fall kann man die Antworten einfach als Stichpunkte aufzuschreiben.
+- Es is vollkommen in Ordnung Lösungen für einzelne Probleme zu ergooglen, man sollte jede Lösung aber zumindest nachvollziehen können.
+- Wenn es unüberwindbare technische Probleme beim Scrapen der Website gibt, kann die Tabelle der ESC-Gewinner auch als [CSV aus unserem Github-Repo](data/esc_winners.csv) eingebunden werden.
+
+## Übung: Rechtsextreme Aufmärsche
+
+Alle Daten und Skripte finden sich im Ordner `challenge`.
+
+## Links
+- [R Base Graphs](http://www.sthda.com/english/wiki/r-base-graphs)
+- [Tidyverse Style Guide](https://style.tidyverse.org/)
+- [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
 - [R for Data Science](https://r4ds.had.co.nz/introduction.html)
 - [Modern R with tidyverse](https://b-rodrigues.github.io/modern_R/)
 - [Financial Times: Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf)
