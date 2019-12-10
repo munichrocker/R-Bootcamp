@@ -1,11 +1,11 @@
 ---
-title: "Rechtsextreme Aufmärsche in Deutschland (2013 bis 2019)"
+title: "Rechtsextreme Aufmärsche in Deutschland"
 author: "Teilnehmer des ifp Coding Bootcamps"
 date: "`r format(Sys.time(), '%d.%m.%Y')`"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   echo = F,
   warning = F,
@@ -13,11 +13,37 @@ knitr::opts_chunk$set(
 )
 ```
 
+<style>
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.6em;
+  line-height: 1.6;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+h1 {
+  color: #DF6233;
+}
+
+h2, h3, h4 {
+  color: #666666;
+}
+
+a {
+  color: #006CAB;
+}
+</style>
+
 ```{r}
 library(tidyverse)
 library(lubridate)
 
-theme_set(theme_bw())
+source("theme_ifp.R")
+theme_set(theme_ifp())
 
 ## Tabelle laden und richtige Spaltenformate setzen 
 data <- read_csv(
@@ -43,7 +69,10 @@ data <- data %>%
 data %>%
   group_by(Kategorie) %>%
   summarise(Anzahl = n()) %>%
-  arrange(desc(Anzahl))
+  arrange(desc(Anzahl)) %>%
+  ggplot(aes(x = reorder(Kategorie, -Anzahl), y = Anzahl)) +
+  geom_bar(stat = "identity", fill = "#006CAB") +
+  xlab(label = "Partei oder Gruppierung")
 ```
 
 ### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche *pro Jahr* organisiert?
