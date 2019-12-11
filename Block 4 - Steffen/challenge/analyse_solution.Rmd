@@ -20,8 +20,10 @@ Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in d
 Der Datensatz kommt aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion Die Linke und umfasst den Zeitraum Oktober 2013 bis September 2019.
 
 ```{r}
+## install.packages(c("rmarkdown", tidyverse", "lubridate", "cowplot"))
 library(tidyverse)
 library(lubridate)
+library(cowplot)
 
 source("utils/theme_ifp.R")
 theme_set(theme_ifp())
@@ -98,7 +100,6 @@ demos %>%
 ### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
 
 ```{r} 
-
 teilnehmer_pa <- demos %>%
   group_by(Jahr) %>%
   summarise(Anzahl = sum(n()))
@@ -110,13 +111,37 @@ ggplot() +
   geom_line(data = teilnehmer_pa, aes(x = Jahr, y = Anzahl), color = "#006CAB", size = 1) +
   geom_line(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 1) +
   scale_y_continuous(
-    name = "Anzahl der rechten Aufmärsche", 
+    name = "Anzahl der Aufmärsche", 
     sec.axis = sec_axis(~., name = "Asylanträge (in Tsd.)")
   ) +
   theme(
     axis.title.y = element_text(color = "#006CAB"),
     axis.title.y.right = element_text(color = "#DF6233")
   )
+```
+
+```{r}
+teilnehmer_plot <- ggplot(teilnehmer_pa, aes(x = factor(Jahr), y = Anzahl)) +
+  geom_bar(stat = "identity", fill = "#006CAB") +
+  coord_flip() +
+  xlab("Jahr") +
+  ylab("Rechtsextreme Aufmärsche") +
+  theme(
+    axis.title.x = element_text(color = "#006CAB"),
+  )
+
+asylantraege_plot <- ggplot(asylantraege_pa, aes(x = factor(Jahr), y = `Erstanträge`)) +
+  geom_bar(stat = "identity", fill = "#DF6233") +
+  coord_flip() +
+  scale_x_discrete(labels = function (x) format(x, scientific = FALSE, big.mark = ".")) +
+  xlab("Jahr") +
+  ylab("Asylanträge") +
+  theme(
+    axis.title.x = element_text(color = "#DF6233")
+  )
+
+plot_grid(teilnehmer_plot, asylantraege_plot, labels = "AUTO")
+
 ```
 
 ### In welchem Monat gab es die meisten rechtsextremen Aufmärsche?
