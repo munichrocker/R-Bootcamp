@@ -2,7 +2,9 @@
 title: "Rechtsextreme Aufmärsche in Deutschland"
 author: "Autoren: Teilnehmer des ifp Coding Bootcamps"
 date: "Letze Aktualisierung: `r format(Sys.time(), '%d.%m.%Y')`"
-output: html_document
+output:
+  html_document:
+    theme: "simplex"
 ---
 
 ```{r setup, include = FALSE}
@@ -14,13 +16,16 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
+# Pakete installieren und laden
+## install.packages(c("tidyverse", "lubridate"))
 library(tidyverse)
 library(lubridate)
 
+# Theme für ggplot setzen: https://ggplot2.tidyverse.org/reference/ggtheme.html
 theme_set(theme_minimal())
 
-## Tabelle laden und richtige Spaltenformate setzen
-data <- read_csv(
+## Tabelle der rechtsextremen Aufmärsche laden und richtige Spaltenformate setzen
+demos <- read_csv(
   "data/rechtsextreme_aufmaersche.csv",
   col_types = cols(
     .default = col_character(),
@@ -30,7 +35,7 @@ data <- read_csv(
 )
 
 ## Eigene Spalten für Jahr und Monat hinzufügen
-data <- data %>%
+demos <- data %>%
   mutate(
     Jahr = year(Datum),
     Monat = month(Datum)
