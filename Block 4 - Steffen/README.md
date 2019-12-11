@@ -61,15 +61,15 @@ Ein paar Hinweise und Tipps:
 
 ## Übung: Rechtsextreme Aufmärsche
 
-Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft, nicht zuletzt durch die jüngsten rechtsterroristischen Anschläge in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch). Doch schon 2015, als die Zahl der Asylbewerber seit langem wieder deutlich anstieg, wurde die Gesellschaft mit rechtsmotivierten Übergriffen und Ausschreitungen konfrontiert. Demonstrationen von rechtsextremen Organisationen, meist zu den Themen Asyl oder Islamisierung, tragen diese Ideologien offen in die Gesellschaft. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben und wer diese organisiert hat.
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft, nicht zuletzt durch die jüngsten rechtsterroristischen Anschläge in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch). Doch schon 2015, als die Zahl der Asylbewerber deutlich anstieg, wurde die Gesellschaft mit rechtsmotivierten Übergriffen und Ausschreitungen konfrontiert. Demonstrationen von rechtsextremen Organisationen, meist zu den Themen Asyl oder Islamisierung, tragen diese Ideologien offen in die Gesellschaft. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben und wer diese organisiert hat.
 
-Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir RMarkdown, ggplot und leaflet.
+Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir R Markdown, ggplot und leaflet.
 
 Alle Daten und Skripte finden sich im Ordner `challenge`.
 
 Ein paar Hinweise und Tipps:
 
-- Der Datensatz kommt aus mehreren [kleinen Anfragen der Bundestagsfraktion Die Linke](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) und umfasst den Zeitraum Oktober 2013 bis September 2019.
+- Der Datensatz kommt aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion Die Linke und umfasst den Zeitraum Oktober 2013 bis September 2019.
 
 ## Links
 
@@ -78,7 +78,10 @@ Ein paar Hinweise und Tipps:
 - [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
 - [R for Data Science](https://r4ds.had.co.nz/introduction.html)
 - [Modern R with tidyverse](https://b-rodrigues.github.io/modern_R/)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html)
+- [R Markdown Theme Gallery](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
 - [Financial Times: Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf)
+- [Data Visualisation Catalogue](https://datavizcatalogue.com/methods/treemap.html)
 - [Color Brewer](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 - [Color Palette Helper](https://gka.github.io/palettes)
 - [Mapshaper](https://mapshaper.org/)
