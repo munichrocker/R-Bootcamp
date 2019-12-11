@@ -2,7 +2,9 @@
 title: "Rechtsextreme Aufmärsche in Deutschland"
 author: "Autoren: Teilnehmer des ifp Coding Bootcamps"
 date: "Letze Aktualisierung: `r format(Sys.time(), '%d.%m.%Y')`"
-output: html_document
+output:
+  html_document:
+    css: "utils/style_ifp.css"
 ---
 
 ```{r setup, include = FALSE}
@@ -13,32 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
-body {
-  font-family: "Fira Sans", sans-serif;
-  font-size: 1.6em;
-  color: #666666;
-  line-height: 1.6;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-}
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft, nicht zuletzt durch die jüngsten rechtsterroristischen Anschläge in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch). Doch schon 2015, als die Zahl der Asylbewerber deutlich anstieg, wurde die Gesellschaft mit rechtsmotivierten Übergriffen und Ausschreitungen konfrontiert. Demonstrationen von rechtsextremen Organisationen, meist zu den Themen Asyl oder Islamisierung, tragen diese Ideologien offen in die Gesellschaft. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben und wer diese organisiert hat.
 
-h1 {
-  color: #DF6233;
-}
-
-h2, h3 {
-  color: #DF6233;
-  margin-top: 3em;
-}
-
-a {
-  color: #006CAB;
-}
-</style>
+Der Datensatz kommt aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion Die Linke und umfasst den Zeitraum Oktober 2013 bis September 2019.
 
 ```{r}
 library(tidyverse)
@@ -47,8 +26,8 @@ library(lubridate)
 source("utils/theme_ifp.R")
 theme_set(theme_ifp())
 
-## Tabelle laden und richtige Spaltenformate setzen
-data <- read_csv(
+## Tabelle der rechtsextremen Aufmärsche laden und richtige Spaltenformate setzen
+demos <- read_csv(
   "data/rechtsextreme_aufmaersche.csv",
   col_types = cols(
     .default = col_character(),
@@ -58,82 +37,124 @@ data <- read_csv(
 )
 
 ## Eigene Spalten für Jahr und Monat hinzufügen
-data <- data %>%
+demos <- demos %>%
   mutate(
-    Jahr = year(Datum),
-    Monat = month(Datum)
+    Jahr = as.integer(year(Datum)),
+    Monat = as.integer(month(Datum))
   )
+
+## Tabelle der Asylanträge laden
+asylantraege <- read_csv(
+  "data/asylantraege.csv",
+  col_types = cols(
+    .default = col_integer()
+  )
+)
+
 ```
 
 ### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche organisiert?
 
-Insgesamt haben rechte Organisation `r data %>% summarise(Anzahl = n()) %>% first()` Aufmärsche im Zeitraum von Oktober 2013 bis September 2019 organisiert. Ein großer Teil der Veranstaltungen wurde jedoch von Bürgerbündnissen und Einzelpersonen organisiert.
+Insgesamt haben rechte Organisation `r demos %>% summarise(Anzahl = n()) %>% first()` Aufmärsche im Zeitraum von Oktober 2013 bis September 2019 organisiert. Ein großer Teil der Veranstaltungen wurde jedoch von Bürgerbündnissen und Einzelpersonen organisiert.
 
 ```{r}
-data %>%
+demos %>%
   group_by(Kategorie) %>%
   summarise(Anzahl = n()) %>%
   arrange(desc(Anzahl)) %>%
   ggplot(aes(x = reorder(Kategorie, -Anzahl), y = Anzahl)) +
-  geom_bar(stat = "identity", fill = "#006CAB") +
-  xlab(label = "Partei oder Gruppierung")
+    geom_bar(stat = "identity", fill = "#006CAB")
 ```
 
-Die rechtsextreme Altpartei NPD organisierte immerhin `r data %>% filter(Kategorie == "NPD") %>% summarise(Anzahl = n()) %>% first()` Aufmärschen. Die 2012 gegründete neonazistische Partei „Die Rechte“ organisierte im gleichen Zeitraum `r data %>% filter(Kategorie == "Die Rechte") %>% summarise(Anzahl = n()) %>% first()` Protestmärsche. Die rechtsextreme Partei „Der III. Weg“ wurde 2013 gegründet und richte bisher `r data %>% filter(Kategorie == "III. Weg") %>% summarise(Anzahl = n()) %>% first()` Demos aus.
-
-### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche *pro Jahr* organisiert?
-
-### Welche rechtsextreme Gruppe oder Partei hat die meisten Teilnehmer zusammengebracht?
-
-### Welche rechtsextreme Gruppe oder Partei hat die meisten Teilnehmer *pro Jahr* zusammengebracht?
-
-### Gibt es einen Zusammenhang zwischen der Anzahl an Aufmärschen und den Teilnehmerzahlen?
-
-### In welchem Jahr gab es die meisten rechtsextremen Aufmärsche?
-
-### In welchem Monat gab es die meisten rechtsextremen Aufmärsche?
+Die rechtsextreme Altpartei NPD organisierte immerhin `r demos %>% filter(Kategorie == "NPD") %>% summarise(Anzahl = n()) %>% first()` Aufmärschen. Die 2012 gegründete neonazistische Partei „Die Rechte“ organisierte im gleichen Zeitraum `r demos %>% filter(Kategorie == "Die Rechte") %>% summarise(Anzahl = n()) %>% first()` Protestmärsche. Die rechtsextreme Partei „Der III. Weg“ wurde 2013 gegründet und richte bisher `r demos %>% filter(Kategorie == "III. Weg") %>% summarise(Anzahl = n()) %>% first()` Demos aus.
 
 ### Wie hat sich die Zahl der rechtsextremen Aufmärsche entwickelt?
 
 ```{r}
-data %>%
+demos %>%
   group_by(Jahr) %>%
   summarise(Anzahl = sum(n())) %>%
   ggplot(aes(x = factor(Jahr), y = Anzahl, group = 1)) +
-  geom_line() +
-  geom_point() +
-  scale_color_brewer(palette = "Set1") +
-  xlab(label = "Jahr")
+    geom_line(color = "#006CAB", size = 1) +
+    geom_point(color = "#006CAB", size = 2) +
+    xlab(label = "Jahr")
 ```
+
+### Wie haben sich die Teilnehmerzahlen bei rechtsextremen Aufmärsche entwickelt?
+
+```{r}
+demos %>%
+  drop_na(Teilnehmer) %>%
+  group_by(Jahr) %>%
+  summarise(Teilnehmer = sum(Teilnehmer)) %>%
+  ggplot(aes(x = factor(Jahr), y = Teilnehmer, group = 1)) +
+    geom_line(color = "#006CAB", size = 1) +
+    geom_point(color = "#006CAB", size = 2) +
+    xlab(label = "Jahr")
+```
+
+### Gibt es einen Zusammenhang zwischen der Anzahl an Aufmärschen und den Teilnehmerzahlen?
+
+### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
+
+```{r} 
+
+teilnehmer_pa <- demos %>%
+  group_by(Jahr) %>%
+  summarise(Anzahl = sum(n()))
+  
+asylantraege_pa <- asylantraege %>%
+  filter(between(Jahr, 2013, 2019))
+
+ggplot() +
+  geom_line(data = teilnehmer_pa, aes(x = Jahr, y = Anzahl), color = "#006CAB", size = 1) +
+  geom_line(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 1) +
+  scale_y_continuous(
+    name = "Anzahl der rechten Aufmärsche", 
+    sec.axis = sec_axis(~., name = "Asylanträge (in Tsd.)")
+  ) +
+  theme(
+    axis.title.y = element_text(color = "#006CAB"),
+    axis.title.y.right = element_text(color = "#DF6233")
+  )
+```
+
+### In welchem Monat gab es die meisten rechtsextremen Aufmärsche?
+
+### In welchem Monat gab es die meisten Teilnehmer bei rechtsextremen Aufmärschen?
 
 ### Wie hat sich die Zahl der rechtsextremen Aufmärsche *pro Partei* entwickelt?
 
 ```{r}
-data %>%
+demos %>%
   group_by(Kategorie, Jahr) %>%
   summarise(Anzahl = sum(n())) %>%
   ggplot(aes(x = factor(Jahr), y = Anzahl)) +
-  geom_line(aes(group = Kategorie, color = Kategorie)) +
-  geom_point(aes(group = Kategorie, color = Kategorie)) +
-  scale_color_brewer(palette = "Set1") +
-  ggtitle("Rechtsextreme Aufmärsche pro Organisation und Jahr") +
-  xlab(label = "Jahr")
+    geom_line(aes(group = Kategorie, color = Kategorie)) +
+    geom_point(aes(group = Kategorie, color = Kategorie)) +
+    scale_color_brewer(palette = "Set1") +
+    ggtitle("Rechtsextreme Aufmärsche pro Organisation und Jahr") +
+    xlab(label = "Jahr")
 ```
 
 ### Wie hat sich die Zahl der rechtsextremen Aufmärsche *in den einzelnen Bundesländern* entwickelt?
 
 ```{r}
-data %>%
-  na.omit() %>%
+demos %>%
+  drop_na() %>%
   group_by(Bundesland, Jahr) %>%
   summarise(Anzahl = sum(n())) %>%
-  ggplot(aes(x = Jahr, y = Anzahl, group = Bundesland, color = Bundesland)) +
-  geom_line(show.legend = FALSE) +
-  facet_wrap(~ Bundesland) +
-  scale_x_discrete(limits = c(2014, 2019)) +
-  # scale_x_date(date_breaks = '2 years', date_labels = '%Y') +
-  # scale_x_continuous(breaks = seq(2014, 2016, 2018)) +
-  xlab(label = "")
+  ggplot(aes(x = Jahr, y = Anzahl, group = Bundesland)) +
+    geom_line(show.legend = FALSE, color = "#006CAB") +
+    facet_wrap(~ Bundesland) +
+    scale_x_discrete(limits = c(2014, 2019)) +
+    # coord_cartesian() +
+    # scale_x_date(date_breaks = '2 years', date_labels = '%Y') +
+    # scale_x_continuous(breaks = seq(2014, 2016, 2018)) +
+    xlab(label = "") +
+    ylab(label = "")
+
+## ggsave("aufmaersche.svg", width = 20, height = 20, units = "cm")
 ```
 
 
