@@ -61,9 +61,18 @@ Ein paar Hinweise und Tipps:
 
 ## Übung: Rechtsextreme Aufmärsche
 
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft, nicht zuletzt durch die jüngsten rechtsterroristischen Anschläge in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch). Doch schon 2015, als die Zahl der Asylbewerber seit langem wieder deutlich anstieg, wurde die Gesellschaft mit rechtsmotivierten Übergriffen und Ausschreitungen konfrontiert. Demonstrationen von rechtsextremen Organisationen, meist zu den Themen Asyl oder Islamisierung, tragen diese Ideologien offen in die Gesellschaft. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben und wer diese organisiert hat.
+
+Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir RMarkdown, ggplot und leaflet.
+
 Alle Daten und Skripte finden sich im Ordner `challenge`.
 
+Ein paar Hinweise und Tipps:
+
+- Der Datensatz kommt aus mehreren [kleinen Anfragen der Bundestagsfraktion Die Linke](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) und umfasst den Zeitraum Oktober 2013 bis September 2019.
+
 ## Links
+
 - [R Base Graphs](http://www.sthda.com/english/wiki/r-base-graphs)
 - [Tidyverse Style Guide](https://style.tidyverse.org/)
 - [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
@@ -87,6 +96,12 @@ Alle Cheat Sheets finden sich auch bei [RStudio auf Github](https://github.com/r
 - [R Markdown](https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf)
 - [Regex](https://github.com/rstudio/cheatsheets/blob/master/regex.pdf)
 
+## Weitere Workshops
+
+- [Grundlagen der Programmierung mit HTML, CSS und JavaScript](https://github.com/stekhn/programming-workshop/)
+- [Datenvisualisierung mit D3.js lernen](https://github.com/stekhn/d3-workshop)
+- [Kartenvisualisierung mit Leaflet lernen](https://github.com/stekhn/leaflet-workshop)
+
 ## Über den Autor
 
 Steffen Kühne arbeitet als Datenjournalist beim Bayerischen Rundfunk und beschäftigt sich vor allem mit Datenanalysen und Visualisierung. Nach einem Studium der Journalistik studierte er Medieninformatik, um dann ein Volontariat als Datenjournalist und digitaler Designer bei der Süddeutschen Zeitung zu beginnen. Bis 2015 arbeitete er dort in der Entwicklungsredaktion. Außerdem ist Steffen Kühne als Trainer für verschiedene Medien und Journalistenschulen tätig.
@@ -96,9 +111,3 @@ Steffen Kühne arbeitet als Datenjournalist beim Bayerischen Rundfunk und besch�
 - Twitter: [stekhn](https://twitter.com/stekhn)
 - LinkedIn: [stekhn](https://www.linkedin.com/in/stekhn/)
 - Xing: [Steffen Kühne](https://www.xing.com/profile/Steffen_Kuehne11/cv)
-
-## Weitere Workshops
-
-- [Grundlagen der Programmierung mit HTML, CSS und JavaScript](https://github.com/stekhn/programming-workshop/)
-- [Datenvisualisierung mit D3.js lernen](https://github.com/stekhn/d3-workshop)
-- [Kartenvisualisierung mit Leaflet lernen](https://github.com/stekhn/leaflet-workshop)
