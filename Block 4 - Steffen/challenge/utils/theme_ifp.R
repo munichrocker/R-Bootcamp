@@ -23,6 +23,12 @@ theme_ifp <- function () {
         l = 12/2
       )
     ),
+    axis.title.y.right = element_text(
+      margin = margin(
+        r = 12,
+        l = 12/2
+      )
+    ),
     panel.grid.major = element_line(
       size = 0.25,
       linetype = "solid",
