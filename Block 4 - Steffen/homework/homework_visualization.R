@@ -1,7 +1,6 @@
 # Pakete installieren und laden
-## install.packages(c("rvest", "dplyr"))
-library(rvest);
-library(dplyr);
+## install.packages("tidyverse")
+library(tidyverse)
 
 
 # Daten vorbereiten
@@ -11,35 +10,21 @@ website <- read_html("https://stekhn.de/esc/esc_winners.html")
 ## Tabelle aus dem HTML-Code in ein Data-Frame oder Tibble umwandeln
 table <- website %>%
   html_node("table") %>%
-  html_table(fill = TRUE)
-
-# Datensatz kennenlernen:
-## Welche Informationen haben wir?
-names(table)
-glimpse(table)
-
-## Ist der Datensatz vollständig?
-table %>% filter(is.na(Points))
+  html_table(fill = TRUE, header = TRUE) %>%
+  na_if("")
 
 ## Welche Anomalien gibt es?
-table %>%
-  group_by(Year) %>%
-  filter(n() > 1)
-
 hist.default(table$Points)
 
-## Was gibt es noch zu klären, bevor du mit der Analyse beginnst?
-
+plot(table$Points, type = "s")
 
 # Daten analysieren
 ## Welche Länder haben am häufigsten gewonnen?
 winners <- table %>%
-  group_by(Winner) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count))
+  count(Winner, sort = TRUE)
 
 barplot(
-  winners$count,
+  winners$n,
   names.arg = winners$Winner,
   las = 2,
   ylab = "Erstplatzierungen",
@@ -48,12 +33,11 @@ barplot(
 
 ## Welches Land war am häufigsten Zweiter (“runner-up”)?
 runner_ups <- table %>%
-  group_by(`Runner-up`) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count))
+  count(`Runner-up`, sort = TRUE) %>%
+  drop_na()
 
 barplot(
-  runner_ups$count,
+  runner_ups$n,
   names.arg = runner_ups$`Runner-up`,
   las = 2,
   ylab = "Zweitplatzierungen",
@@ -62,12 +46,10 @@ barplot(
 
 ## Lieder in welcher Sprache haben am häufigsten gewonnen?
 languages <- table %>%
-  group_by(Language) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count))
+  count(`Language`, sort = TRUE)
 
 barplot(
-  languages$count,
+  languages$n,
   names.arg = languages$`Language`,
   las = 2,
   ylab = "Anzahl",
@@ -76,7 +58,6 @@ barplot(
 
 ## Welches Land hat mit der höchsten Punktzahl gewonnen?
 highest_score <- table %>%
-  filter(!is.na(Points)) %>%
   arrange(desc(Points))
 
 barplot(
@@ -87,19 +68,6 @@ barplot(
   main = "Welches Land hat mit der höchsten Punktzahl gewonnen?"
 )
 
-## ... oder noch einfacher
-table %>%
-  top_n(1, Points)
-
-## Was war der durchschnittliche Punkteabstand zum Zweitplatzierten?
-table %>%
-  filter(!is.na(`Runner-up`) & !is.na(Margin)) %>%
-  summarise(mean = mean(Margin))
-
-## Warum sind alle Analysen der Punktzahl problematisch?
-
-## Was könnte man noch analysieren?
-
 ## Wie hat sich die Punktezahl entwickelt?
 plot(
   table$Year,
@@ -109,11 +77,6 @@ plot(
 )
 
 ## Plot speichern
-# pdf("filename.pdf") 
+# pdf("filename.pdf")
 # plot()
-# dev.off() 
-
-# Du bist heute verantwortlicher Redakteuer:
-## Was ist hier die erzählenswerte Geschichte?
-
-## Wie würdest du die Geschichte (visuell?) aufbereiten
+# dev.off()

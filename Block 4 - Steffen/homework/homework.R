@@ -1,7 +1,6 @@
 # Pakete installieren und laden
-## install.packages(c("rvest", "dplyr"))
-library(rvest);
-library(dplyr);
+## install.packages("tidyverse")
+library(tidyverse)
 
 
 # Daten vorbereiten
