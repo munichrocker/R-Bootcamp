@@ -65,8 +65,8 @@ asylantraege <- read_csv(
 )
 
 ## Flächen der Bundesländer laden
-bundeslaender_geo <- readOGR("data/bundeslaender.geo.json", verbose = FALSE) %>% 
-  fortify(bundeslaender_geo, region = "NAME_1")
+bundeslaender_geo_raw <- readOGR("data/bundeslaender.geo.json", verbose = FALSE) %>% 
+bundeslaender_geo <- fortify(bundeslaender_geo_raw, region = "NAME_1")
 ```
 
 ### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche organisiert?
@@ -253,7 +253,38 @@ ggplot(data = bundeslaender_merge, aes(map_id = id, x = long, y = lat, group = g
 ```
 
 
+### Choroplethen-Karte mit Leaflet
+
+```{r}
+pal <- colorNumeric("viridis", NULL)
+
+leaflet(bundeslaender_geo_raw) %>%
+  addTiles() %>%
+  addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
+    fillColor = ~pal(ID_1),
+    label = ~paste0(NAME_1, ": ", ID_1)) %>%
+  addLegend(pal = pal, values = ~ID_1, opacity = 1.0)
+```
 
 
+```{r}
+# Create a palette that maps factor levels to colors
+leaflet(staedte_daten) %>%
+  addProviderTiles(
+    "CartoDB.DarkMatter",
+    options = providerTileOptions(noWrap = TRUE)
+  ) %>%
+  addCircleMarkers(
+    lat = ~Lat,
+    lng = ~Long, 
+    radius = ~log(Teilnehmer),
+    label = ~paste0(Ort, ": ", Anzahl, " Demos, ", Teilnehmer, " Teilnehmer"),
+    stroke = FALSE,
+    color = "#DF6233",
+    fillOpacity = 0.25
+    # color = ~pal(type),
+    # stroke = FALSE, fillOpacity = 0.5
+  )
+```
 
 
