@@ -87,6 +87,8 @@ Ein paar Hinweise und Tipps:
 - [Mapshaper](https://mapshaper.org/)
 - [Leaflet Providers](https://leaflet-extras.github.io/leaflet-providers/preview/index.html)
 - [Overpass Turbo](https://overpass-turbo.eu/)
+- [Localfocus Geocode](https://geocode.localfocus.nl/)
+- [Leaflet for R](https://rstudio.github.io/leaflet/markers.html)
 
 ## Cheat Sheets
 
