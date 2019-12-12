@@ -9,9 +9,9 @@ output:
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  echo = F,
-  warning = F,
-  message = F
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
@@ -20,11 +20,19 @@ Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in d
 Der Datensatz kommt aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion Die Linke und umfasst den Zeitraum Oktober 2013 bis September 2019.
 
 ```{r}
-## install.packages(c("rmarkdown", tidyverse", "lubridate", "cowplot"))
+# Pakete installieren und laden
+## install.packages(c("rmarkdown", "tidyverse", "ggthemes", "svglite", "lubridate", "cowplot", "rgeos", "rgdal", "maptools", "leaflet"))
 library(tidyverse)
+library(ggthemes)
 library(lubridate)
 library(cowplot)
+library(rgeos)
+library(rgdal)
+library(maptools)
+library(leaflet)
 
+# Theme für ggplot setzen: https://ggplot2.tidyverse.org/reference/ggtheme.html
+# source("utils/theme_steffen.R")
 source("utils/theme_ifp.R")
 theme_set(theme_ifp())
 
@@ -33,6 +41,8 @@ demos <- read_csv(
   "data/rechtsextreme_aufmaersche.csv",
   col_types = cols(
     .default = col_character(),
+    Lat = col_double(),
+    Long = col_double(),
     Datum = col_date(format = "%d.%m.%Y"),
     Teilnehmer = col_integer()
   )
@@ -40,6 +50,7 @@ demos <- read_csv(
 
 ## Eigene Spalten für Jahr und Monat hinzufügen
 demos <- demos %>%
+  filter(Bundesland != "#N/A") %>%
   mutate(
     Jahr = as.integer(year(Datum)),
     Monat = as.integer(month(Datum))
@@ -53,6 +64,9 @@ asylantraege <- read_csv(
   )
 )
 
+## Flächen der Bundesländer laden
+bundeslaender_geo <- readOGR("data/bundeslaender.geo.json", verbose = FALSE) %>% 
+  fortify(bundeslaender_geo, region = "NAME_1")
 ```
 
 ### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche organisiert?
@@ -99,11 +113,11 @@ demos %>%
 
 ### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
 
-```{r} 
+```{r}
 teilnehmer_pa <- demos %>%
   group_by(Jahr) %>%
   summarise(Anzahl = sum(n()))
-  
+
 asylantraege_pa <- asylantraege %>%
   filter(between(Jahr, 2013, 2019))
 
@@ -111,7 +125,7 @@ ggplot() +
   geom_line(data = teilnehmer_pa, aes(x = Jahr, y = Anzahl), color = "#006CAB", size = 1) +
   geom_line(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 1) +
   scale_y_continuous(
-    name = "Anzahl der Aufmärsche", 
+    name = "Anzahl der Aufmärsche",
     sec.axis = sec_axis(~., name = "Asylanträge (in Tsd.)")
   ) +
   theme(
@@ -140,7 +154,7 @@ asylantraege_plot <- ggplot(asylantraege_pa, aes(x = factor(Jahr), y = `Erstantr
     axis.title.x = element_text(color = "#DF6233")
   )
 
-plot_grid(teilnehmer_plot, asylantraege_plot, labels = "AUTO")
+plot_grid(teilnehmer_plot, asylantraege_plot)
 
 ```
 
@@ -166,23 +180,77 @@ demos %>%
 
 ```{r}
 demos %>%
-  drop_na() %>%
   group_by(Bundesland, Jahr) %>%
   summarise(Anzahl = sum(n())) %>%
   ggplot(aes(x = Jahr, y = Anzahl, group = Bundesland)) +
     geom_line(show.legend = FALSE, color = "#006CAB") +
     facet_wrap(~ Bundesland) +
     scale_x_discrete(limits = c(2014, 2019)) +
-    # coord_cartesian() +
-    # scale_x_date(date_breaks = '2 years', date_labels = '%Y') +
-    # scale_x_continuous(breaks = seq(2014, 2016, 2018)) +
     xlab(label = "") +
     ylab(label = "")
 
 ## ggsave("aufmaersche.svg", width = 20, height = 20, units = "cm")
 ```
 
+### Einfache Choroplethen-Karte mit Symbolen
 
+```{r}
+bundeslaender_daten <- demos %>%
+  group_by(Bundesland) %>%
+  summarise(Anzahl = n())
+
+bundeslaender_merge <- left_join(
+  bundeslaender_geo,
+  bundeslaender_daten,
+  by = c("id" = "Bundesland")
+)
+
+ggplot(data = bundeslaender_merge, aes(map_id = id, x = long, y = lat, group = group, fill = Anzahl)) +
+  geom_map(
+    map = bundeslaender_geo,
+    color = "white",
+    size = 0.05
+  ) +
+  # scale_fill_continuous(low = "#C3DDEB", high = "#006CAB") +
+  scale_fill_continuous(low = "#E0CBC3", high = "#DF6233") +
+  coord_fixed() +
+  theme_void()
+```
+
+### Choroplethen-Karte mit Symbolen
+
+```{r}
+bundeslaender_daten <- demos %>%
+  group_by(Bundesland) %>%
+  summarise(Anzahl = n())
+
+bundeslaender_merge <- left_join(
+  bundeslaender_geo,
+  bundeslaender_daten,
+  by = c("id" = "Bundesland")
+)
+
+staedte_daten <- demos %>%
+  group_by(Ort, Lat, Long) %>%
+  summarise(Anzahl = n(), Teilnehmer = sum(Teilnehmer, rm.na = TRUE))
+
+ggplot(data = bundeslaender_merge, aes(map_id = id, x = long, y = lat, group = group, fill = Anzahl)) +
+  geom_map(
+    map = bundeslaender_geo,
+    color = "white",
+    size = 0.05
+  ) +
+  geom_point(
+    data = staedte_daten,
+    aes(x = Long, y = Lat, size = Teilnehmer),
+    color = "#DF6233",
+    alpha = 0.25,
+    inherit.aes = FALSE
+  ) +
+  scale_fill_continuous(low = "#EAEAEA", high = "#666666") +
+  coord_fixed() +
+  theme_void()
+```
 
 
 
