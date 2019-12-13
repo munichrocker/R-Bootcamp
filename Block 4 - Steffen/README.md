@@ -36,7 +36,7 @@ Diese Seminar ist Teil des [R-Bootcamps](https://journalistenschule-ifp.de/semin
 
 ## Vorbereitung
 
-Vor Beginn des Seminar sollte jeder Teilnehmer [R](https://cloud.r-project.org/) und [R Studio](https://rstudio.com/products/rstudio/download/#download) installieren. R Studio ise eine integrierte Entwicklungsumgebung für R und bietet viele nützliche Funktionen wie Syntaxhervorhebung, Autovervollständigung und eine Paketverwaltung.
+Vor Beginn des Seminar sollte jeder Teilnehmer [R](https://cloud.r-project.org/) und [RStudio](https://rstudio.com/products/rstudio/download/#download) installieren. RStudio ist eine integrierte Entwicklungsumgebung für R und bietet viele nützliche Funktionen wie Syntaxhervorhebung, Autovervollständigung und eine Paketverwaltung.
 
 Nach der Installation von RStudio sollten noch folgende R-Pakete installiert werden:
 
@@ -48,10 +48,20 @@ install.packages(c("tidyverse", "rmarkdown", "lubridate", "plotly", "leaflet"))
 
 ## Tastenkürzel
 
-- Shortcuts dokumentieren
-- Cmd + Alt + I
-- Shift + Cmd + M
-- Cmd + Shift + Enter
+Wer viel in RStudio arbeitet, kann sich mit Tastenkürzeln viel Zeit sparen. Hier eine Auswahl der wichtigsten Tastenkürzel:
+
+| Befehl                           | Mac OS X                                                    | Windows                                               |
+|----------------------------------|-------------------------------------------------------------|-------------------------------------------------------|
+| Arbeitsverzeichnis ändern        | <kbd>⌃ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>H</kbd>       | <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd>     |
+| Zuweisungspfeil `<-` einfügen    | <kbd>⌥ Alt</kbd> + <kbd>-</kbd>                             | <kbd>Alt</kbd> + <kbd>-</kbd>                         |
+| Pipe-Operator `%>%` einfügen     | <kbd>⌘ Cmd</kbd> + <kbd>⇧ Shift</kbd> + <kbd>M</kbd>        | <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>     |
+| Code mit `#` auskommentieren     | <kbd>⌃ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>C</kbd>       | <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>     |
+| Code-Block ausführen             | <kbd>⌘ Cmd</kbd> + <kbd>↵ Enter</kbd>                       | <kbd>Strg</kbd> + <kbd>Enter</kbd>                    |
+| Ganzes Dokument ausführen        | <kbd>⌃ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>↵ Enter</kbd> | <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> |
+| Code-Block in RMarkdown einfügen | <kbd>⌘ Cmd</kbd> + <kbd>⌥ Alt</kbd> + <kbd>I</kbd>          | <kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd>       |
+| Ganzes Dokument knitten          | <kbd>⌃ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>K</kbd>       | <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>     |
+
+Es gibt auch ein offizielles [Tastenkürzel Cheat Sheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) von RStudio.
 
 ## Hausaufgabe: Eurovision Song Contest
 
@@ -80,6 +90,10 @@ Alle Daten und Skripte finden sich im Ordner `challenge`.
 - Die Tabellen aus den PDF-Dokumenten wurden mit [Tabula](https://tabula.technology/) extrahiert und in Google Spreadsheets bereinigt und zusammengefasst.
 - Um die Orte der Aufmärsche geografisch zuordnen zu können, wurden die Daten um die Spalte `Lat` und `Long` ergänzt. Dafür kam das kostenlose Online-Tool [Geocode](https://geocode.localfocus.nl/) zum Einsatz.
 - Die Veranstaltungsdaten werden von Behördenmitarbeiten gepflegt und veröffentlicht. Daher gibt es kleinere Unstimmigkeiten in der Benennung von Veranstaltern und Orten. Die Spalte `Kategorie` bietet einen bereinigte Zuordnung der Parteien und Organisationen.
+
+## Beispiel: Twitter-API
+
+Das Skript finden sich im Ordner `example`.
 
 ## Links
 
