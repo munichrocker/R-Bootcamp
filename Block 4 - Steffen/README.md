@@ -4,11 +4,11 @@ Datenvisualisierung ist ein mächtiges Werkzeug, um komplexe Datensätze greifba
 
 ![Explorative und erklärende Datenvisualisierung](preview.png?raw=true)
 
-## Inhalte
+## Inhalt
 
 Diese Seminar ist Teil des [R-Bootcamps](https://journalistenschule-ifp.de/seminardetails/950) des ifp und soll Journalisten die Grundlagen der Datenvisualisierung in R vermitteln.
 
-#### Wiederholung mit Aufwärmübungen
+#### Wiederholung
 
 - Tabellen einlesen
 - Datensatz erkunden
@@ -27,68 +27,78 @@ Diese Seminar ist Teil des [R-Bootcamps](https://journalistenschule-ifp.de/semin
 - Diagramme exportieren und weiterverwenden
 - Interaktive Grafiken erstellen (plotly)
 
-#### Kartenvisualisierungen mit Leaflet
+#### Kartenvisualisierungen
 
 - Geodaten verwenden
-- Choroplethenkarte erstellen
-- Symbolkarte erstellen
+- Choroplethenkarte erstellen (Leaflet)
+- Symbolkarte erstellen (Leaflet)
 - Karten veröffentlichen
 
 ## Vorbereitung
 
-Vor Beginn des Seminar sollte jeder Teilnehmer [RStudio](https://rstudio.com/products/rstudio/download/#download) installieren. Diese integrierte Entwicklungsumgebung für R bietet eine Autovervollständigung, Syntaxhervorhebung, Paketverwaltung und eine integrierte Hilfefunktion.
+Vor Beginn des Seminar sollte jeder Teilnehmer [R](https://cloud.r-project.org/) und [R Studio](https://rstudio.com/products/rstudio/download/#download) installieren. R Studio ise eine integrierte Entwicklungsumgebung für R und bietet viele nützliche Funktionen wie Syntaxhervorhebung, Autovervollständigung und eine Paketverwaltung.
 
 Nach der Installation von RStudio sollten noch folgende R-Pakete installiert werden:
 
 ```r
-install.packages(c("tidyverse", "rmarkdown", "rvest", "lubridate", "plotly", "leaflet"))
+install.packages(c("tidyverse", "rmarkdown", "lubridate", "plotly", "leaflet"))
 ```
 
 **Hinweis**: ggplot2 und viele andere Pakete sind bereits im Paket tidyverse enthalten.
 
+## Tastenkürzel
+
+- Shortcuts dokumentieren
+- Cmd + Alt + I
+- Shift + Cmd + M
+- Cmd + Shift + Enter
+
 ## Hausaufgabe: Eurovision Song Contest
 
-Seit 1956 ist der Eurovision Song Contest der wohl gelichzeitig beliebteste und meistgehasst Musikwettbewerb Europas. Wir wollen uns anschauen: Wer dominiert den ESC? Wer sind die ewigen Zweiten und mit welche Sprache gewinnt man am ehesten? Die Hausaufgabe ist eine Wiederholung der Inhalte aus den letzten Seminarblöcken: Daten scrapen, verstehen und analysieren.
+Seit 1956 ist der Eurovision Song Contest der wohl gleichzeitig beliebteste und meistgehasst Musikwettbewerb Europas. Wir wollen wissen: Wer dominiert den ESC? Wer sind die ewigen Zweiten und mit welche Sprache gewinnt man am ehesten? Die Hausaufgabe ist eine Wiederholung der Inhalte aus den letzten Seminarblöcken: Daten scrapen, verstehen und analysieren.
 
 Alle Daten und Skripte finden sich im Ordner `homework`.
 
-Ein paar Hinweise und Tipps:
+**Hinweise und Tipps:**
 
-- Verwendet die Funktionen von dplyr (tidyverse). Das macht die Arbeit erheblich einfacher und den Code leichter zu lesen. Druckt das [dplyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf) aus und legt es neben euch.
+- Es empfiehlt sich die Funktion des [tidyverse](https://www.tidyverse.org/) (`filter()`, `group_by()`, `summarise()`) zu verwenden. Das macht die Arbeit erheblich einfacher und den Code leichter zu lesen. Der [dplyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf) hilft dabei enorm.
 - Manche der Fragen lassen sich nicht mit Code beantworten. In diesem Fall kann man die Antworten einfach als Stichpunkte aufzuschreiben.
-- Es is vollkommen in Ordnung Lösungen für einzelne Probleme zu ergooglen, man sollte jede Lösung aber zumindest nachvollziehen können.
+- Es ist vollkommen in Ordnung Lösungen für einzelne Probleme zu ergooglen, man sollte aber jede Lösung zumindest nachvollziehen können.
 - Wenn es unüberwindbare technische Probleme beim Scrapen der Website gibt, kann die Tabelle der ESC-Gewinner auch als [CSV aus unserem Github-Repo](data/esc_winners.csv) eingebunden werden.
 
 ## Übung: Rechtsextreme Aufmärsche
 
-Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft, nicht zuletzt durch die jüngsten rechtsterroristischen Anschläge in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch). Doch schon 2015, als die Zahl der Asylbewerber deutlich anstieg, wurde die Gesellschaft mit rechtsmotivierten Übergriffen und Ausschreitungen konfrontiert. Demonstrationen von rechtsextremen Organisationen, meist zu den Themen Asyl oder Islamisierung, tragen diese Ideologien offen in die Gesellschaft. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben und wer diese organisiert hat.
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aud dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), zeigen, dass es sich lohnt die Szene genau zu beobachten. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben, wer diese organisiert und wie sich die Zahl an Aufmärche über die Jahre entwickelt hat.
 
 Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir R Markdown, ggplot und leaflet.
 
 Alle Daten und Skripte finden sich im Ordner `challenge`.
 
-Ein paar Hinweise und Tipps:
+**Hinweise und Tipps:**
 
-- Der Datensatz kommt aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion Die Linke und umfasst den Zeitraum Oktober 2013 bis September 2019.
+- Die Daten kommen aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion „Die Linke“ und umfassen den Zeitraum von Oktober 2013 bis September 2019.
+- Die Tabellen aus den PDF-Dokumenten wurden mit [Tabula](https://tabula.technology/) extrahiert und in Google Spreadsheets bereinigt und zusammengefasst.
+- Um die Orte der Aufmärsche geografisch zuordnen zu können, wurden die Daten um die Spalte `Lat` und `Long` ergänzt. Dafür kam das kostenlose Online-Tool [Geocode](https://geocode.localfocus.nl/) zum Einsatz.
+- Die Veranstaltungsdaten werden von Behördenmitarbeiten gepflegt und veröffentlicht. Daher gibt es kleinere Unstimmigkeiten in der Benennung von Veranstaltern und Orten. Die Spalte `Kategorie` bietet einen bereinigte Zuordnung der Parteien und Organisationen.
 
 ## Links
 
-- [R Base Graphs](http://www.sthda.com/english/wiki/r-base-graphs)
-- [Tidyverse Style Guide](https://style.tidyverse.org/)
-- [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
-- [R for Data Science](https://r4ds.had.co.nz/introduction.html)
-- [Modern R with tidyverse](https://b-rodrigues.github.io/modern_R/)
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html)
-- [R Markdown Theme Gallery](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
-- [Financial Times: Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf)
-- [Data Visualisation Catalogue](https://datavizcatalogue.com/methods/treemap.html)
-- [Color Brewer](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
-- [Color Palette Helper](https://gka.github.io/palettes)
-- [Mapshaper](https://mapshaper.org/)
-- [Leaflet Providers](https://leaflet-extras.github.io/leaflet-providers/preview/index.html)
-- [Overpass Turbo](https://overpass-turbo.eu/)
-- [Localfocus Geocode](https://geocode.localfocus.nl/)
-- [Leaflet for R](https://rstudio.github.io/leaflet/markers.html)
+- [Tidyverse Style Guide](https://style.tidyverse.org/): gute Empfehlungen wie man sauberen R-Code schreibt
+- [R for Data Science](https://r4ds.had.co.nz/introduction.html): Grundlagen der Datenanalyse und -visualisierung in R
+- [Modern R with tidyverse](https://b-rodrigues.github.io/modern_R/): allgemeine (und eher abstrakte) Einführung in R
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html): alle Funktionen von R Markdown gut und anhand von Beispielen erklärt
+- [R Markdown Theme Gallery](https://www.datadreaming.org/post/r-markdown-theme-gallery/): Übersicht aller Designvorlagen für R Markdown
+- [R Base Graphs](http://www.sthda.com/english/wiki/r-base-graphs): einfache Diagramme mit R erstellen
+- [Financial Times: Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf): riesiges Poster mit verschieden Visualisierungsarten bietet
+- [Data Visualisation Catalogue](https://datavizcatalogue.com/methods/treemap.html): Katalog der verschieden Visualisierungen, oft mit Beispielen und Tool-Empfehlungen
+- [Datawrapper Blog](https://blog.datawrapper.de/category/thoughts-how-to-s/): großartige Einführungen und Anleitungen in verschiedene Dataviz-Themen
+- [Color Brewer](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3): nützliche Farbpaletten und -skalen für Diagramme und Karten
+- [Color Palette Helper](https://gka.github.io/palettes): Farbpaletten mit eigenen Farben zusammenstellen
+- [Mapshaper](https://mapshaper.org/): Shapefiles und verwandte Geodaten vereinfachen und in andere Formate konvertieren
+- [Leaflet Providers](https://leaflet-extras.github.io/leaflet-providers/preview/index.html): Liste der offenen Grundlagenkarten für Leaflet (und andere Kartenwerkzeuge)
+- [Leaflet for R](https://rstudio.github.io/leaflet/markers.html): Dokumentation von R Leaflet mit vielen Beispielen
+- [Overpass Turbo](https://overpass-turbo.eu/): Geodaten aus Open Street Map abfragen und exportieren
+- [Localfocus Geocode](https://geocode.localfocus.nl/): Orten und Adressen in Geokoordinaten umwandeln
 
 ## Cheat Sheets
 
