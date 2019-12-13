@@ -65,7 +65,7 @@ asylantraege <- read_csv(
 )
 
 ## Flächen der Bundesländer laden
-bundeslaender_geo_raw <- readOGR("data/bundeslaender.geo.json", verbose = FALSE) %>% 
+bundeslaender_geo_raw <- readOGR("data/bundeslaender.geo.json", verbose = FALSE)
 bundeslaender_geo <- fortify(bundeslaender_geo_raw, region = "NAME_1")
 ```
 
@@ -244,7 +244,7 @@ ggplot(data = bundeslaender_merge, aes(map_id = id, x = long, y = lat, group = g
     data = staedte_daten,
     aes(x = Long, y = Lat, size = Teilnehmer),
     color = "#DF6233",
-    alpha = 0.25,
+    alpha = 0.5,
     inherit.aes = FALSE
   ) +
   scale_fill_continuous(low = "#EAEAEA", high = "#666666") +
@@ -260,9 +260,15 @@ pal <- colorNumeric("viridis", NULL)
 
 leaflet(bundeslaender_geo_raw) %>%
   addTiles() %>%
-  addPolygons(stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1,
-    fillColor = ~pal(ID_1),
-    label = ~paste0(NAME_1, ": ", ID_1)) %>%
+  addPolygons(
+    stroke = FALSE,
+    smoothFactor = 0.3,
+    fillOpacity = 1,
+    fillColor = ~ function (x)
+      bundeslaender_daten %>% filter(Bundesland == x)),
+    
+    label = ~paste0(NAME_1, ": ", ID_1)
+  ) %>%
   addLegend(pal = pal, values = ~ID_1, opacity = 1.0)
 ```
 
@@ -271,7 +277,7 @@ leaflet(bundeslaender_geo_raw) %>%
 # Create a palette that maps factor levels to colors
 leaflet(staedte_daten) %>%
   addProviderTiles(
-    "CartoDB.DarkMatter",
+    "CartoDB.Positron",
     options = providerTileOptions(noWrap = TRUE)
   ) %>%
   addCircleMarkers(
@@ -286,5 +292,64 @@ leaflet(staedte_daten) %>%
     # stroke = FALSE, fillOpacity = 0.5
   )
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+leaflet() %>%
+  setView(lat = 48.781647, lng = 11.414274, zoom = 13) %>% 
+  addProviderTiles(
+    "CartoDB.Positron",
+    options = providerTileOptions(noWrap = TRUE)
+  ) %>%
+  addCircleMarkers(
+    lat = 48.781647,
+    lng = 11.414274, 
+    radius = 30,
+    stroke = "red",
+    color = "red",
+    fillOpacity = 0.2
+  ) %>%
+  addRectangles(
+    lng1=48.781647, lat1=11.414274,
+    lng2=48.581647, lat2=11.314274,
+    stroke = "green",
+    color = "green",
+    fillOpacity = 0.2
+  )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
