@@ -58,7 +58,7 @@ demos <- demos %>%
 # Dein Code
 ```
 
-### Wie haben sich die Anzahl der Teilnehmer bei rechtsextremen Aufmärschen entwickelt?
+### Wie hat sich die Anzahl der Teilnehmer bei rechtsextremen Aufmärschen entwickelt?
 
 ```{r}
 # Dein Code

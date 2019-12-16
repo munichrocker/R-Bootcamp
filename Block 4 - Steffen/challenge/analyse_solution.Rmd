@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aud dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), zeigen, dass es sich lohnt die Szene genau zu beobachten. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben, wer diese organisiert und wie sich die Anzahl an Aufmärche über die Jahre entwickelt hat.
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aus dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), aber auch gewaltsamen Proteste wie in [Chemnitz](https://de.wikipedia.org/wiki/Ausschreitungen_in_Chemnitz_2018), zeigen, dass die rechte Szene durchaus gewaltbereit ist. Diese Datenanalyse untersucht, wo rechtsextreme Demos stattgefunden haben, wer diese organisiert und wie sich die Anzahl und Teilnehmerzahl bei diesen Veranstaltungen über die Jahre hinweg entwickelt hat.
 
 Die Daten kommen aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion „Die Linke“ und umfassen den Zeitraum von Oktober 2013 bis September 2019.
 
@@ -73,71 +73,85 @@ Insgesamt haben rechte Organisation `r demos %>% count() %>% first()` Aufmärsch
 # Einfaches Säulendiagramm
 demos %>%
   group_by(Kategorie) %>%
-  summarise(AnAnzahl = n()) %>%
-  arrange(desc(AnAnzahl)) %>%
-  ggplot(aes(x = reorder(Kategorie, -AnAnzahl), y = AnAnzahl)) +
+  summarise(Anzahl = n()) %>%
+  arrange(desc(Anzahl)) %>%
+  ggplot(aes(x = reorder(Kategorie, -Anzahl), y = Anzahl)) +
     geom_bar(stat = "identity", fill = "#006CAB") +
     xlab("Organisation oder Partei")
 
-# GesamtAnzahl der Aufmärsche pro Partei für Text
-npd_anAnzahl <- demos %>%
+# Anzahl der Aufmärsche pro Partei für Text
+npd_anzahl <- demos %>%
   filter(Kategorie == "NPD") %>%
-  summarise(AnAnzahl = n()) %>%
+  summarise(Anzahl = n()) %>%
   first()
 
-die_rechte_anAnzahl <- demos %>%
+die_rechte_anzahl <- demos %>%
   filter(Kategorie == "Die Rechte") %>%
-  summarise(AnAnzahl = n()) %>%
+  summarise(Anzahl = n()) %>%
   first()
 
-dritter_weg_anAnzahl <- demos %>%
+dritter_weg_anzahl <- demos %>%
   filter(Kategorie == "III. Weg") %>%
-  summarise(AnAnzahl = n()) %>%
+  summarise(Anzahl = n()) %>%
   first()
 ```
 
-Die rechtsextreme Altpartei NPD organisierte immerhin `r npd_anAnzahl` Aufmärschen. Die 2012 gegründete neonazistische Partei „Die Rechte“ organisierte im gleichen Zeitraum `r die_rechte_anAnzahl` Protestmärsche. Die rechtsextreme Partei „Der III. Weg“ wurde 2013 gegründet und richte bisher `r dritter_weg_anAnzahl` Demos aus.
+Die rechtsextreme Altpartei NPD organisierte `r npd_anzahl` Aufmärschen. Die 2012 gegründete neonazistische Partei „Die Rechte“ organisierte im gleichen Zeitraum `r die_rechte_anzahl` Protestmärsche. Die rechtsextreme Partei „Der III. Weg“ wurde 2013 gegründet und richtete bisher `r dritter_weg_anzahl` Demos aus.
 
 ### Wie hat sich die Anzahl der rechtsextremen Aufmärsche entwickelt?
 
 ```{r}
-demos %>%
+anzahl <- demos %>%
   group_by(Jahr) %>%
-  summarise(AnAnzahl = sum(n())) %>%
-  ggplot(aes(x = factor(Jahr), y = AnAnzahl, group = 1)) +
-    geom_line(color = "#006CAB", size = 1) +
-    geom_point(color = "#006CAB", size = 2) +
-    xlab(label = "Jahr")
+  summarise(Anzahl = sum(n()))
+
+ggplot(anzahl, aes(x = factor(Jahr), y = Anzahl, group = 1)) +
+  geom_line(color = "#006CAB", size = 1) +
+  geom_point(color = "#006CAB", size = 2) +
+  xlab(label = "Jahr")
+
+# Maximalwerte für Text
+anzahl_hoechste <- anzahl %>% top_n(1, Anzahl)
+anzahl_niedrigste <- anzahl %>% top_n(-1, Anzahl)
 ```
 
-### Wie haben sich die Anzahl der Teilnehmer bei rechtsextremen Aufmärschen entwickelt?
+Die meisten rechtsextremen Aufmärsche fanden `r anzahl_hoechste$Jahr` mit insgesamt `r anzahl_hoechste$Anzahl` Demos statt. Die wenigsten Veranstaltungen hingegen fanden `r anzahl_niedrigste$Jahr` mit `r anzahl_niedrigste$Anzahl` Demos statt.
+
+### Wie hat sich die Anzahl der Teilnehmer bei rechtsextremen Aufmärschen entwickelt?
 
 ```{r}
-demos %>%
+teilnehmer <- demos %>%
   drop_na(Teilnehmer) %>%
   group_by(Jahr) %>%
-  summarise(Teilnehmer = sum(Teilnehmer)) %>%
-  ggplot(aes(x = factor(Jahr), y = Teilnehmer, group = 1)) +
-    geom_line(color = "#006CAB", size = 1) +
-    geom_point(color = "#006CAB", size = 2) +
-    scale_y_continuous(
-      labels = function(x) { 
-        format(x, big.mark = ".", scientific = FALSE)
-      }
-    )
-    xlab(label = "Jahr")
+  summarise(Teilnehmer = sum(Teilnehmer))
+
+ggplot(teilnehmer, aes(x = factor(Jahr), y = Teilnehmer, group = 1)) +
+  geom_line(color = "#006CAB", size = 1) +
+  geom_point(color = "#006CAB", size = 2) +
+  scale_y_continuous(
+    labels = function(x) { 
+      format(x, big.mark = ".", scientific = FALSE)
+    }
+  ) +
+  xlab(label = "Jahr")
+    
+# Maximalwerte für Text
+teilnehmer_hoechste <- teilnehmer %>% top_n(1, Teilnehmer)
+teilnehmer_niedrigste <- teilnehmer %>% top_n(-1, Teilnehmer)
 ```
 
-### Gibt es einen Zusammenhang zwischen der AnAnzahl der Veranstaltungen und den TeilnehmerAnzahlen?
+Die meisten Teilnehmer (insgesamt `r teilnehmer_hoechste$Teilnehmer`) hatten Aufmärsche im Jahr `r teilnehmer_hoechste$Jahr`. Im Jahr `r teilnehmer_niedrigste$Jahr` nahmen die wenigsten Teilnehmer `r anzahl_niedrigste$Teilnehmer` an rechtsextremen Demos teil.
+
+### Gibt es einen Zusammenhang zwischen der Anzahl der Veranstaltungen und den Teilnehmerzahlen?
 
 ```{r}
 demos %>%
   group_by(Jahr) %>%
   summarise(
-    AnAnzahl = sum(n()),
+    Anzahl = sum(n()),
     Teilnehmer = sum(Teilnehmer, na.rm = TRUE)
   ) %>%
-  ggplot(aes(x = Teilnehmer, y = AnAnzahl)) +
+  ggplot(aes(x = Teilnehmer, y = Anzahl)) +
     geom_smooth(method = 'lm', se = FALSE, size = 1, color = "#DF6233", linetype = "dotted") +
     geom_point(size = 2, color = "#006CAB") +
     scale_x_continuous(
@@ -150,24 +164,24 @@ demos %>%
     geom_text(aes(label = Jahr), hjust = -0.25, vjust = 0.45, color = "#006CAB")
 ```
 
-### Gibt es einen Zusammenhang zwischen der AnAnzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
+### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
 
 ```{r}
 teilnehmer_pa <- demos %>%
   group_by(Jahr) %>%
-  summarise(AnAnzahl = sum(n()))
+  summarise(Anzahl = sum(n()))
 
 asylantraege_pa <- asylantraege %>%
   filter(between(Jahr, 2013, 2019))
 
 ggplot() +
-  geom_line(data = teilnehmer_pa, aes(x = Jahr, y = AnAnzahl), color = "#006CAB", size = 1) +
-  geom_point(data = teilnehmer_pa, aes(x = Jahr, y = AnAnzahl), color = "#006CAB", size = 2) +
+  geom_line(data = teilnehmer_pa, aes(x = Jahr, y = Anzahl), color = "#006CAB", size = 1) +
+  geom_point(data = teilnehmer_pa, aes(x = Jahr, y = Anzahl), color = "#006CAB", size = 2) +
   geom_line(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 1) +
   geom_point(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 2) +
   scale_x_discrete(limits = teilnehmer_pa$Jahr) +
   scale_y_continuous(
-    name = "AnAnzahl der Aufmärsche",
+    name = "Anzahl der Aufmärsche",
     sec.axis = sec_axis(~., name = "Asylanträge (in Tsd.)")
   ) +
   theme(
@@ -177,7 +191,7 @@ ggplot() +
 ```
 
 ```{r}
-teilnehmer_plot <- ggplot(teilnehmer_pa, aes(x = factor(Jahr), y = AnAnzahl)) +
+teilnehmer_plot <- ggplot(teilnehmer_pa, aes(x = factor(Jahr), y = Anzahl)) +
   geom_bar(stat = "identity", fill = "#006CAB") +
   coord_flip() +
   xlab("Jahr") +
@@ -208,8 +222,8 @@ plot_grid(teilnehmer_plot, asylantraege_plot)
 ```{r}
 demos %>%
   group_by(Monat) %>%
-  summarise(AnAnzahl = sum(n())) %>%
-  ggplot(aes(x = factor(Monat), y = AnAnzahl, group = 1)) +
+  summarise(Anzahl = sum(n())) %>%
+  ggplot(aes(x = factor(Monat), y = Anzahl, group = 1)) +
     geom_bar(stat = "identity", size = 1, fill = "#006CAB") +
     scale_x_discrete(label = function (x) month.abb[as.integer(x)]) +
     xlab(label = "Monat")
@@ -220,8 +234,8 @@ demos %>%
 ```{r}
 demos %>%
   group_by(Kategorie, Jahr) %>%
-  summarise(AnAnzahl = sum(n())) %>%
-  ggplot(aes(x = factor(Jahr), y = AnAnzahl)) +
+  summarise(Anzahl = sum(n())) %>%
+  ggplot(aes(x = factor(Jahr), y = Anzahl)) +
     geom_line(aes(group = Kategorie, color = Kategorie), size = 1) +
     geom_point(aes(group = Kategorie, color = Kategorie), size = 2) +
     scale_color_brewer(palette = "Set1") +
@@ -234,8 +248,8 @@ demos %>%
 ```{r}
 demos %>%
   group_by(Bundesland, Jahr) %>%
-  summarise(AnAnzahl = sum(n())) %>%
-  ggplot(aes(x = Jahr, y = AnAnzahl, group = Bundesland)) +
+  summarise(Anzahl = sum(n())) %>%
+  ggplot(aes(x = Jahr, y = Anzahl, group = Bundesland)) +
     geom_line(show.legend = FALSE, size = 0.75, color = "#006CAB") +
     geom_point(size = 1.5, color = "#006CAB") +
     facet_wrap(~ Bundesland) +
@@ -273,15 +287,15 @@ leaflet(
     weight = 1,
     smoothFactor = 0.5,
     fillOpacity = 1,
-    fillColor = ~pal(AnAnzahl),
-    label = ~paste0(NAME_1, ": ", AnAnzahl, " Demos mit insgesamt ", format(Teilnehmer, big.mark = ".", scientific = FALSE), " Teilnehmern"),
+    fillColor = ~pal(Anzahl),
+    label = ~paste0(NAME_1, ": ", Anzahl, " Demos mit insgesamt ", format(Teilnehmer, big.mark = ".", scientific = FALSE), " Teilnehmern"),
   ) %>%
   addLegend(
     pal = pal,
-    values = ~AnAnzahl,
+    values = ~Anzahl,
     opacity = 1,
     na.label = "keine Demos",
-    title = "AnAnzahl der Demos"
+    title = "Anzahl der Demos"
   )
 ```
 
@@ -290,7 +304,7 @@ leaflet(
 ```{r}
 staedte_daten <- demos %>%
   group_by(Ort, Lat, Long) %>%
-  summarise(AnAnzahl = n(), Teilnehmer = sum(Teilnehmer, rm.na = TRUE))
+  summarise(Anzahl = n(), Teilnehmer = sum(Teilnehmer, rm.na = TRUE))
 
 leaflet(data = staedte_daten) %>%
   setView(
@@ -305,8 +319,8 @@ leaflet(data = staedte_daten) %>%
   addCircles(
     lat = ~Lat,
     lng = ~Long,
-    radius = ~sqrt(AnAnzahl/pi) * 10000,
-    popup = ~paste0("<b>", Ort, "</b>", ": ", AnAnzahl, " Demos mit ", format(Teilnehmer, big.mark = ".", scientific = FALSE), " Teilnehmern"),
+    radius = ~sqrt(Anzahl/pi) * 10000,
+    popup = ~paste0("<b>", Ort, "</b>", ": ", Anzahl, " Demos mit ", format(Teilnehmer, big.mark = ".", scientific = FALSE), " Teilnehmern"),
     stroke = FALSE,
     color = "#DF6233",
     fillOpacity = 0.5
