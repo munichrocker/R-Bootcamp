@@ -80,7 +80,7 @@ Alle Daten und Skripte finden sich im Ordner `homework`.
 
 Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aud dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), zeigen, dass es sich lohnt die Szene genau zu beobachten. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben, wer diese organisiert und wie sich die Zahl an Aufmärche über die Jahre entwickelt hat.
 
-Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir R Markdown, ggplot und leaflet.
+Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir RMarkdown, ggplot und leaflet.
 
 Alle Daten und Skripte finden sich im Ordner `challenge`.
 
@@ -97,22 +97,22 @@ Das Skript finden sich im Ordner `example`.
 
 ## Links
 
-- [Tidyverse Style Guide](https://style.tidyverse.org/): gute Empfehlungen wie man sauberen R-Code schreibt
 - [R for Data Science](https://r4ds.had.co.nz/introduction.html): Grundlagen der Datenanalyse und -visualisierung in R
 - [Modern R with tidyverse](https://b-rodrigues.github.io/modern_R/): allgemeine (und eher abstrakte) Einführung in R
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html): alle Funktionen von R Markdown gut und anhand von Beispielen erklärt
-- [R Markdown Theme Gallery](https://www.datadreaming.org/post/r-markdown-theme-gallery/): Übersicht aller Designvorlagen für R Markdown
+- [Tidyverse Style Guide](https://style.tidyverse.org/): gute Empfehlungen wie man sauberen R-Code schreibt
+- [RMarkdown – The Definitive Guide](https://bookdown.org/yihui/rmarkdown/html-document.html): alle Funktionen von RMarkdown gut und anhand von Beispielen erklärt
+- [RMarkdown – Theme Gallery](https://www.datadreaming.org/post/r-markdown-theme-gallery/): Übersicht aller Designvorlagen für RMarkdown
 - [R Base Graphs](http://www.sthda.com/english/wiki/r-base-graphs): einfache Diagramme mit R erstellen
-- [Financial Times: Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf): riesiges Poster mit verschieden Visualisierungsarten bietet
+- [Financial Times – Visual Vocabulary](https://github.com/ft-interactive/chart-doctor/blob/master/visual-vocabulary/Visual-vocabulary.pdf): riesiges Poster mit verschieden Visualisierungsarten bietet
 - [Data Visualisation Catalogue](https://datavizcatalogue.com/methods/treemap.html): Katalog der verschieden Visualisierungen, oft mit Beispielen und Tool-Empfehlungen
-- [Datawrapper Blog](https://blog.datawrapper.de/category/thoughts-how-to-s/): großartige Einführungen und Anleitungen in verschiedene Dataviz-Themen
+- [Datawrapper Blog](https://blog.datawrapper.de/category/thoughts-how-to-s/): großartige Einführungen und Anleitungen zu verschiedene Dataviz-Themen
 - [Color Brewer](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3): nützliche Farbpaletten und -skalen für Diagramme und Karten
 - [Color Palette Helper](https://gka.github.io/palettes): Farbpaletten mit eigenen Farben zusammenstellen
 - [Mapshaper](https://mapshaper.org/): Shapefiles und verwandte Geodaten vereinfachen und in andere Formate konvertieren
 - [Leaflet Providers](https://leaflet-extras.github.io/leaflet-providers/preview/index.html): Liste der offenen Grundlagenkarten für Leaflet (und andere Kartenwerkzeuge)
 - [Leaflet for R](https://rstudio.github.io/leaflet/markers.html): Dokumentation von R Leaflet mit vielen Beispielen
 - [Overpass Turbo](https://overpass-turbo.eu/): Geodaten aus Open Street Map abfragen und exportieren
-- [Localfocus Geocode](https://geocode.localfocus.nl/): Orten und Adressen in Geokoordinaten umwandeln
+- [Localfocus Geocode](https://geocode.localfocus.nl/): Orten und Adressen in Geo-Koordinaten umwandeln
 
 ## Cheat Sheets
 
@@ -122,7 +122,7 @@ Alle Cheat Sheets finden sich auch bei [RStudio auf Github](https://github.com/r
 - [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf)
 - [ggplot2](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
 - [Leaflet](https://github.com/rstudio/cheatsheets/blob/master/leaflet.pdf)
-- [R Markdown](https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf)
+- [RMarkdown](https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf)
 - [Regex](https://github.com/rstudio/cheatsheets/blob/master/regex.pdf)
 
 ## Weitere Workshops
