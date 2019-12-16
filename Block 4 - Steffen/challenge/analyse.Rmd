@@ -17,9 +17,13 @@ knitr::opts_chunk$set(
 
 ```{r}
 # Pakete installieren und laden
-## install.packages(c("tidyverse", "lubridate"))
+## install.packages(c("rmarkdown", "svglite", "tidyverse", "lubridate", "cowplot", "rgdal", "maptools", "leaflet"))
 library(tidyverse)
 library(lubridate)
+library(cowplot)
+library(rgdal)
+library(maptools)
+library(leaflet)
 
 # Theme für ggplot setzen: https://ggplot2.tidyverse.org/reference/ggtheme.html
 theme_set(theme_minimal())
@@ -35,9 +39,69 @@ demos <- read_csv(
 )
 
 ## Eigene Spalten für Jahr und Monat hinzufügen
-demos <- data %>%
+demos <- demos %>%
   mutate(
     Jahr = year(Datum),
     Monat = month(Datum)
   )
+```
+
+### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche organisiert?
+
+```{r}
+# Dein Code
+```
+
+### Wie hat sich die Anzahl der rechtsextremen Aufmärsche entwickelt?
+
+```{r}
+# Dein Code
+```
+
+### Wie haben sich die Anzahl der Teilnehmer bei rechtsextremen Aufmärschen entwickelt?
+
+```{r}
+# Dein Code
+```
+
+### Gibt es einen Zusammenhang zwischen der Anzahl der Veranstaltungen und den Teilnehmerzahlen?
+
+```{r}
+# Dein Code
+```
+
+### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und der Anzahl der Asylanträge?
+
+```{r}
+# Dein Code
+```
+
+### In welchem Monat gab es die meisten rechtsextremen Aufmärsche?
+
+```{r}
+# Dein Code
+```
+
+### Wie hat sich die Anzahl der rechtsextremen Aufmärsche *pro Partei* entwickelt?
+
+```{r}
+# Dein Code
+```
+
+### Wie hat sich die Anzahl der rechtsextremen Aufmärsche *pro Bundesland* entwickelt?
+
+```{r}
+# Dein Code
+```
+
+### Karte der rechtsextremen Aufmärsche pro Bundesland (Leaflet)
+
+```{r}
+# Dein Code
+```
+
+### Karte der rechtsextremen Aufmärsche pro Ort (Leaflet)
+
+```{r}
+# Dein Code
 ```
