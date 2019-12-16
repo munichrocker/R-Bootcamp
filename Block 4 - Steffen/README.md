@@ -41,10 +41,42 @@ Vor Beginn des Seminar sollte jeder Teilnehmer [R](https://cloud.r-project.org/)
 Nach der Installation von RStudio sollten noch folgende R-Pakete installiert werden:
 
 ```r
-install.packages(c("tidyverse", "rmarkdown", "lubridate", "plotly", "leaflet"))
+install.packages(c("rmarkdown", "svglite", "tidyverse", "lubridate", "cowplot", "rgdal", "leaflet"))
 ```
 
-**Hinweis**: ggplot2 und viele andere Pakete sind bereits im Paket tidyverse enthalten.
+**Hinweis**: ggplot2 und viele andere Pakete sind bereits im Paket tidyverse enthalten. Für die Beispiele im Ordner `example` müssen gegebenfalls zusätzliche Pakete installiert werden.
+
+## Hausaufgabe: Eurovision Song Contest
+
+Seit 1956 ist der Eurovision Song Contest der wohl gleichzeitig beliebteste und meistgehasst Musikwettbewerb Europas. Wir wollen wissen: Wer dominiert den ESC? Wer sind die ewigen Zweiten und mit welche Sprache gewinnt man am ehesten? Die Hausaufgabe ist eine Wiederholung der Inhalte aus den letzten Seminarblöcken: Daten scrapen, verstehen und analysieren.
+
+Alle Daten und Skripte finden sich im Ordner `homework`.
+
+**Hinweise und Tipps:**
+
+- Es empfiehlt sich die Funktion des [tidyverse](https://www.tidyverse.org/) (`filter()`, `group_by()`, `summarise()`) zu verwenden. Das macht die Arbeit erheblich einfacher und den Code leichter zu lesen. Der [dplyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf) hilft dabei enorm.
+- Manche der Fragen lassen sich nicht mit Code beantworten. In diesem Fall kann man die Antworten einfach als Stichpunkte aufzuschreiben.
+- Es ist vollkommen in Ordnung Lösungen für einzelne Probleme zu ergooglen, man sollte aber jede Lösung zumindest nachvollziehen können.
+- Wenn es unüberwindbare technische Probleme beim Scrapen der Website gibt, kann die Tabelle der ESC-Gewinner auch als [CSV aus unserem Github-Repo](data/esc_winners.csv) eingebunden werden.
+
+## Übung: Rechtsextreme Aufmärsche
+
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aus dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), aber auch gewaltsamen Proteste wie in [Chemnitz](https://de.wikipedia.org/wiki/Ausschreitungen_in_Chemnitz_2018), zeigen, dass die rechte Szene durchaus gewaltbereit ist. Es lohnt sich daher einen Blick darauf zu werden, wo rechtsextreme Demos stattgefunden haben, wer diese organisiert und wie sich die Anzahl und Teilnehmerzahl bei diesen Veranstaltungen über die Jahre hinweg entwickelt hat.
+
+Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir RMarkdown, ggplot und leaflet.
+
+Alle Daten und Skripte finden sich im Ordner `challenge`.
+
+**Hinweise und Tipps:**
+
+- Die Daten kommen aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion „Die Linke“ und umfassen den Zeitraum von Oktober 2013 bis September 2019.
+- Die Tabellen aus den PDF-Dokumenten wurden mit [Tabula](https://tabula.technology/) extrahiert und in Google Spreadsheets bereinigt und zusammengefasst.
+- Um die Orte der Aufmärsche geografisch zuordnen zu können, wurden die Daten um die Spalte `Lat` und `Long` ergänzt. Dafür kam das kostenlose Online-Tool [Geocode](https://geocode.localfocus.nl/) zum Einsatz.
+- Die Veranstaltungsdaten werden von Behördenmitarbeiten gepflegt und veröffentlicht. Daher gibt es kleinere Unstimmigkeiten in der Benennung von Veranstaltern und Orten. Die Spalte `Kategorie` bietet einen bereinigte Zuordnung der Parteien und Organisationen.
+
+## Beispiel: Twitter-API
+
+Das Skript finden sich im Ordner `example`.
 
 ## Tastenkürzel
 
@@ -62,38 +94,6 @@ Wer viel in RStudio arbeitet, kann sich mit Tastenkürzeln viel Zeit sparen. Hie
 | Ganzes Dokument knitten          | <kbd>⌃ Ctrl</kbd> + <kbd>⇧ Shift</kbd> + <kbd>K</kbd>       | <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>     |
 
 Es gibt auch ein offizielles [Tastenkürzel Cheat Sheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) von RStudio.
-
-## Hausaufgabe: Eurovision Song Contest
-
-Seit 1956 ist der Eurovision Song Contest der wohl gleichzeitig beliebteste und meistgehasst Musikwettbewerb Europas. Wir wollen wissen: Wer dominiert den ESC? Wer sind die ewigen Zweiten und mit welche Sprache gewinnt man am ehesten? Die Hausaufgabe ist eine Wiederholung der Inhalte aus den letzten Seminarblöcken: Daten scrapen, verstehen und analysieren.
-
-Alle Daten und Skripte finden sich im Ordner `homework`.
-
-**Hinweise und Tipps:**
-
-- Es empfiehlt sich die Funktion des [tidyverse](https://www.tidyverse.org/) (`filter()`, `group_by()`, `summarise()`) zu verwenden. Das macht die Arbeit erheblich einfacher und den Code leichter zu lesen. Der [dplyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf) hilft dabei enorm.
-- Manche der Fragen lassen sich nicht mit Code beantworten. In diesem Fall kann man die Antworten einfach als Stichpunkte aufzuschreiben.
-- Es ist vollkommen in Ordnung Lösungen für einzelne Probleme zu ergooglen, man sollte aber jede Lösung zumindest nachvollziehen können.
-- Wenn es unüberwindbare technische Probleme beim Scrapen der Website gibt, kann die Tabelle der ESC-Gewinner auch als [CSV aus unserem Github-Repo](data/esc_winners.csv) eingebunden werden.
-
-## Übung: Rechtsextreme Aufmärsche
-
-Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aud dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), zeigen, dass es sich lohnt die Szene genau zu beobachten. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben, wer diese organisiert und wie sich die Zahl an Aufmärche über die Jahre entwickelt hat.
-
-Bei dieser Übung geht es darum, verschiedene Thesen zum Thema rechtsextreme Aufmärsche mittels Datenanalyse zu überprüfen und daraus eine Art Recherche-Notizbuch zu erstellen. Dafür nutzen wir RMarkdown, ggplot und leaflet.
-
-Alle Daten und Skripte finden sich im Ordner `challenge`.
-
-**Hinweise und Tipps:**
-
-- Die Daten kommen aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion „Die Linke“ und umfassen den Zeitraum von Oktober 2013 bis September 2019.
-- Die Tabellen aus den PDF-Dokumenten wurden mit [Tabula](https://tabula.technology/) extrahiert und in Google Spreadsheets bereinigt und zusammengefasst.
-- Um die Orte der Aufmärsche geografisch zuordnen zu können, wurden die Daten um die Spalte `Lat` und `Long` ergänzt. Dafür kam das kostenlose Online-Tool [Geocode](https://geocode.localfocus.nl/) zum Einsatz.
-- Die Veranstaltungsdaten werden von Behördenmitarbeiten gepflegt und veröffentlicht. Daher gibt es kleinere Unstimmigkeiten in der Benennung von Veranstaltern und Orten. Die Spalte `Kategorie` bietet einen bereinigte Zuordnung der Parteien und Organisationen.
-
-## Beispiel: Twitter-API
-
-Das Skript finden sich im Ordner `example`.
 
 ## Links
 
