@@ -15,23 +15,20 @@ knitr::opts_chunk$set(
 )
 ```
 
-Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft, nicht zuletzt durch die jüngsten rechtsterroristischen Anschläge in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch). Doch schon 2015, als die Zahl der Asylbewerber deutlich anstieg, wurde die Gesellschaft mit rechtsmotivierten Übergriffen und Ausschreitungen konfrontiert. Demonstrationen von rechtsextremen Organisationen, meist zu den Themen Asyl oder Islamisierung, tragen diese Ideologien offen in die Gesellschaft. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben und wer diese organisiert hat.
+Aufmärsche von rechtsextremen Parteien und Organisation rücken immer mehr in den Blick der Gesellschaft. Anschläge von Tätern aud dem rechtsextremen Umfeld, wie zuletzt in [Halle](https://de.wikipedia.org/wiki/Anschlag_in_Halle_(Saale)_2019) und [Christchurch](https://de.wikipedia.org/wiki/Terroranschlag_auf_zwei_Moscheen_in_Christchurch), zeigen, dass es sich lohnt die Szene genau zu beobachten. Daher lohnt es sich auch anzuschauen, wo und wann rechtsextreme Aufmärsche stattgefunden haben, wer diese organisiert und wie sich die Anzahl an Aufmärche über die Jahre entwickelt hat.
 
-Der Datensatz kommt aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion Die Linke und umfasst den Zeitraum Oktober 2013 bis September 2019.
+Die Daten kommen aus mehreren [kleinen Anfragen](https://kleineanfragen.de/search?q=%22rechtsextreme+aufm%C3%A4rsche+im%22+body%3ABT&sort=published_at%3Adesc) der Bundestagsfraktion „Die Linke“ und umfassen den Zeitraum von Oktober 2013 bis September 2019.
 
 ```{r}
 # Pakete installieren und laden
-## install.packages(c("rmarkdown", "tidyverse", "ggthemes", "svglite", "lubridate", "cowplot", "rgeos", "rgdal", "maptools", "leaflet"))
+## install.packages(c("rmarkdown", "svglite", "tidyverse", "lubridate", "cowplot", "rgdal", "leaflet"))
 library(tidyverse)
-library(ggthemes)
 library(lubridate)
 library(cowplot)
-library(rgeos)
 library(rgdal)
-library(maptools)
 library(leaflet)
 
-# Theme für ggplot setzen: https://ggplot2.tidyverse.org/reference/ggtheme.html
+# Eigenes Theme für ggplot laden und setzen
 # source("utils/theme_steffen.R")
 source("utils/theme_ifp.R")
 theme_set(theme_ifp())
@@ -65,38 +62,55 @@ asylantraege <- read_csv(
 )
 
 ## Flächen der Bundesländer laden
-bundeslaender_geo_raw <- readOGR("data/bundeslaender.geo.json", verbose = FALSE)
-bundeslaender_geo <- fortify(bundeslaender_geo_raw, region = "NAME_1")
+bundeslaender_geo <- readOGR("data/bundeslaender.geo.json", verbose = FALSE)
 ```
 
 ### Welche rechtsextreme Gruppe oder Partei hat die meisten Aufmärsche organisiert?
 
-Insgesamt haben rechte Organisation `r demos %>% summarise(Anzahl = n()) %>% first()` Aufmärsche im Zeitraum von Oktober 2013 bis September 2019 organisiert. Ein großer Teil der Veranstaltungen wurde jedoch von Bürgerbündnissen und Einzelpersonen organisiert.
+Insgesamt haben rechte Organisation `r demos %>% count() %>% first()` Aufmärsche im Zeitraum von Oktober 2013 bis September 2019 organisiert. Ein großer Teil der Veranstaltungen wurde jedoch von Bürgerbündnissen und Einzelpersonen organisiert.
 
 ```{r}
+# Einfaches Säulendiagramm
 demos %>%
   group_by(Kategorie) %>%
-  summarise(Anzahl = n()) %>%
-  arrange(desc(Anzahl)) %>%
-  ggplot(aes(x = reorder(Kategorie, -Anzahl), y = Anzahl)) +
-    geom_bar(stat = "identity", fill = "#006CAB")
+  summarise(AnAnzahl = n()) %>%
+  arrange(desc(AnAnzahl)) %>%
+  ggplot(aes(x = reorder(Kategorie, -AnAnzahl), y = AnAnzahl)) +
+    geom_bar(stat = "identity", fill = "#006CAB") +
+    xlab("Organisation oder Partei")
+
+# GesamtAnzahl der Aufmärsche pro Partei für Text
+npd_anAnzahl <- demos %>%
+  filter(Kategorie == "NPD") %>%
+  summarise(AnAnzahl = n()) %>%
+  first()
+
+die_rechte_anAnzahl <- demos %>%
+  filter(Kategorie == "Die Rechte") %>%
+  summarise(AnAnzahl = n()) %>%
+  first()
+
+dritter_weg_anAnzahl <- demos %>%
+  filter(Kategorie == "III. Weg") %>%
+  summarise(AnAnzahl = n()) %>%
+  first()
 ```
 
-Die rechtsextreme Altpartei NPD organisierte immerhin `r demos %>% filter(Kategorie == "NPD") %>% summarise(Anzahl = n()) %>% first()` Aufmärschen. Die 2012 gegründete neonazistische Partei „Die Rechte“ organisierte im gleichen Zeitraum `r demos %>% filter(Kategorie == "Die Rechte") %>% summarise(Anzahl = n()) %>% first()` Protestmärsche. Die rechtsextreme Partei „Der III. Weg“ wurde 2013 gegründet und richte bisher `r demos %>% filter(Kategorie == "III. Weg") %>% summarise(Anzahl = n()) %>% first()` Demos aus.
+Die rechtsextreme Altpartei NPD organisierte immerhin `r npd_anAnzahl` Aufmärschen. Die 2012 gegründete neonazistische Partei „Die Rechte“ organisierte im gleichen Zeitraum `r die_rechte_anAnzahl` Protestmärsche. Die rechtsextreme Partei „Der III. Weg“ wurde 2013 gegründet und richte bisher `r dritter_weg_anAnzahl` Demos aus.
 
-### Wie hat sich die Zahl der rechtsextremen Aufmärsche entwickelt?
+### Wie hat sich die Anzahl der rechtsextremen Aufmärsche entwickelt?
 
 ```{r}
 demos %>%
   group_by(Jahr) %>%
-  summarise(Anzahl = sum(n())) %>%
-  ggplot(aes(x = factor(Jahr), y = Anzahl, group = 1)) +
+  summarise(AnAnzahl = sum(n())) %>%
+  ggplot(aes(x = factor(Jahr), y = AnAnzahl, group = 1)) +
     geom_line(color = "#006CAB", size = 1) +
     geom_point(color = "#006CAB", size = 2) +
     xlab(label = "Jahr")
 ```
 
-### Wie haben sich die Teilnehmerzahlen bei rechtsextremen Aufmärsche entwickelt?
+### Wie haben sich die Anzahl der Teilnehmer bei rechtsextremen Aufmärschen entwickelt?
 
 ```{r}
 demos %>%
@@ -106,26 +120,54 @@ demos %>%
   ggplot(aes(x = factor(Jahr), y = Teilnehmer, group = 1)) +
     geom_line(color = "#006CAB", size = 1) +
     geom_point(color = "#006CAB", size = 2) +
+    scale_y_continuous(
+      labels = function(x) { 
+        format(x, big.mark = ".", scientific = FALSE)
+      }
+    )
     xlab(label = "Jahr")
 ```
 
-### Gibt es einen Zusammenhang zwischen der Anzahl an Aufmärschen und den Teilnehmerzahlen?
+### Gibt es einen Zusammenhang zwischen der AnAnzahl der Veranstaltungen und den TeilnehmerAnzahlen?
 
-### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
+```{r}
+demos %>%
+  group_by(Jahr) %>%
+  summarise(
+    AnAnzahl = sum(n()),
+    Teilnehmer = sum(Teilnehmer, na.rm = TRUE)
+  ) %>%
+  ggplot(aes(x = Teilnehmer, y = AnAnzahl)) +
+    geom_smooth(method = 'lm', se = FALSE, size = 1, color = "#DF6233", linetype = "dotted") +
+    geom_point(size = 2, color = "#006CAB") +
+    scale_x_continuous(
+      limits = c(0, 60000),
+      labels = function(x) {
+        format(x, big.mark = ".", scientific = FALSE)
+      }
+    ) +
+    scale_y_continuous(limits = c(0, 500)) +
+    geom_text(aes(label = Jahr), hjust = -0.25, vjust = 0.45, color = "#006CAB")
+```
+
+### Gibt es einen Zusammenhang zwischen der AnAnzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
 
 ```{r}
 teilnehmer_pa <- demos %>%
   group_by(Jahr) %>%
-  summarise(Anzahl = sum(n()))
+  summarise(AnAnzahl = sum(n()))
 
 asylantraege_pa <- asylantraege %>%
   filter(between(Jahr, 2013, 2019))
 
 ggplot() +
-  geom_line(data = teilnehmer_pa, aes(x = Jahr, y = Anzahl), color = "#006CAB", size = 1) +
+  geom_line(data = teilnehmer_pa, aes(x = Jahr, y = AnAnzahl), color = "#006CAB", size = 1) +
+  geom_point(data = teilnehmer_pa, aes(x = Jahr, y = AnAnzahl), color = "#006CAB", size = 2) +
   geom_line(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 1) +
+  geom_point(data = asylantraege_pa, aes(x = Jahr, y = `Erstanträge`/1000), color = "#DF6233",size = 2) +
+  scale_x_discrete(limits = teilnehmer_pa$Jahr) +
   scale_y_continuous(
-    name = "Anzahl der Aufmärsche",
+    name = "AnAnzahl der Aufmärsche",
     sec.axis = sec_axis(~., name = "Asylanträge (in Tsd.)")
   ) +
   theme(
@@ -135,7 +177,7 @@ ggplot() +
 ```
 
 ```{r}
-teilnehmer_plot <- ggplot(teilnehmer_pa, aes(x = factor(Jahr), y = Anzahl)) +
+teilnehmer_plot <- ggplot(teilnehmer_pa, aes(x = factor(Jahr), y = AnAnzahl)) +
   geom_bar(stat = "identity", fill = "#006CAB") +
   coord_flip() +
   xlab("Jahr") +
@@ -147,7 +189,11 @@ teilnehmer_plot <- ggplot(teilnehmer_pa, aes(x = factor(Jahr), y = Anzahl)) +
 asylantraege_plot <- ggplot(asylantraege_pa, aes(x = factor(Jahr), y = `Erstanträge`)) +
   geom_bar(stat = "identity", fill = "#DF6233") +
   coord_flip() +
-  scale_x_discrete(labels = function (x) format(x, scientific = FALSE, big.mark = ".")) +
+  scale_y_continuous(
+    labels = function (x) {
+      format(x, scientific = FALSE, big.mark = ".")
+    }
+  ) +
   xlab("Jahr") +
   ylab("Asylanträge") +
   theme(
@@ -155,201 +201,114 @@ asylantraege_plot <- ggplot(asylantraege_pa, aes(x = factor(Jahr), y = `Erstantr
   )
 
 plot_grid(teilnehmer_plot, asylantraege_plot)
-
 ```
 
 ### In welchem Monat gab es die meisten rechtsextremen Aufmärsche?
 
-### In welchem Monat gab es die meisten Teilnehmer bei rechtsextremen Aufmärschen?
+```{r}
+demos %>%
+  group_by(Monat) %>%
+  summarise(AnAnzahl = sum(n())) %>%
+  ggplot(aes(x = factor(Monat), y = AnAnzahl, group = 1)) +
+    geom_bar(stat = "identity", size = 1, fill = "#006CAB") +
+    scale_x_discrete(label = function (x) month.abb[as.integer(x)]) +
+    xlab(label = "Monat")
+```
 
-### Wie hat sich die Zahl der rechtsextremen Aufmärsche *pro Partei* entwickelt?
+### Wie hat sich die Anzahl der rechtsextremen Aufmärsche *pro Partei* entwickelt?
 
 ```{r}
 demos %>%
   group_by(Kategorie, Jahr) %>%
-  summarise(Anzahl = sum(n())) %>%
-  ggplot(aes(x = factor(Jahr), y = Anzahl)) +
-    geom_line(aes(group = Kategorie, color = Kategorie)) +
-    geom_point(aes(group = Kategorie, color = Kategorie)) +
+  summarise(AnAnzahl = sum(n())) %>%
+  ggplot(aes(x = factor(Jahr), y = AnAnzahl)) +
+    geom_line(aes(group = Kategorie, color = Kategorie), size = 1) +
+    geom_point(aes(group = Kategorie, color = Kategorie), size = 2) +
     scale_color_brewer(palette = "Set1") +
     ggtitle("Rechtsextreme Aufmärsche pro Organisation und Jahr") +
     xlab(label = "Jahr")
 ```
 
-### Wie hat sich die Zahl der rechtsextremen Aufmärsche *in den einzelnen Bundesländern* entwickelt?
+### Wie hat sich die Anzahl der rechtsextremen Aufmärsche *pro Bundesland* entwickelt?
 
 ```{r}
 demos %>%
   group_by(Bundesland, Jahr) %>%
-  summarise(Anzahl = sum(n())) %>%
-  ggplot(aes(x = Jahr, y = Anzahl, group = Bundesland)) +
-    geom_line(show.legend = FALSE, color = "#006CAB") +
+  summarise(AnAnzahl = sum(n())) %>%
+  ggplot(aes(x = Jahr, y = AnAnzahl, group = Bundesland)) +
+    geom_line(show.legend = FALSE, size = 0.75, color = "#006CAB") +
+    geom_point(size = 1.5, color = "#006CAB") +
     facet_wrap(~ Bundesland) +
-    scale_x_discrete(limits = c(2014, 2019)) +
+    scale_x_discrete(limits = c(2013, 2019)) +
     xlab(label = "") +
     ylab(label = "")
 
 ## ggsave("aufmaersche.svg", width = 20, height = 20, units = "cm")
 ```
 
-### Einfache Choroplethen-Karte mit Symbolen
+### Karte der rechtsextremen Aufmärsche pro Bundesland (Leaflet)
 
 ```{r}
-bundeslaender_daten <- demos %>%
-  group_by(Bundesland) %>%
-  summarise(Anzahl = n())
-
-bundeslaender_merge <- left_join(
-  bundeslaender_geo,
-  bundeslaender_daten,
-  by = c("id" = "Bundesland")
+pal <- colorBin(
+  palette = c('#fff7bc', '#d95f0e'),
+  domain = c(0, 170),
+  bins = 4
 )
 
-ggplot(data = bundeslaender_merge, aes(map_id = id, x = long, y = lat, group = group, fill = Anzahl)) +
-  geom_map(
-    map = bundeslaender_geo,
-    color = "white",
-    size = 0.05
-  ) +
-  # scale_fill_continuous(low = "#C3DDEB", high = "#006CAB") +
-  scale_fill_continuous(low = "#E0CBC3", high = "#DF6233") +
-  coord_fixed() +
-  theme_void()
+leaflet(
+  data = bundeslaender_geo,
+  options = leafletOptions(
+    zoomControl = FALSE,
+    minZoom = 5,
+    maxZoom = 5
+  )) %>%
+  addProviderTiles(
+    "CartoDB.Positron",
+    options = providerTileOptions(noWrap = TRUE)
+  ) %>%
+  addPolygons(
+    stroke = TRUE,
+    color = '#666666',
+    opacity = 1,
+    weight = 1,
+    smoothFactor = 0.5,
+    fillOpacity = 1,
+    fillColor = ~pal(AnAnzahl),
+    label = ~paste0(NAME_1, ": ", AnAnzahl, " Demos mit insgesamt ", format(Teilnehmer, big.mark = ".", scientific = FALSE), " Teilnehmern"),
+  ) %>%
+  addLegend(
+    pal = pal,
+    values = ~AnAnzahl,
+    opacity = 1,
+    na.label = "keine Demos",
+    title = "AnAnzahl der Demos"
+  )
 ```
 
-### Choroplethen-Karte mit Symbolen
+### Karte der rechtsextremen Aufmärsche pro Ort (Leaflet)
 
 ```{r}
-bundeslaender_daten <- demos %>%
-  group_by(Bundesland) %>%
-  summarise(Anzahl = n())
-
-bundeslaender_merge <- left_join(
-  bundeslaender_geo,
-  bundeslaender_daten,
-  by = c("id" = "Bundesland")
-)
-
 staedte_daten <- demos %>%
   group_by(Ort, Lat, Long) %>%
-  summarise(Anzahl = n(), Teilnehmer = sum(Teilnehmer, rm.na = TRUE))
+  summarise(AnAnzahl = n(), Teilnehmer = sum(Teilnehmer, rm.na = TRUE))
 
-ggplot(data = bundeslaender_merge, aes(map_id = id, x = long, y = lat, group = group, fill = Anzahl)) +
-  geom_map(
-    map = bundeslaender_geo,
-    color = "white",
-    size = 0.05
-  ) +
-  geom_point(
-    data = staedte_daten,
-    aes(x = Long, y = Lat, size = Teilnehmer),
-    color = "#DF6233",
-    alpha = 0.5,
-    inherit.aes = FALSE
-  ) +
-  scale_fill_continuous(low = "#EAEAEA", high = "#666666") +
-  coord_fixed() +
-  theme_void()
-```
-
-
-### Choroplethen-Karte mit Leaflet
-
-```{r}
-pal <- colorNumeric("viridis", NULL)
-
-leaflet(bundeslaender_geo_raw) %>%
-  addTiles() %>%
-  addPolygons(
-    stroke = FALSE,
-    smoothFactor = 0.3,
-    fillOpacity = 1,
-    fillColor = ~ function (x)
-      bundeslaender_daten %>% filter(Bundesland == x)),
-    
-    label = ~paste0(NAME_1, ": ", ID_1)
-  ) %>%
-  addLegend(pal = pal, values = ~ID_1, opacity = 1.0)
-```
-
-
-```{r}
-# Create a palette that maps factor levels to colors
-leaflet(staedte_daten) %>%
+leaflet(data = staedte_daten) %>%
+  setView(
+    lat = 51.00, 
+    lng = 10.40,
+    zoom = 5
+  )  %>%
   addProviderTiles(
     "CartoDB.Positron",
     options = providerTileOptions(noWrap = TRUE)
   ) %>%
-  addCircleMarkers(
+  addCircles(
     lat = ~Lat,
-    lng = ~Long, 
-    radius = ~log(Teilnehmer),
-    label = ~paste0(Ort, ": ", Anzahl, " Demos, ", Teilnehmer, " Teilnehmer"),
+    lng = ~Long,
+    radius = ~sqrt(AnAnzahl/pi) * 10000,
+    popup = ~paste0("<b>", Ort, "</b>", ": ", AnAnzahl, " Demos mit ", format(Teilnehmer, big.mark = ".", scientific = FALSE), " Teilnehmern"),
     stroke = FALSE,
     color = "#DF6233",
-    fillOpacity = 0.25
-    # color = ~pal(type),
-    # stroke = FALSE, fillOpacity = 0.5
+    fillOpacity = 0.5
   )
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```{r}
-leaflet() %>%
-  setView(lat = 48.781647, lng = 11.414274, zoom = 13) %>% 
-  addProviderTiles(
-    "CartoDB.Positron",
-    options = providerTileOptions(noWrap = TRUE)
-  ) %>%
-  addCircleMarkers(
-    lat = 48.781647,
-    lng = 11.414274, 
-    radius = 30,
-    stroke = "red",
-    color = "red",
-    fillOpacity = 0.2
-  ) %>%
-  addRectangles(
-    lng1=48.781647, lat1=11.414274,
-    lng2=48.581647, lat2=11.314274,
-    stroke = "green",
-    color = "green",
-    fillOpacity = 0.2
-  )
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
