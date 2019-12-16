@@ -11,20 +11,22 @@ body {
   hyphens: auto;
 }
 
-h1 {
+h1, h2, h3 {
   color: #DF6233;
 }
 
 h2, h3 {
-  color: #DF6233;
-  margin-top: 3em;
+  margin: 3em 0 1em;
 }
 
 a {
   color: #006CAB;
 }
 
+img {
+  margin: 1.5em 0;
+}
+
 #header {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin: 3em 0;
 }
