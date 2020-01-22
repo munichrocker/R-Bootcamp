@@ -140,7 +140,7 @@ teilnehmer_hoechste <- teilnehmer %>% top_n(1, Teilnehmer)
 teilnehmer_niedrigste <- teilnehmer %>% top_n(-1, Teilnehmer)
 ```
 
-Die meisten Teilnehmer (insgesamt `r teilnehmer_hoechste$Teilnehmer`) hatten Aufmärsche im Jahr `r teilnehmer_hoechste$Jahr`. Im Jahr `r teilnehmer_niedrigste$Jahr` nahmen die wenigsten Teilnehmer `r anzahl_niedrigste$Teilnehmer` an rechtsextremen Demos teil.
+Die meisten Teilnehmer (insgesamt `r teilnehmer_hoechste$Teilnehmer`) hatten Aufmärsche im Jahr `r teilnehmer_hoechste$Jahr`. Im Jahr `r teilnehmer_niedrigste$Jahr` nahmen die wenigsten Teilnehmer (insgesamt `r teilnehmer_niedrigste$Teilnehmer`) an rechtsextremen Demos teil.
 
 ### Gibt es einen Zusammenhang zwischen der Anzahl der Veranstaltungen und den Teilnehmerzahlen?
 
@@ -163,6 +163,12 @@ demos %>%
     scale_y_continuous(limits = c(0, 500)) +
     geom_text(aes(label = Jahr), hjust = -0.25, vjust = 0.45, color = "#006CAB")
 ```
+
+Grundsätzlich gilt, je mehr Aufmärsche pro Jahr stattfinden, desto mehr Teilnehmer an solche Veranstaltungen gibt es insgesamt. Spannend ist aber das Jahr 2018, wo es im Vergleich
+
+### Wie hat sich die durchschnittliche Zahl der Teilnehmer entwickelt?
+
+### Was waren die größten Aufmärsche und wann haben sie stattgefunden?
 
 ### Gibt es einen Zusammenhang zwischen der Anzahl der Aufmärsche und den in Deutschland gestellten Asylanträgen?
 

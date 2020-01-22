@@ -95,6 +95,16 @@ Wer viel in RStudio arbeitet, kann sich mit Tastenkürzeln viel Zeit sparen. Hie
 
 Es gibt auch ein offizielles [Tastenkürzel Cheat Sheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) von RStudio.
 
+## Fehler finden und beheben
+
+```shell
+Error: Cannot add ggproto objects together. Did you forget to add this object to a ggplot object?
+```
+
+```shell
+Error: attempt to use zero-length variable name
+```
+
 ## Links
 
 - [R for Data Science](https://r4ds.had.co.nz/introduction.html): Grundlagen der Datenanalyse und -visualisierung in R
